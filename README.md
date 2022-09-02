@@ -79,7 +79,7 @@ import Container from 'react-bootstrap/Container';
 
 # If we override bootstrap variables:
 
-# NOTE! If we override any bootstrap variables, they need to be written and top! At the end
+# NOTE! If we override any bootstrap variables, they need to be written on top! Follow the following chart:
 
 1. Bootstrap overrided variables
    $body-bg: black;
