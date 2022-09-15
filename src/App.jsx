@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Header } from "./Header";
+import "../scss/main.scss";
 export default function App() {
   return (
     <Router>
-      <header>
-        <Header />
-      </header>
+      <header></header>
       <main>
         <Routes>
           <Route path="/" element={<StartPage />} />

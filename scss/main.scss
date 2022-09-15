@@ -1,0 +1,18 @@
+//Import Bootastrap
+//@import "../../node_modules/bootstrap/scss/bootstrap";
+//Import our own scss (could be several files)
+//@import "../sticky-footer.scss";
+
+/*Om vi override bootstrap variables:
+
+1. //Bootstrap variable overrides (måste komma innan import bootstrap!):
+$body-bg: black; (tex)
+$body-color: white; (tex)
+
+2. //Import Bootastrap
+@import "../../node_modules/bootstrap/scss/bootstrap"; 
+
+3. //Import our own scss (could be several files)
+@import "./sticky-footer";
+@import "./body";
+*/

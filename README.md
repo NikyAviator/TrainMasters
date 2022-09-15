@@ -1,7 +1,8 @@
 # TrainMasters
 
-Frontend (React), Backend (Nodejs & Express) and DB (TBD) for our school project, datamodeling for a Trainticket booking system.
+Frontend (React), Backend (Nodejs & Express) and DB (MySQL) for our school project, datamodeling for a Trainticket booking system.
 We also have UML & ER - diagrams.
+See your package.json for extra npm packages that we added outside of this guide!
 
 ### To Start a react project modeled for our needs:
 
@@ -28,23 +29,7 @@ We also have UML & ER - diagrams.
 # Add additional files:
 
 1. Create: App.jsx and write:
-
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
-export default function App(){
-return
-<Router>
-
-<header><Header /></header>
-<main>
-<Routes>  
- <Route path="/" element={<StartPage />} />
-</Routes>  
- </main>
-<footer><Footer /></footer>
-</Router>
-}
-
+   See App.jsx!
 2. Create the files (if needed in your project) in the src folder: Header.jsx, Footer.jsx, StartPage.jsx
 
 # Adding bootstrap:
@@ -65,9 +50,6 @@ import Container from 'react-bootstrap/Container';
 # Configure boostrap and additional files:
 
 1. Create 'public' folder (same level as src folder) (here all our pictures, json, movies etc should be)
-
-### WE HAVE NOT IMPLEMENTED THIS IN OUR PROJECT YET! REST IS JUST A GUIDE!
-
 2. (OPTIONAL, FOR SASS) Create 'scss' folder in src folder (FOR SASS).
 3. (OPTIONAL, FOR SASS) Create 'main.scss' in scss folder. Import that file in App(): import './scss/main.scss';
 4. (OPTIONAL, FOR SASS) 'main.scss' is the "connector"-file, where all the imports have to be. We start by importing bootstrap.
@@ -93,32 +75,11 @@ import Container from 'react-bootstrap/Container';
 
 ### STICKY FOOTER SOLUTION ### (OPTIONAL)
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-export default function Footer() {
-return <Container fluid className="bg-primary text-white mt-5"> <= man kan alltid använda bootstraps classes genom className="bootstrap dokumentation"
-<Row className="py-3">
-
-<Col className="text-center">
-&copy; 2022 TrainMasters
-</Col>
-</Row>
-</Container>
-}
+SEE Footer.jsx, sticky-footer.scss
 
 # Adding the files needed for the sticky footer:
 
 1. Create a new file in scss folder: sticky-footer.scss
 2. In that file add:
-
-#root { <- ID ROOT because our page is mounted there!
-display: flex;
-min-height: 100vh;
-flex-direction: column;
-}
-#root main {
-flex: 1;
-}
-
+   SEE sticky-footer.scss
 3. Import the sticky-footer.scss file in our main.scss file.
