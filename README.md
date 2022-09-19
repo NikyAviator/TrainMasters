@@ -30,7 +30,8 @@ See your package.json for extra npm packages that we added outside of this guide
 
 1. Create: App.jsx and write:
    See App.jsx!
-2. Create the files (if needed in your project) in the src folder: Header.jsx, Footer.jsx, StartPage.jsx
+2. Create a folder called src, inside there create another folder called: components
+3. Create the files (if needed in your project) in the components folder: Header.jsx, Footer.jsx, StartPage.jsx
 
 # Adding bootstrap:
 
