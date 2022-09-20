@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import useStates from './utilities/useStates';
 import { factory } from './utilities/FetchHelper';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import StartPage from './pages/StartPage';
+import BookingPage from './pages/BookingPage';
+import TicketsPage from './pages/TicketsPage';
+import LogInPage from './pages/LogInPage';
+import RegisterPage from './pages/RegisterPage';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 export default function App() {
   let emptyFormValues = {
@@ -76,42 +84,57 @@ export default function App() {
   let { stationName } = backendData;
 
   return (
-    <main>
-      {/* <div>
+    <>
+      {/* <Router>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<StartPage />} />
+            <Route path="/booking" element={<BookingPage />} />
+            <Route path="/tickets" element={<TicketsPage />} />
+            <Route path="/login" element={<LogInPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router> */}
+      <main>
+        {/* <div>
         {backendData.map((station) => (
           <div key={station.orders}>{station.routeName}</div>
         ))}
       </div> */}
 
-      <form>
-        <input
-          className="wish-form-text-field"
-          type="text"
-          name="start"
-          value={start}
-          placeholder="Enter start destination"
-          required
-          maxLength="100"
-          onChange={onChangeFormValue}
-        />
-        <input
-          className="wish-form-text-field"
-          type="text"
-          name="end"
-          value={end}
-          placeholder="Enter end destination"
-          required
-          maxLength="100"
-          onChange={onChangeFormValue}
-        />
-        <button type="submit" onClick={submitForm}>
-          Submit
-        </button>
-      </form>
-      <div>{arrivalDeparture.start}</div>
-      <div>{arrivalDeparture.timeDeparture}</div>
-      <div>{arrivalDeparture.end}</div>
-      <div>{arrivalDeparture.timeArrival}</div>
-    </main>
+        <form>
+          <input
+            className="wish-form-text-field"
+            type="text"
+            name="start"
+            value={start}
+            placeholder="Enter start destination"
+            required
+            maxLength="100"
+            onChange={onChangeFormValue}
+          />
+          <input
+            className="wish-form-text-field"
+            type="text"
+            name="end"
+            value={end}
+            placeholder="Enter end destination"
+            required
+            maxLength="100"
+            onChange={onChangeFormValue}
+          />
+          <button type="submit" onClick={submitForm}>
+            Submit
+          </button>
+        </form>
+        <div>{arrivalDeparture.start}</div>
+        <div>{arrivalDeparture.timeDeparture}</div>
+        <div>{arrivalDeparture.end}</div>
+        <div>{arrivalDeparture.timeArrival}</div>
+      </main>
+    </>
   );
 }
