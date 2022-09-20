@@ -4,6 +4,11 @@ Frontend (React), Backend (Nodejs & Express) and DB (MySQL) for our school proje
 We also have UML & ER - diagrams.
 See your package.json for extra npm packages that we added outside of this guide!
 
+To simply run this downloaded project, open a terminal inside the project and type:
+npm i
+npm start build
+npm start
+
 ### To Start a react project modeled for our needs:
 
 1. Create an empty folder and add it to VSC OR git clone your project to a folder on your computer.
