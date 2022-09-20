@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-import useStates from './utilities/useStates';
-import { factory } from './utilities/FetchHelper';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import BookingPage from './pages/BookingPage';
@@ -10,6 +7,8 @@ import RegisterPage from './pages/RegisterPage';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
+import '../scss/main.scss';
+
 export default function App() {
   return (
     <>
@@ -18,10 +17,10 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<StartPage />} />
-            <Route path="/booking" element={<BookingPage />} />
-            <Route path="/tickets" element={<TicketsPage />} />
-            <Route path="/login" element={<LogInPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/boka" element={<BookingPage />} />
+            <Route path="/biljetter" element={<TicketsPage />} />
+            <Route path="/logga-in" element={<LogInPage />} />
+            <Route path="/registrera" element={<RegisterPage />} />
           </Routes>
         </main>
         <Footer />
