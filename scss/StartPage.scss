@@ -1,0 +1,11 @@
+body {
+  background-image: url('../public/images/startpage-img.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+body:after {
+  background: rgba(0, 0, 0, 0.322);
+}
