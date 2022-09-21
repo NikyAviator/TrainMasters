@@ -11,9 +11,13 @@ export default function StartPage() {
           <h1>Vart vill du åka</h1>
         </div>
         <div className="btn">
-          <Link to="/boka">
-            <button className="home-book-btn">Boka en resa</button>
-          </Link>
+          <Button
+            buttonStyle="btn--outline"
+            link="/boka"
+            buttonSize="btn--extra-large"
+          >
+            Boka en Resa
+          </Button>
         </div>
       </div>
     </div>

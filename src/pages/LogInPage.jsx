@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
 
 import "../../scss/LogInPage.scss";
 
@@ -44,9 +45,12 @@ export default function LogInPage() {
           <h4>Registrera dig här.</h4>
         </div>
         <div className="btn">
-          <Link to="/registrera">
-            <button className="Register-btn">Registrera</button>
-          </Link>
+          <Button
+            buttonStyle="btn--secondary-outline"
+            link="/boka"
+          >
+            Registrera
+          </Button>
         </div>
       </div>
     </div>

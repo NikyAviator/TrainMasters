@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import "../../scss/Button.scss";
 
 // Array with classNames for different css styles
-const STYLES = ["btn--primary", "btn--outline"];
+const STYLES = ["btn--primary", "btn--outline", "btn--secondary-outline"];
 // Array with classNames for different css sizes
-const SIZES = ["btn--medium", "btn--large"];
+const SIZES = ["btn--medium", "btn--large", "btn--extra-large"];
 
 export const Button = ({
   children,
@@ -14,6 +14,7 @@ export const Button = ({
   onClick,
   buttonStyle,
   buttonSize,
+  link
 }) => {
   // Change button Style/Size to buttonStyle/ButtonSize else use STYLES[0]/SIZES[0]
   const checkButtonStyle = STYLES.includes(buttonStyle)
@@ -22,7 +23,7 @@ export const Button = ({
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <Link to="/logga-in" className="btn-mobile">
+    <Link to={link} className="btn-mobile">
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}

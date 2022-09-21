@@ -18,26 +18,7 @@
 }
 
 .btn {
-  margin-top: 3%;
-}
-
-.home-book-btn {
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  color: #fff;
-  padding: 8px 20px;
-  border: 1px solid var(--primary);
-  padding: 17px 31px;
-  font-size: 20px;
-  transition: all 0.3s ease-out;
-}
-
-.home-book-btn:hover {
-  background: var(--primary);
-  color: #242424;
+  margin-top: 5%;
 }
 
 @media screen and (max-width: 960px) {

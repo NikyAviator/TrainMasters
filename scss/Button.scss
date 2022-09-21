@@ -1,5 +1,6 @@
 :root {
   --primary: #fff;
+  --secondary: #242424;
 }
 
 .btn {
@@ -18,9 +19,17 @@
 
 .btn--outline {
   background-color: transparent;
-  color: #fff;
+  color: var(--primary);
   padding: 8px 20px;
   border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
+}
+
+.btn--secondary-outline {
+  background-color: transparent;
+  color: var(--secondary);
+  padding: 8px 20px;
+  border: 1px solid var(--secondary);
   transition: all 0.3s ease-out;
 }
 
@@ -34,8 +43,14 @@
   font-size: 20px;
 }
 
-.btn--medium:hover, .btn--large:hover {
+.btn--extra-large {
+  padding: 17px 31px;
+  font-size: 25px;
+}
+
+.btn--medium:hover, .btn--large:hover, .btn--extra-large:hover{
   background: #fff;
   color: #242424;
   transition: all 0.3s ease-out;
 }
+
