@@ -49,8 +49,20 @@
 }
 
 .btn--medium:hover, .btn--large:hover, .btn--extra-large:hover{
-  background: #fff;
-  color: #242424;
+  background: var(--primary);
+  color: var(--secondary);
   transition: all 0.3s ease-out;
 }
+
+.btn--medium-secondary {
+  padding: 8px 20px;
+  font-size: 20px;
+}
+
+.btn--medium-secondary:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  transition: all 0.3s ease-out;
+}
+
 
