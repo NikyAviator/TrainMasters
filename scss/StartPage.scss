@@ -9,7 +9,8 @@
 
 .container {
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
@@ -17,6 +18,36 @@
 }
 
 .btn {
-  display: flex;
-  justify-content: center;
-} 
+  padding-top: 5%;
+}
+
+button {
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: #242424;
+  border: 1px solid var(--primary);
+  padding: 12px 26px;
+  font-size: 20px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background: #fff;
+  color: #242424;
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 960px) {
+  .text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    font-size: 1.5rem;
+  }
+}
