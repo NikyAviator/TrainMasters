@@ -21,7 +21,7 @@
   padding-top: 5%;
 }
 
-button {
+.home-book-btn {
   border-radius: 2px;
   outline: none;
   border: none;
@@ -34,7 +34,7 @@ button {
   transition-duration: 0.4s;
 }
 
-button:hover {
+.home-book-btn:hover {
   background: #fff;
   color: #242424;
   transform: scale(1.05);

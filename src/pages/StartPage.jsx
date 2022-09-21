@@ -12,7 +12,7 @@ export default function StartPage() {
         </div>
         <div className="btn">
           <Link to="/boka">
-            <button>Boka en resa</button>
+            <button className="home-book-btn">Boka en resa</button>
           </Link>
         </div>
       </div>
