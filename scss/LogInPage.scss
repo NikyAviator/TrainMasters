@@ -1,4 +1,4 @@
-.login-container {
+.login-container, .register-container {
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -21,6 +21,10 @@
 .Register-heading {
   margin-top: 8%;
   text-align: center;
+}
+
+.Register-heading h4 {
+  font-weight: 400;
 }
 
 .btn {

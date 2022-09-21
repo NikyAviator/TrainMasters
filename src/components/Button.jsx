@@ -6,7 +6,7 @@ import "../../scss/Button.scss";
 // Array with classNames for different css styles
 const STYLES = ["btn--primary", "btn--outline", "btn--secondary-outline"];
 // Array with classNames for different css sizes
-const SIZES = ["btn--medium", "btn--large", "btn--extra-large"];
+const SIZES = ["btn--medium", "btn--large", "btn--extra-large", "btn--medium-secondary"];
 
 export const Button = ({
   children,
