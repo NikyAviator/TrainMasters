@@ -6,7 +6,7 @@ import "../../scss/StartPage.scss";
 export default function StartPage() {
   return (
     <div className="home">
-      <div className="container">
+      <div className="home-container">
         <div className="text">
           <h1>Vart vill du åka</h1>
         </div>
