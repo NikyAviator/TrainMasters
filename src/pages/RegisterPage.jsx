@@ -95,7 +95,6 @@ export default function RegisterPage() {
           <Button
             buttonStyle="btn--secondary-outline"
             buttonSize="btn--medium-secondary"
-            link="/registrera"
           >
             Skapa konto
           </Button>

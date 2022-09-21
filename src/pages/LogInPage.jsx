@@ -53,7 +53,6 @@ export default function LogInPage() {
           <Button
             buttonStyle="btn--secondary-outline"
             buttonSize="btn--medium-secondary"
-            link="/logga-in"
           >
             Logga in
           </Button>
