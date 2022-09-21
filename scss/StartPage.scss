@@ -43,11 +43,13 @@ button:hover {
 @media screen and (max-width: 960px) {
   .text {
     font-size: 2rem;
+    margin-top: -150px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .text {
     font-size: 1.5rem;
+    margin-top: -100px;
   }
 }

@@ -11,7 +11,9 @@ export default function StartPage() {
           <h1>Vart vill du åka</h1>
         </div>
         <div className="btn">
+          <Link to="/boka">
             <button>Boka en resa</button>
+          </Link>
         </div>
       </div>
     </div>
