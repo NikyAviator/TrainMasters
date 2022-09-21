@@ -11,7 +11,7 @@ export default function LogInPage() {
           <h1>Logga in</h1>
         </div>
         <form>
-          <div class="form-group row">
+          <div className="email-login" class="form-group row">
             <label for="staticEmail" class="col-sm-2 col-form-label">
               Email
             </label>
@@ -25,7 +25,7 @@ export default function LogInPage() {
               />
             </div>
           </div>
-          <div class="form-group row">
+          <div className="password-login" class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">
               Lösenord
             </label>
@@ -41,11 +41,11 @@ export default function LogInPage() {
         </form>
         <div className="Register-heading">
           <h3>Har du ingen konto?</h3>
-          <h5>Registrera dig här.</h5>
+          <h4>Registrera dig här.</h4>
         </div>
         <div className="btn">
           <Link to="/registrera">
-            <button>Registrera</button>
+            <button className="Register-btn">Registrera</button>
           </Link>
         </div>
       </div>
