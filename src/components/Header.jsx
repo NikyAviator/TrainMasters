@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 
-import '../../scss/Header.scss';
+import "../../scss/Header.scss";
 
 function Header() {
-
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -46,11 +45,7 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/boka"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/boka" className="nav-links" onClick={closeMobileMenu}>
                 Boka
               </Link>
             </li>
@@ -80,4 +75,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;
