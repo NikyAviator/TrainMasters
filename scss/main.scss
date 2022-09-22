@@ -11,12 +11,12 @@ $body-color: white; (tex)
 @import "./sticky-footer";
 @import "./body";
 */
-@import '~bootstrap/scss/bootstrap';
+
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
 @import '/scss/Header.scss';
 @import '/scss/LogInPage.scss';
 @import '/scss/StartPage.scss';
 @import '/scss/sticky-footer.scss';
-@import '../node_modules/boostrap/scss/bootstrap';
 
 // Gammal css
 // * {

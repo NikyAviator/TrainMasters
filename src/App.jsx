@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Importing Pages components
 import StartPage from './pages/StartPage';
 import BookingPage from './pages/BookingPage';
 import TicketsPage from './pages/TicketsPage';
@@ -6,6 +7,8 @@ import LogInPage from './pages/LogInPage';
 import RegisterPage from './pages/RegisterPage';
 import Footer from './components/Footer';
 import Header from './components/Header';
+//react-bootstrap.github.io/getting-started/introduction/
+// Importing boostrap
 import './App.scss';
 import '../scss/main.scss';
 
