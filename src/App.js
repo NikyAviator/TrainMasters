@@ -6,7 +6,7 @@ import LogInPage from './pages/LogInPage';
 import RegisterPage from './pages/RegisterPage';
 import Footer from './components/Footer';
 import Header from './components/Header';
-
+import './App.scss';
 import '../scss/main.scss';
 
 export default function App() {
@@ -16,11 +16,11 @@ export default function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/boka" element={<BookingPage />} />
-            <Route path="/biljetter" element={<TicketsPage />} />
-            <Route path="/logga-in" element={<LogInPage />} />
-            <Route path="/registrera" element={<RegisterPage />} />
+            <Route path='/' element={<StartPage />} />
+            <Route path='/boka' element={<BookingPage />} />
+            <Route path='/biljetter' element={<TicketsPage />} />
+            <Route path='/logga-in' element={<LogInPage />} />
+            <Route path='/registrera' element={<RegisterPage />} />
           </Routes>
         </main>
         <Footer />
