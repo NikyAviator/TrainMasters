@@ -19,9 +19,9 @@ await aProduct.delete()           // delete from database
 */
 
 export class FetchHelper {
-  static async find(parameter = '') {
-    parameter && (parameter = '/' + parameter);
-    return [await (await fetch(`/api/${this.route}${parameter}`)).json()]
+  static async find(route, station) {
+    
+    return [await (await fetch(`/api/${route}/${station}`)).json()]
       .flat()
       .map((x) => (x ? new this(x) : null));
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "startTime": "07:00:00",
+    "routeId": 1,
+    "trainId": 1,
+    "notWeekends": 1
+  },
+  {
+    "startTime": "18:00:00",
+    "routeId": 1,
+    "trainId": 2,
+    "notWeekends": 1
+  },
+  {
+    "startTime": "13:30:00",
+    "routeId": 2,
+    "trainId": 1,
+    "notWeekends": 1
+  },
+  {
+    "startTime": "23:00:00",
+    "routeId": 2,
+    "trainId": 2,
+    "notWeekends": 1
+  }
+]

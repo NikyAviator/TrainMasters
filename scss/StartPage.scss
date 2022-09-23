@@ -5,6 +5,9 @@ body {
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body:after {
   background: rgba(0, 0, 0, 0.322);

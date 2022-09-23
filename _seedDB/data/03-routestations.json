@@ -1,0 +1,306 @@
+[
+  {
+    "stationId": 1,
+    "arrivalTime": 0,
+    "departureTime": 0,
+    "routeId": 1,
+    "platform": "16",
+    "rorder": 1
+  },
+  {
+    "stationId": 3,
+    "arrivalTime": 8,
+    "departureTime": 8,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 2
+  },
+  {
+    "stationId": 4,
+    "arrivalTime": 28,
+    "departureTime": 28,
+    "routeId": 1,
+    "platform": "1",
+    "rorder": 3
+  },
+  {
+    "stationId": 5,
+    "arrivalTime": 41,
+    "departureTime": 41,
+    "routeId": 1,
+    "platform": "1",
+    "rorder": 4
+  },
+  {
+    "stationId": 6,
+    "arrivalTime": 56,
+    "departureTime": 58,
+    "routeId": 1,
+    "platform": "5",
+    "rorder": 5
+  },
+  {
+    "stationId": 7,
+    "arrivalTime": 75,
+    "departureTime": 75,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 6
+  },
+  {
+    "stationId": 8,
+    "arrivalTime": 86,
+    "departureTime": 87,
+    "routeId": 1,
+    "platform": "1",
+    "rorder": 7
+  },
+  {
+    "stationId": 9,
+    "arrivalTime": 108,
+    "departureTime": 118,
+    "routeId": 1,
+    "platform": "1b",
+    "rorder": 8
+  },
+  {
+    "stationId": 10,
+    "arrivalTime": 121,
+    "departureTime": 121,
+    "routeId": 1,
+    "platform": "1",
+    "rorder": 9
+  },
+  {
+    "stationId": 11,
+    "arrivalTime": 131,
+    "departureTime": 131,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 10
+  },
+  {
+    "stationId": 12,
+    "arrivalTime": 139,
+    "departureTime": 141,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 11
+  },
+  {
+    "stationId": 13,
+    "arrivalTime": 156,
+    "departureTime": 156,
+    "routeId": 1,
+    "platform": "1",
+    "rorder": 12
+  },
+  {
+    "stationId": 14,
+    "arrivalTime": 175,
+    "departureTime": 175,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 13
+  },
+  {
+    "stationId": 15,
+    "arrivalTime": 204,
+    "departureTime": 205,
+    "routeId": 1,
+    "platform": "2",
+    "rorder": 14
+  },
+  {
+    "stationId": 2,
+    "arrivalTime": 220,
+    "departureTime": 221,
+    "routeId": 1,
+    "platform": "4",
+    "rorder": 15
+  },
+  {
+    "stationId": 17,
+    "arrivalTime": 247,
+    "departureTime": 247,
+    "routeId": 1,
+    "platform": "3",
+    "rorder": 17
+  },
+  {
+    "stationId": 18,
+    "arrivalTime": 258,
+    "departureTime": 258,
+    "routeId": 1,
+    "platform": "4",
+    "rorder": 18
+  },
+  {
+    "stationId": 19,
+    "arrivalTime": 286,
+    "departureTime": 286,
+    "routeId": 1,
+    "platform": "7",
+    "rorder": 19
+  },
+  {
+    "stationId": 16,
+    "arrivalTime": 236,
+    "departureTime": 236,
+    "routeId": 1,
+    "platform": "4",
+    "rorder": 16
+  },
+  {
+    "stationId": 19,
+    "arrivalTime": 0,
+    "departureTime": 0,
+    "routeId": 2,
+    "platform": "7",
+    "rorder": 1
+  },
+  {
+    "stationId": 18,
+    "arrivalTime": 27,
+    "departureTime": 27,
+    "routeId": 2,
+    "platform": "1",
+    "rorder": 2
+  },
+  {
+    "stationId": 17,
+    "arrivalTime": 39,
+    "departureTime": 39,
+    "routeId": 2,
+    "platform": "1",
+    "rorder": 3
+  },
+  {
+    "stationId": 16,
+    "arrivalTime": 49,
+    "departureTime": 50,
+    "routeId": 2,
+    "platform": "5",
+    "rorder": 4
+  },
+  {
+    "stationId": 2,
+    "arrivalTime": 65,
+    "departureTime": 66,
+    "routeId": 2,
+    "platform": "3",
+    "rorder": 5
+  },
+  {
+    "stationId": 15,
+    "arrivalTime": 80,
+    "departureTime": 81,
+    "routeId": 2,
+    "platform": "1",
+    "rorder": 6
+  },
+  {
+    "stationId": 14,
+    "arrivalTime": 97,
+    "departureTime": 97,
+    "routeId": 2,
+    "platform": "3",
+    "rorder": 7
+  },
+  {
+    "stationId": 13,
+    "arrivalTime": 124,
+    "departureTime": 124,
+    "routeId": 2,
+    "platform": "2",
+    "rorder": 8
+  },
+  {
+    "stationId": 12,
+    "arrivalTime": 139,
+    "departureTime": 141,
+    "routeId": 2,
+    "platform": "5b",
+    "rorder": 9
+  },
+  {
+    "stationId": 11,
+    "arrivalTime": 148,
+    "departureTime": 148,
+    "routeId": 2,
+    "platform": "1",
+    "rorder": 10
+  },
+  {
+    "stationId": 10,
+    "arrivalTime": 159,
+    "departureTime": 159,
+    "routeId": 2,
+    "platform": "2",
+    "rorder": 11
+  },
+  {
+    "stationId": 9,
+    "arrivalTime": 162,
+    "departureTime": 178,
+    "routeId": 2,
+    "platform": "4",
+    "rorder": 12
+  },
+  {
+    "stationId": 9,
+    "arrivalTime": 199,
+    "departureTime": 199,
+    "routeId": 2,
+    "platform": "3",
+    "rorder": 13
+  },
+  {
+    "stationId": 7,
+    "arrivalTime": 210,
+    "departureTime": 210,
+    "routeId": 2,
+    "platform": "1",
+    "rorder": 14
+  },
+  {
+    "stationId": 6,
+    "arrivalTime": 227,
+    "departureTime": 229,
+    "routeId": 2,
+    "platform": "1a",
+    "rorder": 15
+  },
+  {
+    "stationId": 5,
+    "arrivalTime": 244,
+    "departureTime": 244,
+    "routeId": 2,
+    "platform": "2",
+    "rorder": 16
+  },
+  {
+    "stationId": 5,
+    "arrivalTime": 256,
+    "departureTime": 256,
+    "routeId": 2,
+    "platform": "2",
+    "rorder": 17
+  },
+  {
+    "stationId": 3,
+    "arrivalTime": 277,
+    "departureTime": 277,
+    "routeId": 2,
+    "platform": "3",
+    "rorder": 18
+  },
+  {
+    "stationId": 1,
+    "arrivalTime": 285,
+    "departureTime": 0,
+    "routeId": 2,
+    "platform": "16",
+    "rorder": 19
+  }
+]
