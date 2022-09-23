@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
-import '../../scss/StartPage.scss';
+import { Button } from '../UI/Button';
+import '../../../scss/main.scss';
 
 export default function StartPage() {
   return (

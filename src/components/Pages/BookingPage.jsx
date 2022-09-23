@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useStates from '../../utilities/useStates';
 import { factory } from '../../utilities/FetchHelper';
-
+import '../../../scss/main.scss';
 export default function BookingPage() {
   let emptyFormValues = {
     start: '',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../UI/Button';
 
-import '../../scss/LogInPage.scss';
+import '../../../scss/main.scss';
 
 export default function LogInPage() {
   const inputStyle = {
