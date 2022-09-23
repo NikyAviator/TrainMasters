@@ -1,8 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import '../../scss/displayRoutes.scss';
-
+import '../../../scss/main.scss';
 export default function DisplayRoutes({ props }) {
   let { startStation, endStation, arrivalTimeTo, departureTimeFrom } = props;
 

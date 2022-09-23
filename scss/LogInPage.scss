@@ -1,0 +1,33 @@
+.login-container, .register-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.Heading {
+  margin-bottom: 3%;
+}
+
+.Heading h1 {
+  font-size: 3rem;
+}
+
+.email-login {
+  margin-top: 2%; 
+}
+
+.Register-heading {
+  margin-top: 8%;
+  text-align: center;
+}
+
+.Register-heading h4 {
+  font-weight: 400;
+}
+
+.btn {
+  margin-top: 1%;
+}
+

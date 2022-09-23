@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import useStates from '../utilities/useStates';
-import { factory } from '../utilities/FetchHelper';
-import DisplayRoutes from '../components/DisplayRoutes';
-import '../../scss/BookingPage.scss';
-import { findRoute } from '../utilities/RouteStations';
+import useStates from '../../utilities/useStates';
+import '../../../scss/main.scss';
+import { findRoute } from '../../utilities/RouteStations';
+import DisplayRoutes from '../UI/DisplayRoutes';
+
 export default function BookingPage() {
   let emptyFormValues = {
     start: 'Västerås C',

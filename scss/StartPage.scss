@@ -1,4 +1,4 @@
-body {
+.home {
   background-image: url('../public/images/startpage-img.jpg');
   background-position: center;
   background-size: cover;
@@ -9,6 +9,31 @@ body {
   justify-content: center;
   align-items: center;
 }
-body:after {
-  background: rgba(0, 0, 0, 0.322);
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: rgba(0, 0, 0, 0.356);
+}
+
+.btn {
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 960px) {
+  .text {
+    font-size: 2rem;
+    margin-top: -150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text {
+    font-size: 1.5rem;
+    margin-top: -100px;
+  }
 }
