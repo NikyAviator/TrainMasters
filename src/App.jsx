@@ -1,11 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import StartPage from './pages/StartPage';
-import BookingPage from './pages/BookingPage';
-import TicketsPage from './pages/TicketsPage';
-import LogInPage from './pages/LogInPage';
-import RegisterPage from './pages/RegisterPage';
-import Footer from './components/Footer';
-import Header from './components/Header';
+// Importing Pages components
+import StartPage from './components/Pages/StartPage';
+import BookingPage from './components/Pages/BookingPage';
+import TicketsPage from './components/Pages/TicketsPage';
+import LogInPage from './components/Pages/LogInPage';
+import RegisterPage from './components/Pages/RegisterPage';
+import Footer from './components/UI/Footer';
+import Header from './components/UI/Header';
+//react-bootstrap.github.io/getting-started/introduction/
+// Importing boostrap
 
 import '../scss/main.scss';
 
@@ -16,11 +19,11 @@ export default function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/boka" element={<BookingPage />} />
-            <Route path="/biljetter" element={<TicketsPage />} />
-            <Route path="/logga-in" element={<LogInPage />} />
-            <Route path="/registrera" element={<RegisterPage />} />
+            <Route path='/' element={<StartPage />} />
+            <Route path='/boka' element={<BookingPage />} />
+            <Route path='/biljetter' element={<TicketsPage />} />
+            <Route path='/logga-in' element={<LogInPage />} />
+            <Route path='/registrera' element={<RegisterPage />} />
           </Routes>
         </main>
         <Footer />

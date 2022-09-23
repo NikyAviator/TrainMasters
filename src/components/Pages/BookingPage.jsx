@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import useStates from '../utilities/useStates';
-import { factory } from '../utilities/FetchHelper';
-
+import useStates from '../../utilities/useStates';
+import { factory } from '../../utilities/FetchHelper';
+import '../../../scss/main.scss';
 export default function BookingPage() {
   let emptyFormValues = {
     start: '',
@@ -97,26 +97,26 @@ export default function BookingPage() {
 
         <form>
           <input
-            className="wish-form-text-field"
-            type="text"
-            name="start"
+            className='wish-form-text-field'
+            type='text'
+            name='start'
             value={start}
-            placeholder="Enter start destination"
+            placeholder='Enter start destination'
             required
-            maxLength="100"
+            maxLength='100'
             onChange={onChangeFormValue}
           />
           <input
-            className="wish-form-text-field"
-            type="text"
-            name="end"
+            className='wish-form-text-field'
+            type='text'
+            name='end'
             value={end}
-            placeholder="Enter end destination"
+            placeholder='Enter end destination'
             required
-            maxLength="100"
+            maxLength='100'
             onChange={onChangeFormValue}
           />
-          <button type="submit" onClick={submitForm}>
+          <button type='submit' onClick={submitForm}>
             Submit
           </button>
         </form>
