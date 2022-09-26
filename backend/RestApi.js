@@ -10,10 +10,10 @@ db.verbose = true; // set to true to log db queries
 module.exports = class RestApi {
   constructor(expressApp) {
     this.app = expressApp;
-    this.getAllstations();
+    this.start();
   }
 
-  getAllstations() {
+  start() {
     this.app.get('/api/stations', function (req, res) {
       let sql = 'SELECT * FROM stations';
       let query = db.query(sql, (err, results) => {
@@ -21,10 +21,20 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/:routes/:station', function (req, res) {
-      let routes = req.params.routes;
+    this.app.get('/api/:view/:station', function (req, res) {
+      let view = req.params.view;
       let station = req.params.station;
-      let sql = `SELECT * FROM ${routes} WHERE stationName = '${station}'`;
+      let sql = `SELECT * FROM ${view} WHERE stationName = '${station}'`;
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.get('/api/:view/:route/:order', function (req, res) {
+      let view = req.params.view;
+      let order = req.params.order;
+      let route = req.params.route;
+      let sql = `SELECT * FROM ${view} WHERE routeName ='${route}' and rorder ='${order}'`;
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

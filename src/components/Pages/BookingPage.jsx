@@ -18,8 +18,6 @@ export default function BookingPage() {
 
   const onChangeFormValue = (event) => {
     let { name, value } = event.target;
-    // Update the state variable formValues
-    // name="itemDescription"
     updateStateFormValue({ [name]: value });
   };
   const resetForm = () => {
@@ -69,7 +67,7 @@ export default function BookingPage() {
               <DisplayRoutes key={i} props={item} />
             ))
           ) : (
-            <h2>HELLO</h2>
+            <p>0</p>
           )}
         </>
       </main>
