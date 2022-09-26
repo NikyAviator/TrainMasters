@@ -3,7 +3,6 @@ CREATE TABLE routeStations  (
   stationId int(11) NOT NULL,
   arrivalTime int(11) NOT NULL,
   departureTime int(11) NOT NULL,
-  arrivalLastStation int(11) NOT NULL,
   routeId int(11) NOT NULL,
   platform varchar(100) NOT NULL,
   rorder int(11) NOT NULL,

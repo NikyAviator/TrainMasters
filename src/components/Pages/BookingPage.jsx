@@ -1,21 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useStates from '../../utilities/useStates';
 import '../../../scss/main.scss';
 import { findRoute } from '../../utilities/RouteStations';
 import DisplayRoutes from '../UI/DisplayRoutes';
 
 export default function BookingPage() {
+  const [routes, setRoutes] = useState([]);
   let emptyFormValues = {
-    start: 'Västerås C',
-    end: 'Köping',
+    start: 'Lund C',
+    end: 'Göteborg C',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
-  const [route, updateroute] = useState('');
-  const [routes, setRoutes] = useState([]);
-  const [afternoon, setafternoon] = useState([]);
-
-  const [backendData, setBackendData] = useState([]);
-
   const onChangeFormValue = (event) => {
     let { name, value } = event.target;
     updateStateFormValue({ [name]: value });
@@ -67,7 +62,7 @@ export default function BookingPage() {
               <DisplayRoutes key={i} props={item} />
             ))
           ) : (
-            <p>0</p>
+            <p>Station hittades inte</p>
           )}
         </>
       </main>

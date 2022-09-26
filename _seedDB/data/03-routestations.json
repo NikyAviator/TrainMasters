@@ -3,8 +3,6 @@
     "stationId": 1,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "16",
     "rorder": 1
@@ -13,8 +11,6 @@
     "stationId": 3,
     "arrivalTime": 8,
     "departureTime": 8,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 2
@@ -23,8 +19,6 @@
     "stationId": 4,
     "arrivalTime": 28,
     "departureTime": 28,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1",
     "rorder": 3
@@ -33,8 +27,6 @@
     "stationId": 5,
     "arrivalTime": 41,
     "departureTime": 41,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1",
     "rorder": 4
@@ -43,8 +35,6 @@
     "stationId": 6,
     "arrivalTime": 56,
     "departureTime": 58,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "5",
     "rorder": 5
@@ -53,8 +43,6 @@
     "stationId": 7,
     "arrivalTime": 75,
     "departureTime": 75,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 6
@@ -63,8 +51,6 @@
     "stationId": 8,
     "arrivalTime": 86,
     "departureTime": 87,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1",
     "rorder": 7
@@ -73,8 +59,6 @@
     "stationId": 9,
     "arrivalTime": 108,
     "departureTime": 118,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1b",
     "rorder": 8
@@ -83,8 +67,6 @@
     "stationId": 10,
     "arrivalTime": 121,
     "departureTime": 121,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1",
     "rorder": 9
@@ -93,8 +75,6 @@
     "stationId": 11,
     "arrivalTime": 131,
     "departureTime": 131,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 10
@@ -103,8 +83,6 @@
     "stationId": 12,
     "arrivalTime": 139,
     "departureTime": 141,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 11
@@ -113,8 +91,6 @@
     "stationId": 13,
     "arrivalTime": 156,
     "departureTime": 156,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "1",
     "rorder": 12
@@ -123,8 +99,6 @@
     "stationId": 14,
     "arrivalTime": 175,
     "departureTime": 175,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 13
@@ -133,8 +107,6 @@
     "stationId": 15,
     "arrivalTime": 204,
     "departureTime": 205,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "2",
     "rorder": 14
@@ -143,8 +115,6 @@
     "stationId": 2,
     "arrivalTime": 220,
     "departureTime": 221,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "4",
     "rorder": 15
@@ -153,8 +123,6 @@
     "stationId": 16,
     "arrivalTime": 236,
     "departureTime": 236,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "4",
     "rorder": 16
@@ -163,8 +131,6 @@
     "stationId": 17,
     "arrivalTime": 247,
     "departureTime": 247,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "3",
     "rorder": 17
@@ -173,8 +139,6 @@
     "stationId": 18,
     "arrivalTime": 258,
     "departureTime": 258,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "4",
     "rorder": 18
@@ -183,8 +147,6 @@
     "stationId": 19,
     "arrivalTime": 286,
     "departureTime": 286,
-    "arrivalLastStation": 286,
-
     "routeId": 1,
     "platform": "7",
     "rorder": 19
@@ -193,8 +155,6 @@
     "stationId": 19,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 285,
-
     "routeId": 2,
     "platform": "7",
     "rorder": 1
@@ -203,7 +163,6 @@
     "stationId": 18,
     "arrivalTime": 27,
     "departureTime": 27,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1",
     "rorder": 2
@@ -212,7 +171,6 @@
     "stationId": 17,
     "arrivalTime": 39,
     "departureTime": 39,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1",
     "rorder": 3
@@ -221,7 +179,6 @@
     "stationId": 16,
     "arrivalTime": 49,
     "departureTime": 50,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "5",
     "rorder": 4
@@ -230,7 +187,6 @@
     "stationId": 2,
     "arrivalTime": 65,
     "departureTime": 66,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "3",
     "rorder": 5
@@ -239,7 +195,6 @@
     "stationId": 15,
     "arrivalTime": 80,
     "departureTime": 81,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1",
     "rorder": 6
@@ -248,7 +203,6 @@
     "stationId": 14,
     "arrivalTime": 97,
     "departureTime": 97,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "3",
     "rorder": 7
@@ -257,7 +211,6 @@
     "stationId": 13,
     "arrivalTime": 124,
     "departureTime": 124,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "2",
     "rorder": 8
@@ -266,7 +219,6 @@
     "stationId": 12,
     "arrivalTime": 139,
     "departureTime": 141,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "5b",
     "rorder": 9
@@ -275,7 +227,6 @@
     "stationId": 11,
     "arrivalTime": 148,
     "departureTime": 148,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1",
     "rorder": 10
@@ -284,7 +235,6 @@
     "stationId": 10,
     "arrivalTime": 159,
     "departureTime": 159,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "2",
     "rorder": 11
@@ -293,7 +243,6 @@
     "stationId": 9,
     "arrivalTime": 162,
     "departureTime": 178,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "4",
     "rorder": 12
@@ -302,7 +251,6 @@
     "stationId": 8,
     "arrivalTime": 199,
     "departureTime": 199,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "3",
     "rorder": 13
@@ -311,7 +259,6 @@
     "stationId": 7,
     "arrivalTime": 210,
     "departureTime": 210,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1",
     "rorder": 14
@@ -320,7 +267,6 @@
     "stationId": 6,
     "arrivalTime": 227,
     "departureTime": 229,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "1a",
     "rorder": 15
@@ -329,7 +275,6 @@
     "stationId": 5,
     "arrivalTime": 244,
     "departureTime": 244,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "2",
     "rorder": 16
@@ -338,7 +283,6 @@
     "stationId": 4,
     "arrivalTime": 256,
     "departureTime": 256,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "2",
     "rorder": 17
@@ -347,7 +291,6 @@
     "stationId": 3,
     "arrivalTime": 277,
     "departureTime": 277,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "3",
     "rorder": 18
@@ -356,7 +299,6 @@
     "stationId": 1,
     "arrivalTime": 285,
     "departureTime": 0,
-    "arrivalLastStation": 285,
     "routeId": 2,
     "platform": "16",
     "rorder": 19
@@ -365,7 +307,6 @@
     "station": 19,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "14",
     "rorder": 1
@@ -374,7 +315,6 @@
     "station": 20,
     "arrivalTime": 8,
     "departureTime": 8,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "2",
     "rorder": 2
@@ -383,7 +323,6 @@
     "station": 21,
     "arrivalTime": 19,
     "departureTime": 19,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "2",
     "rorder": 3
@@ -392,7 +331,6 @@
     "station": 22,
     "arrivalTime": 29,
     "departureTime": 29,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 4
@@ -401,7 +339,6 @@
     "station": 23,
     "arrivalTime": 46,
     "departureTime": 48,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "3",
     "rorder": 5
@@ -410,7 +347,6 @@
     "station": 24,
     "arrivalTime": 64,
     "departureTime": 64,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 6
@@ -419,7 +355,6 @@
     "station": 25,
     "arrivalTime": 83,
     "departureTime": 84,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "3",
     "rorder": 7
@@ -428,7 +363,6 @@
     "station": 26,
     "arrivalTime": 96,
     "departureTime": 96,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 8
@@ -437,7 +371,6 @@
     "station": 27,
     "arrivalTime": 102,
     "departureTime": 102,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "4",
     "rorder": 9
@@ -446,7 +379,6 @@
     "station": 28,
     "arrivalTime": 114,
     "departureTime": 114,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 10
@@ -455,7 +387,6 @@
     "station": 29,
     "arrivalTime": 148,
     "departureTime": 150,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "3",
     "rorder": 11
@@ -464,7 +395,6 @@
     "station": 30,
     "arrivalTime": 161,
     "departureTime": 161,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "2",
     "rorder": 12
@@ -473,7 +403,6 @@
     "station": 31,
     "arrivalTime": 177,
     "departureTime": 179,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 13
@@ -482,7 +411,6 @@
     "station": 32,
     "arrivalTime": 191,
     "departureTime": 193,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "2",
     "rorder": 14
@@ -491,7 +419,6 @@
     "station": 33,
     "arrivalTime": 196,
     "departureTime": 196,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 15
@@ -500,7 +427,6 @@
     "station": 34,
     "arrivalTime": 200,
     "departureTime": 0,
-    "arrivalLastStation": 200,
     "routeId": 3,
     "platform": "1",
     "rorder": 16
@@ -509,7 +435,6 @@
     "stationId": 34,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4b",
     "rorder": 17
@@ -518,7 +443,6 @@
     "stationId": 33,
     "arrivalTime": 3,
     "departureTime": 3,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "2",
     "rorder": 18
@@ -527,7 +451,6 @@
     "stationId": 32,
     "arrivalTime": 7,
     "departureTime": 9,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4a",
     "rorder": 19
@@ -536,7 +459,6 @@
     "stationId": 31,
     "arrivalTime": 21,
     "departureTime": 23,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "6",
     "rorder": 20
@@ -545,7 +467,6 @@
     "stationId": 30,
     "arrivalTime": 37,
     "departureTime": 37,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "3",
     "rorder": 21
@@ -554,7 +475,6 @@
     "stationId": 29,
     "arrivalTime": 50,
     "departureTime": 55,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4",
     "rorder": 22
@@ -563,7 +483,6 @@
     "stationId": 28,
     "arrivalTime": 85,
     "departureTime": 85,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "1",
     "rorder": 23
@@ -572,7 +491,6 @@
     "stationId": 27,
     "arrivalTime": 97,
     "departureTime": 97,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "1",
     "rorder": 24
@@ -581,7 +499,6 @@
     "stationId": 26,
     "arrivalTime": 103,
     "departureTime": 103,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4",
     "rorder": 25
@@ -590,7 +507,6 @@
     "stationId": 25,
     "arrivalTime": 115,
     "departureTime": 117,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4",
     "rorder": 26
@@ -599,7 +515,6 @@
     "stationId": 24,
     "arrivalTime": 134,
     "departureTime": 134,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4",
     "rorder": 27
@@ -608,7 +523,6 @@
     "stationId": 23,
     "arrivalTime": 150,
     "departureTime": 154,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "4",
     "rorder": 28
@@ -617,7 +531,6 @@
     "stationId": 22,
     "arrivalTime": 171,
     "departureTime": 171,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "2",
     "rorder": 29
@@ -626,7 +539,6 @@
     "stationId": 21,
     "arrivalTime": 180,
     "departureTime": 180,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "3",
     "rorder": 30
@@ -635,7 +547,6 @@
     "stationId": 20,
     "arrivalTime": 191,
     "departureTime": 191,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "3",
     "rorder": 31
@@ -644,7 +555,6 @@
     "stationId": 19,
     "arrivalTime": 201,
     "departureTime": 0,
-    "arrivalLastStation": 201,
     "routeId": 4,
     "platform": "14",
     "rorder": 32
@@ -653,7 +563,6 @@
     "stationId": 29,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2b",
     "rorder": 1
@@ -662,7 +571,6 @@
     "stationId": 35,
     "arrivalTime": 2,
     "departureTime": 3,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 2
@@ -671,7 +579,6 @@
     "stationId": 36,
     "arrivalTime": 7,
     "departureTime": 7,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 3
@@ -680,7 +587,6 @@
     "stationId": 37,
     "arrivalTime": 10,
     "departureTime": 10,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 4
@@ -689,7 +595,6 @@
     "stationId": 30,
     "arrivalTime": 15,
     "departureTime": 15,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 5
@@ -698,7 +603,6 @@
     "stationId": 38,
     "arrivalTime": 19,
     "departureTime": 19,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 6
@@ -707,7 +611,6 @@
     "stationId": 39,
     "arrivalTime": 24,
     "departureTime": 24,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 7
@@ -716,7 +619,6 @@
     "stationId": 40,
     "arrivalTime": 29,
     "departureTime": 29,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "4",
     "rorder": 8
@@ -725,7 +627,6 @@
     "stationId": 41,
     "arrivalTime": 34,
     "departureTime": 34,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 9
@@ -734,16 +635,14 @@
     "stationId": 31,
     "arrivalTime": 39,
     "departureTime": 41,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 10
   },
   {
-    "stationId": 41,
+    "stationId": 42,
     "arrivalTime": 46,
     "departureTime": 46,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 11
@@ -752,7 +651,6 @@
     "stationId": 43,
     "arrivalTime": 49,
     "departureTime": 49,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "3",
     "rorder": 12
@@ -761,7 +659,6 @@
     "stationId": 32,
     "arrivalTime": 55,
     "departureTime": 57,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2b",
     "rorder": 13
@@ -770,7 +667,6 @@
     "stationId": 33,
     "arrivalTime": 60,
     "departureTime": 60,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 14
@@ -779,7 +675,6 @@
     "stationId": 34,
     "arrivalTime": 64,
     "departureTime": 65,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2b",
     "rorder": 15
@@ -788,7 +683,6 @@
     "stationId": 44,
     "arrivalTime": 68,
     "departureTime": 68,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 16
@@ -797,7 +691,6 @@
     "stationId": 45,
     "arrivalTime": 75,
     "departureTime": 75,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "1",
     "rorder": 17
@@ -806,7 +699,6 @@
     "stationId": 46,
     "arrivalTime": 78,
     "departureTime": 78,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 18
@@ -815,7 +707,6 @@
     "stationId": 47,
     "arrivalTime": 89,
     "departureTime": 0,
-    "arrivalLastStation": 89,
     "routeId": 5,
     "platform": "2",
     "rorder": 19
@@ -824,7 +715,6 @@
     "stationId": 47,
     "arrivalTime": 0,
     "departureTime": 0,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2",
     "rorder": 1
@@ -833,7 +723,6 @@
     "stationId": 46,
     "arrivalTime": 9,
     "departureTime": 9,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 2
@@ -842,7 +731,6 @@
     "stationId": 45,
     "arrivalTime": 12,
     "departureTime": 12,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 3
@@ -851,7 +739,6 @@
     "stationId": 44,
     "arrivalTime": 19,
     "departureTime": 19,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "3",
     "rorder": 4
@@ -860,7 +747,6 @@
     "stationId": 34,
     "arrivalTime": 24,
     "departureTime": 25,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "3a",
     "rorder": 5
@@ -869,7 +755,6 @@
     "stationId": 33,
     "arrivalTime": 28,
     "departureTime": 28,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2",
     "rorder": 6
@@ -878,7 +763,6 @@
     "stationId": 32,
     "arrivalTime": 32,
     "departureTime": 34,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "3a",
     "rorder": 7
@@ -887,7 +771,6 @@
     "stationId": 43,
     "arrivalTime": 39,
     "departureTime": 39,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "4",
     "rorder": 8
@@ -896,7 +779,6 @@
     "stationId": 42,
     "arrivalTime": 42,
     "departureTime": 42,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2",
     "rorder": 9
@@ -905,7 +787,6 @@
     "stationId": 31,
     "arrivalTime": 48,
     "departureTime": 50,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "6",
     "rorder": 10
@@ -914,7 +795,6 @@
     "stationId": 41,
     "arrivalTime": 53,
     "departureTime": 53,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2",
     "rorder": 11
@@ -923,7 +803,6 @@
     "stationId": 40,
     "arrivalTime": 59,
     "departureTime": 59,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "3",
     "rorder": 12
@@ -932,7 +811,6 @@
     "stationId": 39,
     "arrivalTime": 64,
     "departureTime": 64,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 13
@@ -941,7 +819,6 @@
     "stationId": 38,
     "arrivalTime": 69,
     "departureTime": 69,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 14
@@ -950,7 +827,6 @@
     "stationId": 30,
     "arrivalTime": 73,
     "departureTime": 73,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "3",
     "rorder": 15
@@ -959,7 +835,6 @@
     "stationId": 37,
     "arrivalTime": 78,
     "departureTime": 78,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 16
@@ -968,7 +843,6 @@
     "stationId": 36,
     "arrivalTime": 81,
     "departureTime": 81,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "1",
     "rorder": 17
@@ -977,7 +851,6 @@
     "stationId": 35,
     "arrivalTime": 86,
     "departureTime": 86,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2",
     "rorder": 18
@@ -986,7 +859,6 @@
     "stationId": 29,
     "arrivalTime": 91,
     "departureTime": 0,
-    "arrivalLastStation": 91,
     "routeId": 6,
     "platform": "2b",
     "rorder": 19
