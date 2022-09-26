@@ -25,7 +25,6 @@ async function getRoute(start, end) {
     )
   );
   let results = getFinalRoutes(fromResults, toResults);
-  console.log(results);
   return results;
 }
 

@@ -23,7 +23,6 @@ export default function DisplayRoutes({ props }) {
           <Row className="py-3">
             <Col className="timeSlot">
               <p>{`${arrivalTimeTo} - ${departureTimeFrom}`}</p>
-              <p>{`${routeName}`}</p>
             </Col>
           </Row>
         </Container>
