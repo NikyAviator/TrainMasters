@@ -13,6 +13,7 @@ export default function StartPage() {
           className="btn"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
+          link="/boka"
         >
           Boka en Resa
         </Button>
