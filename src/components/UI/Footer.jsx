@@ -6,10 +6,10 @@ import '../../../scss/main.scss';
 
 export default function Footer() {
   return (
-    <Container fluid className='bg-primary text-white mt-5'>
-      <Row className='py-3'>
-        <Col className='text-center'>&copy; 2022 TrainMasters</Col>
-      </Row>
-    </Container>
+    <div className="footer">
+      <div className="footer-container">
+        <p className="footer-text">&copy; 2022 TrainMasters</p>
+      </div>
+    </div>
   );
 }
