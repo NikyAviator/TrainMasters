@@ -1,0 +1,23 @@
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#root main {
+  flex: 1;
+}
+
+.footer {
+  padding: 1%;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer-text {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.719);
+  font-size: 12px;
+}
