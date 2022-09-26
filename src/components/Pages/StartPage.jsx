@@ -5,20 +5,17 @@ import '../../../scss/main.scss';
 
 export default function StartPage() {
   return (
-    <div className='home'>
-      <div className='home-container'>
-        <div className='text'>
-          <h1>Vart vill du åka</h1>
-        </div>
-        <div className='btn'>
-          <Button
-            buttonStyle='btn--outline'
-            link='/boka'
-            buttonSize='btn--extra-large'
-          >
-            Boka en Resa
-          </Button>
-        </div>
+    <div className="hero-container">
+      <h1>Tågmästarna</h1>
+      <p>Vart vill du åka?</p>
+      <div className="hero-btn">
+        <Button
+          className="btn"
+          buttonStyle="btn--outline"
+          buttonSize="btn--large"
+        >
+          Boka en Resa
+        </Button>
       </div>
     </div>
   );
