@@ -7,8 +7,8 @@ import DisplayRoutes from '../UI/DisplayRoutes';
 export default function BookingPage() {
   const [routes, setRoutes] = useState([]);
   let emptyFormValues = {
-    start: 'Lund C',
-    end: 'Göteborg C',
+    start: 'Trelleborg',
+    end: 'Lund C',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
   const onChangeFormValue = (event) => {
