@@ -57,7 +57,7 @@ export default function LogInPage() {
           </Button>
         </div>
         <div className='Register-heading'>
-          <h3>Har du ingen konto?</h3>
+          <h3>Har du inget konto?</h3>
           <h4>Registrera dig här.</h4>
         </div>
         <div className='btn'>
