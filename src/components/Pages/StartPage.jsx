@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../UI/Button';
-import '../../../scss/main.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../UI/Button";
+import "../../../scss/main.scss";
 
 export default function StartPage() {
   return (
@@ -12,10 +12,10 @@ export default function StartPage() {
         <Button
           className="btn"
           buttonStyle="btn--outline"
-          buttonSize="btn--large"
+          buttonSize="btn--extra-large"
           link="/boka"
         >
-          Boka en Resa
+          Sök resa
         </Button>
       </div>
     </div>

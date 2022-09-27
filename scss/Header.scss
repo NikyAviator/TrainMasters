@@ -28,6 +28,7 @@
   display: flex;
   align-items: center;
   margin-right: 3rem;
+  filter: brightness(0) invert(1);
 }
 
 .nav-menu {
@@ -114,7 +115,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    //transform: translate(25%, 50%);
   }
 
   .menu-icon {
