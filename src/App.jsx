@@ -7,6 +7,7 @@ import LogInPage from './components/Pages/LogInPage';
 import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/UI/Footer';
 import Header from './components/UI/Header';
+
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
 
