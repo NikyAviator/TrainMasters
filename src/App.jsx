@@ -6,7 +6,7 @@ import TicketsPage from './components/Pages/TicketsPage';
 import LogInPage from './components/Pages/LogInPage';
 import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/UI/Footer';
-import Nav from './componetns/UI/Nav'
+import Nav from "./components/UI/Nav";
 //import Header from './components/UI/Header';
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
