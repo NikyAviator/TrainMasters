@@ -5,11 +5,11 @@ const TicketTo = (props) => {
   return (
     <>
       <Form>
-        <Form.Group className='mb-3'>
+        <Form.Group>
           <Form.Control
             type='text'
             name='end'
-            placeholder='Enter your departure city'
+            placeholder='Enter your arrival city'
             required
             maxLength='100'
             value={props.end}
