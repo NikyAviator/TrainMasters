@@ -6,7 +6,7 @@ function Nav() {
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Tågmästarna
+            <img src="images/high-speed-train.png" alt="train-logo" />
           </a>
           <button
             class="navbar-toggler"
