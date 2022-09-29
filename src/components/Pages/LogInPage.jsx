@@ -1,70 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../UI/Button';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../UI/Button";
 
-import '../../../scss/main.scss';
+import "../../../scss/main.scss";
 
 export default function LogInPage() {
   const inputStyle = {
-    padding: '3%',
-    marginTop: '5%',
-    marginBottom: '10%',
+    padding: "3%",
+    marginTop: "5%",
+    marginBottom: "10%",
   };
 
   return (
-    <div className='login'>
-      <div className='login-container'>
-        <div className='Heading'>
+    <div className="login">
+      <div className="login-container">
+        <div className="Heading">
           <h1>Logga in</h1>
         </div>
         <form>
-          <div class='form-group row'>
-            <label for='staticEmail' class='col-sm-2 col-form-label'>
-              Email
-            </label>
-            <div class='col-sm-10'>
-              <input
-                style={inputStyle}
-                type='text'
-                readonly
-                class='form-control-plaintext'
-                id='staticEmail'
-                placeholder='Email'
-              />
-            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+            />
           </div>
-          <div class='form-group row'>
-            <label for='inputPassword' class='col-sm-2 col-form-label'>
-              Lösenord
-            </label>
-            <div class='col-sm-10'>
-              <input
-                style={inputStyle}
-                type='password'
-                class='form-control'
-                id='inputPassword'
-                placeholder='Lösenord'
-              />
-            </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Lösenord</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Lösenord"
+            />
           </div>
         </form>
-        <div className='btn'>
+        <div className="btn">
           <Button
-            buttonStyle='btn--secondary-outline'
-            buttonSize='btn--medium-secondary'
+            type="submit"
+            buttonStyle="btn--secondary-outline"
+            buttonSize="btn--medium-secondary"
           >
             Logga in
           </Button>
         </div>
-        <div className='Register-heading'>
+        <div className="Register-heading">
           <h3>Har du inget konto?</h3>
           <h4>Registrera dig här.</h4>
         </div>
-        <div className='btn'>
+        <div className="btn">
           <Button
-            buttonStyle='btn--secondary-outline'
-            buttonSize='btn--medium-secondary'
-            link='/registrera'
+            buttonStyle="btn--secondary-outline"
+            buttonSize="btn--medium-secondary"
+            link="/registrera"
           >
             Registrera
           </Button>
