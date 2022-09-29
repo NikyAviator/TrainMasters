@@ -1,0 +1,22 @@
+[
+  {
+    "amountSeats": 54,
+    "handicapSeat": 3,
+    "carriagesId": 1
+  },
+  {
+    "amountSeats": 74,
+    "handicapSeat": 4,
+    "carriagesId": 2
+  },
+  {
+    "amountSeats": 28,
+    "handicapSeat": 2,
+    "carriagesId": 3
+  },
+  {
+    "amountSeats": 80,
+    "handicapSeat": 2,
+    "carriagesId": 4
+  }
+]

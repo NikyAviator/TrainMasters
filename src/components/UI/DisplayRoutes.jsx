@@ -3,13 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../../scss/main.scss';
 export default function DisplayRoutes({ props }) {
-  let {
-    startStation,
-    endStation,
-    arrivalTimeTo,
-    departureTimeFrom,
-    routeName,
-  } = props;
+  let { startStation, endStation, arrivalTimeTo, departureTimeFrom } = props;
 
   return (
     <div className="wrapper">

@@ -1,5 +1,5 @@
 create view tests as
-select arrivalTime,departureTime,platform,stationName,routeName,rorder,startTime,trainId
+select arrivalTime,departureTime,platform,stationName,routeName,rorder,startTime,trainId,notweekends
  from routestations o
 left join stations j 
   on o.stationId = j.id
