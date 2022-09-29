@@ -7,6 +7,7 @@ import { findRoute } from '../../utilities/RouteStations';
 import DisplayRoutes from '../UI/DisplayRoutes';
 import TicketFrom from './TicketFrom';
 import TicketTo from './TicketTo';
+import TicketDatePicker from './TicketDatePicker';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,6 +15,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
+
   let emptyFormValues = {
     start: 'Trelleborg',
     end: 'Lund C',
@@ -45,6 +47,11 @@ const TicketFromTo = () => {
               </Col>
               <Col>
                 <TicketTo onChange={onChangeFormValue} />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <TicketDatePicker />
               </Col>
             </Row>
             <Button variant='secondary' type='submit' onClick={submitForm}>
