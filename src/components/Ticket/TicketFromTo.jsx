@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
-
+  const [weekend, setWeekend] = useState(false);
   let emptyFormValues = {
     start: 'Trelleborg',
     end: 'Lund C',
@@ -33,6 +33,7 @@ const TicketFromTo = () => {
     event.preventDefault();
     let route = await findRoute(start, end);
     setRoutes(route);
+    console.log(weekend);
   }
 
   let { start, end } = formValues;
@@ -51,7 +52,7 @@ const TicketFromTo = () => {
             </Row>
             <Row>
               <Col>
-                <TicketDatePicker />
+                <TicketDatePicker setWeekend={setWeekend} />
               </Col>
             </Row>
             <Button variant='secondary' type='submit' onClick={submitForm}>
