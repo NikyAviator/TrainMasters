@@ -60,7 +60,7 @@ function Header() {
             </li>
             <li className="nav-item">
               <Link
-                to="/login"
+                to="/logga-in"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >

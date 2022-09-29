@@ -49,9 +49,9 @@
 }
 
 .btn--medium:hover, .btn--large:hover, .btn--extra-large:hover{
-  background: var(--primary);
-  color: var(--secondary);
-  transition: all 0.3s ease-out;
+  background: var(--primary) !important;
+  color: var(--secondary) !important;
+  transition: all 0.3s ease-out !important;
 }
 
 .btn--medium-secondary {
@@ -60,9 +60,9 @@
 }
 
 .btn--medium-secondary:hover {
-  background: var(--secondary);
-  color: var(--primary);
-  transition: all 0.3s ease-out;
+  background: var(--secondary) !important;
+  color: var(--primary) !important;
+  transition: all 0.3s ease-out !important;
 }
 
 
