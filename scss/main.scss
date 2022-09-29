@@ -11,8 +11,10 @@ $body-color: white; (tex)
 @import "./sticky-footer";
 @import "./body";
 */
-
-@import "/node_modules/bootstrap/scss/bootstrap.scss";
+// Bootstrap css
+@import '../node_modules/bootstrap/scss/bootstrap';
+// Our own css
+@import '/scss/Header.scss';
 @import '/scss/LogInPage.scss';
 @import '/scss/StartPage.scss';
 @import '/scss/Button.scss';
