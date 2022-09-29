@@ -11,8 +11,6 @@ import Header from './components/UI/Header';
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
 
-import '../scss/main.scss';
-
 export default function App() {
   return (
     <>
