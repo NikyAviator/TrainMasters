@@ -5,11 +5,6 @@ import { Button } from "../UI/Button";
 import "../../../scss/main.scss";
 
 export default function LogInPage() {
-  const inputStyle = {
-    padding: "3%",
-    marginTop: "5%",
-    marginBottom: "10%",
-  };
 
   return (
     <div className="login">
@@ -49,7 +44,7 @@ export default function LogInPage() {
         </div>
         <div className="Register-heading">
           <h3>Har du inget konto?</h3>
-          <h4>Registrera dig här.</h4>
+          <h5>Registrera dig här.</h5>
         </div>
         <div className="btn">
           <Button
