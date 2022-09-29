@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 
-import '../../../scss/main.scss';
+import '../../../scss/Header.scss';
 
 function Header() {
   const [click, setClick] = useState(false);

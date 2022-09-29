@@ -20,10 +20,9 @@ $body-color: white; (tex)
 @import '/scss/Button.scss';
 @import '/scss/Footer.scss';
 @import '/scss/displayRoutes.scss';
-@import '/scss/Header.scss';
 
 
-// Gammal css
+// Behövs för header
 * {
   box-sizing: border-box;
   margin: 0;
