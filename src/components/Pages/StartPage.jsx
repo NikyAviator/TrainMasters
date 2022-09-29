@@ -10,7 +10,7 @@ export default function StartPage() {
       <p>Vart vill du resa?</p>
       <div className="hero-btn">
         <Button
-          className="btn"
+          className="travel-btn"
           buttonStyle="btn--outline"
           buttonSize="btn--extra-large"
           link="/boka"
