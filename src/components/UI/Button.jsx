@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../../scss/main.scss';
+import styles from '../../../scss/Button.scss';
 
 // Array with classNames for different css styles
 const STYLES = ['btn--primary', 'btn--outline', 'btn--secondary-outline'];

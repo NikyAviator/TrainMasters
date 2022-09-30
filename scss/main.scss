@@ -11,8 +11,9 @@ $body-color: white; (tex)
 @import "./sticky-footer";
 @import "./body";
 */
-
-//@import "/node_modules/bootstrap/scss/bootstrap.scss";
+// Bootstrap css
+@import '../node_modules/bootstrap/scss/bootstrap';
+// Our own css
 @import '/scss/Header.scss';
 @import '/scss/LogInPage.scss';
 @import '/scss/StartPage.scss';
@@ -20,7 +21,8 @@ $body-color: white; (tex)
 @import '/scss/Footer.scss';
 @import '/scss/displayRoutes.scss';
 
-// Gammal css
+
+// Behövs för header
 * {
   box-sizing: border-box;
   margin: 0;

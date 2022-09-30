@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../UI/Button';
-import '../../../scss/main.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../UI/Button";
+import "../../../scss/main.scss";
 
 export default function StartPage() {
   return (
@@ -10,12 +10,12 @@ export default function StartPage() {
       <p>Vart vill du resa?</p>
       <div className="hero-btn">
         <Button
-          className="btn"
+          className="travel-btn"
           buttonStyle="btn--outline"
-          buttonSize="btn--large"
+          buttonSize="btn--extra-large"
           link="/boka"
         >
-          Boka en Resa
+          Sök resa
         </Button>
       </div>
     </div>
