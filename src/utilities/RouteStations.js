@@ -58,14 +58,13 @@ function getFinalRoutes(from, to) {
 }
 
 function checkTime(time, time2) {
-  var date1 = new Date('2022-01-01T' + time);
-  var date2 = new Date('2022-01-01T' + time2);
+  let date1 = new Date('2022-01-01T' + time);
+  let date2 = new Date('2022-01-01T' + time2);
   if (date1.getTime() < date2.getTime()) {
     return true;
   }
 }
 export async function itsWeekend(route) {
-  console.log(route);
   route = Object.values(route).filter(
     ({ notweekends: notweekends }) => notweekends !== 1
   );
