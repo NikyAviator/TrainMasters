@@ -14,9 +14,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
+  const [from, setFrom] = useState([]);
+  const [to, setTo] = useState([]);
   let emptyFormValues = {
-    start: 'Trelleborg',
-    end: 'Lund C',
+    from: '',
+    to: '',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
   const onChangeFormValue = (event) => {
@@ -31,9 +33,10 @@ const TicketFromTo = () => {
     event.preventDefault();
     let route = await findRoute(start, end);
     setRoutes(route);
+    console.log(start, end);
   }
 
-  let { start, end } = formValues;
+  let { from, to } = formValues;
   return (
     <>
       <Card>
@@ -47,7 +50,7 @@ const TicketFromTo = () => {
                 <TicketTo onChange={onChangeFormValue} />
               </Col>
             </Row>
-            <Button variant='secondary' type='submit' onClick={submitForm}>
+            <Button variant="secondary" type="submit" onClick={submitForm}>
               Sök
             </Button>
           </Col>
