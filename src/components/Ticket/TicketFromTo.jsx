@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import TicketItem from './TicketItem';
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [weekend, setWeekend] = useState(false);
@@ -48,11 +49,11 @@ const TicketFromTo = () => {
                 <Form>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="from"
-                      placeholder="Enter your departure city"
+                      type='text'
+                      name='from'
+                      placeholder='Enter your departure city'
                       required
-                      maxLength="100"
+                      maxLength='100'
                       value={from}
                       onChange={onChangeFormValue}
                     />
@@ -63,11 +64,11 @@ const TicketFromTo = () => {
                 <Form>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="to"
-                      placeholder="Enter your arrival city"
+                      type='text'
+                      name='to'
+                      placeholder='Enter your arrival city'
                       required
-                      maxLength="100"
+                      maxLength='100'
                       value={to}
                       onChange={onChangeFormValue}
                     />
@@ -80,20 +81,12 @@ const TicketFromTo = () => {
                 <TicketDatePicker setWeekend={setWeekend} />
               </Col>
             </Row>
-            <Button variant="secondary" type="submit" onClick={submitForm}>
+            <Button variant='secondary' type='submit' onClick={submitForm}>
               Sök
             </Button>
           </Col>
 
-          <>
-            {routes ? (
-              Object.values(routes).map((item, i) => (
-                <DisplayRoutes key={i} props={item} />
-              ))
-            ) : (
-              <p>Station hittades inte</p>
-            )}
-          </>
+          <TicketItem routes={routes} />
         </Container>
       </Card>
     </>
