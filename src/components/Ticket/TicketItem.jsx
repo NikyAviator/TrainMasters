@@ -1,6 +1,6 @@
 import React from 'react';
-
 import DisplayRoutes from '../UI/DisplayRoutes';
+
 const TicketItem = ({ routes }) => {
   return (
     <>

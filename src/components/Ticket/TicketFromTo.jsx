@@ -1,18 +1,18 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../../scss/main.scss';
 import { useState } from 'react';
 import useStates from '../../utilities/useStates';
-import '../../../scss/main.scss';
 import { findRoute, itsWeekend } from '../../utilities/RouteStations';
-import DisplayRoutes from '../UI/DisplayRoutes';
-import Form from 'react-bootstrap/Form';
+import TicketItem from './TicketItem';
 import TicketDatePicker from './TicketDatePicker';
+import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import TicketItem from './TicketItem';
+
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [weekend, setWeekend] = useState(false);
