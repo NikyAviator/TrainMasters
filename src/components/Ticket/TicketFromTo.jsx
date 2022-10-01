@@ -1,17 +1,18 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../../scss/main.scss';
 import { useState } from 'react';
 import useStates from '../../utilities/useStates';
-import '../../../scss/main.scss';
 import { findRoute, itsWeekend } from '../../utilities/RouteStations';
-import DisplayRoutes from '../UI/DisplayRoutes';
-import Form from 'react-bootstrap/Form';
+import TicketItem from './TicketItem';
 import TicketDatePicker from './TicketDatePicker';
+import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [weekend, setWeekend] = useState(false);
@@ -48,11 +49,11 @@ const TicketFromTo = () => {
                 <Form>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="from"
-                      placeholder="Enter your departure city"
+                      type='text'
+                      name='from'
+                      placeholder='Enter your departure city'
                       required
-                      maxLength="100"
+                      maxLength='100'
                       value={from}
                       onChange={onChangeFormValue}
                     />
@@ -63,11 +64,11 @@ const TicketFromTo = () => {
                 <Form>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="to"
-                      placeholder="Enter your arrival city"
+                      type='text'
+                      name='to'
+                      placeholder='Enter your arrival city'
                       required
-                      maxLength="100"
+                      maxLength='100'
                       value={to}
                       onChange={onChangeFormValue}
                     />
@@ -80,20 +81,12 @@ const TicketFromTo = () => {
                 <TicketDatePicker setWeekend={setWeekend} />
               </Col>
             </Row>
-            <Button variant="secondary" type="submit" onClick={submitForm}>
+            <Button variant='secondary' type='submit' onClick={submitForm}>
               Sök
             </Button>
           </Col>
 
-          <>
-            {routes ? (
-              Object.values(routes).map((item, i) => (
-                <DisplayRoutes key={i} props={item} />
-              ))
-            ) : (
-              <p>Station hittades inte</p>
-            )}
-          </>
+          <TicketItem routes={routes} />
         </Container>
       </Card>
     </>
