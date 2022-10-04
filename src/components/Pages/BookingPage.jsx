@@ -5,7 +5,7 @@ import { Button } from '../UI/Button';
 
 export default function BookingPage(props) {
   return (
-    <div>
+    <div className="bookingForm">
       <TicketFromTo />
     </div>
   );

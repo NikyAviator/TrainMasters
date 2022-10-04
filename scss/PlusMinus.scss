@@ -3,7 +3,8 @@ span {
 }
 
 .accordion-body {
-  max-width: 900px !important;
+  display: grid;
+  justify-content: center;
 }
 
 .number {
