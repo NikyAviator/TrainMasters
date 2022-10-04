@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import TicketTravelers from './TicketTravelers';
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
@@ -79,6 +80,11 @@ const TicketFromTo = () => {
             <Row>
               <Col>
                 <TicketDatePicker setWeekend={setWeekend} />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <TicketTravelers />
               </Col>
             </Row>
             <Button variant='secondary' type='submit' onClick={submitForm}>
