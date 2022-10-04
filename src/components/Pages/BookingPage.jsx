@@ -7,15 +7,6 @@ export default function BookingPage(props) {
   return (
     <div>
       <TicketFromTo />
-      <TicketTravelers />
-      <Button
-        className='bookingSearch'
-        buttonStyle='btn--secondary-outline'
-        buttonSize='btn--medium-secondary'
-        onClick={props.submitForm}
-      >
-        Sök
-      </Button>
     </div>
   );
 }
