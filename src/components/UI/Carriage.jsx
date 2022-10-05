@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 const { ticket } = factory;
 export default function Carriage({ carriage, props }) {
-  const [routes, setRoutes] = useState([]);
+  const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState({});
   let { timeTableId, arrivalTimeTo, departureTimeFrom } = props;
 
@@ -31,9 +31,9 @@ export default function Carriage({ carriage, props }) {
             }
           });
         });
-        setRoutes(a);
+        setSeats(a);
       } else {
-        setRoutes(a);
+        setSeats(a);
       }
     }
     fetchData();
@@ -61,7 +61,7 @@ export default function Carriage({ carriage, props }) {
   return (
     <Container>
       <Row>
-        {routes.map((item, i) => (
+        {seats.map((item, i) => (
           <Col
             className='test'
             style={{

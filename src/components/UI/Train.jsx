@@ -14,10 +14,10 @@ export default function Train({ props }) {
         setImage('../../../public/images/tåg1.jpg');
         break;
       case 2:
-        setImage('../../../public/images/tåg1.jpg');
+        setImage('../../../public/images/tåg2.jpg');
         break;
       case 3:
-        setImage('../../../public/images/tåg1.jpg');
+        setImage('../../../public/images/tåg3.jpg');
         break;
     }
   });
