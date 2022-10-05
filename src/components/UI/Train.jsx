@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ImageMapper from "react-img-mapper";
 import TicketsPage from "../Pages/TicketsPage";
 import Carriage from "./Carriage";
 
