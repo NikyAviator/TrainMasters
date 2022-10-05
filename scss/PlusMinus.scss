@@ -1,0 +1,44 @@
+span {
+  cursor: pointer;
+}
+
+.accordion-body {
+  display: grid;
+  justify-content: center;
+}
+
+.number {
+  margin: auto;
+}
+.minus,
+.plus {
+  width: 40px;
+  height: 40px;
+  background: #f2f2f2;
+  border-radius: 4px;
+  padding: 8px 5px 8px 5px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+input {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  font-size: 26px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.traveler {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: right;
+  align-content: center;
+  text-align: center;
+  gap: 140px;
+}
