@@ -1,61 +1,74 @@
 .vagn1 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 16%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: -561px;
-  position: absolute;
   opacity: 0;
 }
 .vagn2 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 19%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: -384px;
-  position: absolute;
   opacity: 0;
 }
 .vagn3 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 21%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: -203px;
-  position: absolute;
   opacity: 0;
 }
 .vagn4 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 23%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: -25px;
-  position: absolute;
   opacity: 0;
 }
 .vagn5 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 26%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: 152px;
-  position: absolute;
   opacity: 0;
 }
 .vagn6 {
   cursor: pointer;
-  width: 165px;
+  position: relative;
+  height: 20px;
+  width: 148px !important;
+  top: 5%;
+  left: 28%;
   background-color: red;
-  margin-top: 50px;
-  margin-left: 336px;
-  position: absolute;
   opacity: 0;
 }
+
+.wrapperTrain {
+  height: 140px;
+  float: none;
+  width: 100%;
+  white-space: nowrap;
+  overflow-y: scroll;
+  overflow-y: hidden;
+}
 .train {
-  width: 80%;
-  height: 130px;
+  width: 1300px;
+  height: 1000px;
   background-repeat: no-repeat;
-  position: absolute;
-  margin-top: 93px;
 }

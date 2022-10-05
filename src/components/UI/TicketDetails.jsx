@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Train from "./Train";
-import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Train from './Train';
+import Col from 'react-bootstrap/Col';
 export default function TicketDetails({ props }) {
   let { startStation, endStation, arrivalTimeTo, departureTimeFrom, trainId } =
     props;
   return (
-    <div className='wrapper'>
+    <div className='details'>
       {
         <Container>
           <Row>
