@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../UI/Button";
 
@@ -6,36 +6,48 @@ import "../../../scss/main.scss";
 
 export default function LogInPage() {
 
+  const [email, setEmail] = useState("");
+  const [passWord, setPassWord] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const login = { email, passWord };
+    console.log(login);  
+  };
+
   return (
     <div className="login">
       <div className="login-container">
         <div className="Heading">
           <h1>Logga in</h1>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
             <input
+              style={{ textAlign: "start" }}
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Lösenord</label>
             <input
+              style={{ textAlign: "start" }}
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
               placeholder="Lösenord"
+              value={passWord}
+              onChange={(e) => setPassWord(e.target.value)}
             />
           </div>
         </form>
         <div className="btn">
           <Button
-            type="submit"
             buttonStyle="btn--secondary-outline"
             buttonSize="btn--medium-secondary"
           >
