@@ -12,22 +12,22 @@ $body-color: white; (tex)
 @import "./body";
 */
 // Bootstrap css
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import '../node_modules/bootstrap/scss/bootstrap';
 // Our own css
-@import "/scss/Header.scss";
-@import "/scss/LogInPage.scss";
-@import "/scss/StartPage.scss";
-@import "/scss/Button.scss";
-@import "/scss/Footer.scss";
-@import "/scss/displayRoutes.scss";
-@import "/scss/TicketsPage.scss";
-@import "/scss/Train.scss";
-@import "/scss/PlusMinus.scss";
+@import '/scss/Header.scss';
+@import '/scss/LogInPage.scss';
+@import '/scss/StartPage.scss';
+@import '/scss/Button.scss';
+@import '/scss/Footer.scss';
+@import '/scss/displayRoutes.scss';
+@import '/scss/Train.scss';
+@import '/scss/PlusMinus.scss';
+@import '/scss/Carriage.scss';
 
 // Behövs för header
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }

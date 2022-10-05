@@ -1,9 +1,13 @@
-import React from "react";
-import "../../../scss/main.scss";
-import { useState } from "react";
-import { useEffect } from "react";
-import { carriageWithSeats, tickets } from "../../utilities/RouteStations";
-import { factory } from "../../utilities/FetchHelper";
+import React from 'react';
+import '../../../scss/main.scss';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { carriageWithSeats, tickets } from '../../utilities/RouteStations';
+import { factory } from '../../utilities/FetchHelper';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 const { ticket } = factory;
 export default function Carriage({ carriage, props }) {
   const [routes, setRoutes] = useState([]);
@@ -44,7 +48,7 @@ export default function Carriage({ carriage, props }) {
       seatId: selected,
       carriageId: carriage,
       timeTableId: timeTableId,
-      bdate: "2022/01/01",
+      bdate: '2022/01/01',
     };
     let newBooking = new ticket(test);
     await newBooking.save();
@@ -55,23 +59,24 @@ export default function Carriage({ carriage, props }) {
   }
 
   return (
-    <div className='wrapper'>
-      <div>
+    <Container>
+      <Row>
         {routes.map((item, i) => (
-          <div
+          <Col
             className='test'
             style={{
-              backgroundColor: item.booked ? "gray" : "green",
-              width: selected === item.seatNumber ? "30px" : "20px",
+              backgroundColor: item.booked ? 'gray' : 'green',
             }}
             key={i}
             onClick={() => k(item.seatNumber)}
           >
             {item.seatNumber}
-          </div>
+          </Col>
         ))}
-      </div>
-      <button onClick={book}>BOKA</button>
-    </div>
+      </Row>
+      <Button className='secondary' onClick={book}>
+        BOKA
+      </Button>
+    </Container>
   );
 }
