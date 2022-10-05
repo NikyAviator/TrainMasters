@@ -1,16 +1,16 @@
-import { factory } from '../utilities/FetchHelper';
+import { factory } from "../utilities/FetchHelper";
 const { route } = factory;
 
 export async function findRoute(start, end) {
-  if (start === end) return console.log('Cannot go to same');
+  if (start === end) return console.log("Cannot go to same");
   let a = await getRoute(start, end);
   let obj = { ...a };
   return obj;
 }
 
 async function getRoute(start, end) {
-  let from = await route.find('tests', start);
-  let to = await route.find('tests', end);
+  let from = await route.find("tests", start);
+  let to = await route.find("tests", end);
 
   let fromResults = from.filter(({ rorder: rorder, routeName: routeName }) =>
     to.some(
@@ -29,10 +29,10 @@ async function getRoute(start, end) {
 }
 
 function getTime(time, addHour) {
-  let date = new Date('2022-01-01T' + time);
+  let date = new Date("2022-01-01T" + time);
   let newDate = new Date(date.getTime() + addHour * 60000);
-  let newDateSplit = newDate.toTimeString().split(':');
-  let newTimeString = newDateSplit[0] + ':' + newDateSplit[1];
+  let newDateSplit = newDate.toTimeString().split(":");
+  let newTimeString = newDateSplit[0] + ":" + newDateSplit[1];
   return newTimeString;
 }
 
@@ -58,8 +58,8 @@ function getFinalRoutes(from, to) {
 }
 
 function checkTime(time, time2) {
-  let date1 = new Date('2022-01-01T' + time);
-  let date2 = new Date('2022-01-01T' + time2);
+  let date1 = new Date("2022-01-01T" + time);
+  let date2 = new Date("2022-01-01T" + time2);
   if (date1.getTime() < date2.getTime()) {
     return true;
   }
@@ -68,6 +68,17 @@ export async function itsWeekend(route) {
   route = Object.values(route).filter(
     ({ notweekends: notweekends }) => notweekends !== 1
   );
-
   return route;
+}
+
+export async function carriageWithSeats() {
+  let a = route.findCarriage();
+
+  return a;
+}
+
+export async function tickets() {
+  let a = route.findTickets();
+
+  return a;
 }

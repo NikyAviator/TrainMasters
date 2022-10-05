@@ -24,6 +24,16 @@ export class FetchHelper {
       .flat()
       .map((x) => (x ? new this(x) : null));
   }
+  static async findCarriage() {
+    return [await (await fetch(`/api/seats`)).json()]
+      .flat()
+      .map((x) => (x ? new this(x) : null));
+  }
+  static async findTickets() {
+    return [await (await fetch(`/api/tickets`)).json()]
+      .flat()
+      .map((x) => (x ? new this(x) : null));
+  }
 
   static async findOne(parameter) {
     return (await this.find(parameter))[0] || null;
@@ -36,20 +46,20 @@ export class FetchHelper {
   }
 
   async save() {
-    let method = this.id ? 'PUT' : 'POST';
+    let method = this.id ? "PUT" : "POST";
     let result = await (
       await fetch(
-        `/api/${this.route}${method === 'PUT' ? '/' + this.id : ''}`,
+        `/api/${this.route}${method === "PUT" ? "/" + this.id : ""}`,
         {
           method,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(this),
         }
       )
     ).json();
     // In this particular REST-api lastInsertRowid is returned
     // on posts and is the id of the newly created item
-    if (method === 'POST' && result.lastInsertRowid) {
+    if (method === "POST" && result.lastInsertRowid) {
       this.id = result.lastInsertRowid;
     }
     // in this particular REST-api the property _errror
@@ -61,10 +71,10 @@ export class FetchHelper {
 
   async delete() {
     if (!this.id) {
-      return { error: 'No id, can not delete' };
+      return { error: "No id, can not delete" };
     }
     return await await fetch(`/api/${this.route}/${this.id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
   }
 }
@@ -78,10 +88,10 @@ export const factory = new Proxy(
       // just to get nice class names when logging in chrome dev tools
       let func = (x) => x;
       try {
-        func = new Function('x', `return class ${property} extends x {}`);
+        func = new Function("x", `return class ${property} extends x {}`);
       } catch (e) {}
       // create a sub class to FetchHelper
-      let routeName = property.toLowerCase() + 's';
+      let routeName = property.toLowerCase() + "s";
       return func(
         class extends FetchHelper {
           static set route(val) {

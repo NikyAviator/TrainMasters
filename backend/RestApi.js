@@ -4,7 +4,7 @@
 // DO NOT USE IN PRODUCTION SINCE NO
 // PERMISSIONS/AUTH/ACL IMPLEMENTED
 
-const db = require('./DatabaseQueryer');
+const db = require("./DatabaseQueryer");
 db.verbose = true; // set to true to log db queries
 
 module.exports = class RestApi {
@@ -14,14 +14,14 @@ module.exports = class RestApi {
   }
 
   start() {
-    this.app.get('/api/stations', function (req, res) {
-      let sql = 'SELECT * FROM stations';
+    this.app.get("/api/stations", function (req, res) {
+      let sql = "SELECT * FROM stations";
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
       });
     });
-    this.app.get('/api/:view/:station', function (req, res) {
+    this.app.get("/api/:view/:station", function (req, res) {
       let view = req.params.view;
       let station = req.params.station;
       let sql = `SELECT * FROM ${view} WHERE stationName = '${station}'`;
@@ -30,7 +30,7 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/:view/:route/:order', function (req, res) {
+    this.app.get("/api/:view/:route/:order", function (req, res) {
       let view = req.params.view;
       let order = req.params.order;
       let route = req.params.route;
@@ -41,9 +41,38 @@ module.exports = class RestApi {
       });
     });
 
-    this.app.get('/api/trains', function (req, res) {
-      let sql = 'SELECT * FROM trains';
+    this.app.get("/api/trains", function (req, res) {
+      let sql = "SELECT * FROM trains";
       let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.get("/api/seats", function (req, res) {
+      let sql = "SELECT * FROM seats";
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.get("/api/tickets", function (req, res) {
+      let sql = "SELECT * FROM tickets";
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.post("/api/tickets", function (req, res) {
+      let arrival = req.body.arrival;
+      let departure = req.body.departure;
+      let price = req.body.price;
+      let bookingId = req.body.bookingId;
+      let seatId = req.body.seatId;
+      let carriageId = req.body.carriageId;
+      let timeTableId = req.body.timeTableId;
+      let bdate = req.body.bdate;
+      let sql = `INSERT INTO tickets (arrival,departure,price,bookingId,seatId,carriageId,timeTableId,bdate) VALUES ('${arrival}','${departure}',${price},${bookingId},${seatId},${carriageId},${timeTableId},'${bdate}')`;
+      db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
       });
