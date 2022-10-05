@@ -1,3 +1,8 @@
+:root {
+  --primary: #fff !important;
+  --secondary: #242424 !important;
+}
+
 .login-container, .register-container {
   display: flex;
   flex-direction: column;
@@ -27,4 +32,23 @@
   margin-bottom: 20px;
 }
 
+.log-btn, .reg-btn {
+  display: grid !important;
+}
 
+.login-btn, .register-btn {
+  background-color: transparent !important;;
+  color: var(--secondary);
+  border: 1px solid var(--secondary) !important;
+  transition: all 0.3s ease-out;
+  padding: 8px 20px !important;
+  font-size: 20px !important;
+}
+
+
+
+.login-btn:hover, .register-btn:hover {
+  background: var(--secondary) !important;
+  color: var(--primary) !important;
+  transition: all 0.3s ease-out !important;
+}

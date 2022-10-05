@@ -77,15 +77,10 @@ export default function RegisterPage() {
               placeholder="Bekräfta Lösenord"
             />
           </div>
+          <div className="reg-btn">
+            <button className="register-btn">Registrera</button>
+          </div>
         </form>
-        <div>
-          <Button
-            buttonStyle="btn--secondary-outline"
-            buttonSize="btn--medium-secondary"
-          >
-            Skapa konto
-          </Button>
-        </div>
       </div>
     </div>
   );

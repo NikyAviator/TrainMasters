@@ -45,15 +45,10 @@ export default function LogInPage() {
               onChange={(e) => setPassWord(e.target.value)}
             />
           </div>
+          <div className="log-btn">
+            <button className="login-btn">Logga in</button>
+          </div>
         </form>
-        <div className="btn">
-          <Button
-            buttonStyle="btn--secondary-outline"
-            buttonSize="btn--medium-secondary"
-          >
-            Logga in
-          </Button>
-        </div>
         <div className="Register-heading">
           <h3>Har du inget konto?</h3>
           <h5>Registrera dig här.</h5>
