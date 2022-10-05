@@ -16,12 +16,14 @@ export default function Carriage({ carriage, props }) {
 
   useEffect(() => {
     async function fetchData() {
-      let b = await tickets();
-      let a = await carriageWithSeats();
-      a = a.filter((x) => x.carriagesId === carriage);
-      if (b.length) {
-        a.forEach((x) => {
-          b.forEach((e) => {
+      // gets the tickets from database
+      let getTickets = await tickets();
+      //gets carriagesWithSeats
+      let carriages = await carriageWithSeats();
+      carriages = carriages.filter((x) => x.carriagesId === carriage);
+      if (getTickets.length) {
+        carriages.forEach((x) => {
+          getTickets.forEach((e) => {
             if (
               x.seatNumber === e.seatId &&
               x.carriagesId === e.carriageId &&
@@ -31,9 +33,9 @@ export default function Carriage({ carriage, props }) {
             }
           });
         });
-        setSeats(a);
+        setSeats(carriages);
       } else {
-        setSeats(a);
+        setSeats(carriages);
       }
     }
     fetchData();
@@ -54,8 +56,8 @@ export default function Carriage({ carriage, props }) {
     await newBooking.save();
   }
 
-  function k(t) {
-    setSelected(t);
+  function selectedSeat(seat) {
+    setSelected(seat);
   }
 
   return (
@@ -68,7 +70,7 @@ export default function Carriage({ carriage, props }) {
               backgroundColor: item.booked ? 'gray' : 'green',
             }}
             key={i}
-            onClick={() => k(item.seatNumber)}
+            onClick={() => selectedSeat(item.seatNumber)}
           >
             {item.seatNumber}
           </Col>
