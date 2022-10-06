@@ -11,18 +11,18 @@ function TicketTravelers() {
         <Accordion.Item eventKey='0'>
           <Row>
             <Col>
-              <Accordion.Header>Travelers</Accordion.Header>
+              <Accordion.Header>Resenärer</Accordion.Header>
               <Accordion.Body>
                 <div className='traveler'>
-                  Adult:
+                  Vuxen:
                   <PlusMinus />
                 </div>
                 <div className='traveler'>
-                  Child:
+                  Barn:
                   <PlusMinus />
                 </div>
                 <div className='traveler'>
-                  Pensioner:
+                  Pensionär:
                   <PlusMinus />
                 </div>
                 <div className='traveler'>
@@ -30,7 +30,7 @@ function TicketTravelers() {
                   <PlusMinus />
                 </div>
                 <div className='traveler'>
-                  Animal:
+                  Djur:
                   <PlusMinus />
                 </div>
               </Accordion.Body>
