@@ -87,7 +87,7 @@ const TicketFromTo = () => {
                 <TicketTravelers />
               </Col>
             </Row>
-            <Row style={{ display: "grid", justifyContent: "center" }}>
+            <Row style={{ display: "grid", justifyContent: "center", paddingBottom: "8%" }}>
               <Col>
                 <Button
                   buttonStyle="btn--secondary-outline"
