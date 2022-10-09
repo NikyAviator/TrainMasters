@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 function TicketTravelers() {
   return (
     <Container>
-      <Accordion defaultActiveKey='0'>
+      <Accordion>
         <Accordion.Item eventKey='0'>
           <Row>
             <Col>

@@ -31,3 +31,11 @@ $body-color: white; (tex)
   padding: 0;
   font-family: 'PT Sans', sans-serif;
 }
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
