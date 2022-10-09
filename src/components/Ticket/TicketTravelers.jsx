@@ -8,30 +8,30 @@ function TicketTravelers() {
   return (
     <Container>
       <Accordion>
-        <Accordion.Item eventKey='0'>
+        <Accordion.Item eventKey="0">
           <Row>
             <Col>
               <Accordion.Header>Resenärer</Accordion.Header>
               <Accordion.Body>
-                <div className='traveler'>
+                <div className="traveler">
                   Vuxen:
-                  <PlusMinus />
+                  <PlusMinus traveler="Vuxen" />
                 </div>
-                <div className='traveler'>
+                <div className="traveler">
                   Barn:
-                  <PlusMinus />
+                  <PlusMinus traveler="Barn" />
                 </div>
-                <div className='traveler'>
+                <div className="traveler">
                   Pensionär:
-                  <PlusMinus />
+                  <PlusMinus traveler="Pensionär" />
                 </div>
-                <div className='traveler'>
+                <div className="traveler">
                   Student:
-                  <PlusMinus />
+                  <PlusMinus traveler="Student" />
                 </div>
-                <div className='traveler'>
+                <div className="traveler">
                   Djur:
-                  <PlusMinus />
+                  <PlusMinus traveler="Djur" />
                 </div>
               </Accordion.Body>
             </Col>
