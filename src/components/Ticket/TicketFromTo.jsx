@@ -57,9 +57,18 @@ const TicketFromTo = () => {
                       placeholder="Från"
                       required
                       maxLength="100"
+                      list="list-stations"
+                      id="input-datalist"
                       value={from}
                       onChange={onChangeFormValue}
                     />
+                    <datalist id="list-stations">
+                      <option>Stockholm C</option>
+                      <option>Kumla</option>
+                      <option>Malmö C</option>
+                      <option>Malmö hyllie</option>
+                      <option>Trelleborg</option>
+                    </datalist>
                   </Form.Group>
                 </Form>
               </Col>
@@ -72,9 +81,18 @@ const TicketFromTo = () => {
                       placeholder="Till"
                       required
                       maxLength="100"
+                      list="list-stations"
+                      id="input-datalist"
                       value={to}
                       onChange={onChangeFormValue}
                     />
+                    <datalist id="list-stations">
+                      <option>Stockholm C</option>
+                      <option>Kumla</option>
+                      <option>Malmö C</option>
+                      <option>Malmö hyllie</option>
+                      <option>Trelleborg</option>
+                    </datalist>
                   </Form.Group>
                 </Form>
               </Col>
