@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
 const PlusMinus = (props) => {
   let [count, setCount] = useState(0);
@@ -18,13 +18,13 @@ const PlusMinus = (props) => {
   }
 
   return (
-    <div className="content-box">
-      <div className="number">
-        <span onClick={decrementCount} className="minus">
+    <div className='content-box'>
+      <div className='number'>
+        <span onClick={decrementCount} className='minus'>
           -
         </span>
-        <input type="text" value={count} />
-        <span onClick={incrementCount} className="plus">
+        <input type='text' value={count} onChange={incrementCount} />
+        <span onClick={incrementCount} className='plus'>
           +
         </span>
       </div>
