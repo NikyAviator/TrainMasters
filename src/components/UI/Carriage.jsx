@@ -9,10 +9,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 const { ticket } = factory;
-export default function Carriage({ carriage, props }) {
+export default function Carriage({ carriage, props, setCarriage, trainId }) {
   const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState({});
-  let { timeTableId, arrivalTimeTo, departureTimeFrom } = props;
+  let { timeTableId, arrivalTimeTo, departureTimeFrom, Date } = props;
 
   useEffect(() => {
     async function fetchData() {
@@ -20,14 +20,21 @@ export default function Carriage({ carriage, props }) {
       let getTickets = await tickets();
       //gets carriagesWithSeats
       let carriages = await carriageWithSeats();
-      carriages = carriages.filter((x) => x.carriagesId === carriage);
+      carriages = carriages.filter(
+        (x) => x.carriage === carriage && x.trainId === trainId
+      );
+      console.log(carriages);
+
+      console.log(getTickets);
+
       if (getTickets.length) {
         carriages.forEach((x) => {
           getTickets.forEach((e) => {
             if (
               x.seatNumber === e.seatId &&
-              x.carriagesId === e.carriageId &&
-              e.timeTableId === timeTableId
+              x.carriage === e.carriageId &&
+              e.timeTableId === timeTableId &&
+              e.bdate.slice(0, 10) === Date
             ) {
               x.booked = true;
             }
@@ -38,6 +45,7 @@ export default function Carriage({ carriage, props }) {
         setSeats(carriages);
       }
     }
+
     fetchData();
   }, []);
 
@@ -50,7 +58,7 @@ export default function Carriage({ carriage, props }) {
       seatId: selected,
       carriageId: carriage,
       timeTableId: timeTableId,
-      bdate: '2022/01/01',
+      bdate: Date,
     };
     let newBooking = new ticket(test);
     await newBooking.save();
@@ -78,6 +86,15 @@ export default function Carriage({ carriage, props }) {
       </Row>
       <Button className='secondary' onClick={book}>
         BOKA
+      </Button>
+      <Button
+        className='secondary'
+        style={{
+          margin: '10px',
+        }}
+        onClick={() => setCarriage(0)}
+      >
+        TILLBAKA
       </Button>
     </Container>
   );

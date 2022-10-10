@@ -25,34 +25,39 @@ export default function Train({ props }) {
   return (
     <>
       {carriage ? (
-        <Carriage carriage={carriage} props={props} />
+        <Carriage
+          carriage={carriage}
+          setCarriage={setCarriage}
+          props={props}
+          trainId={trainId}
+        />
       ) : (
-        <div className="wrapperTrain">
+        <div className='wrapperTrain'>
           {trainId === 1 && (
             <Container>
               <Row
-                className="train"
+                className='train'
                 style={{
                   backgroundImage: `url(${image})`,
-                  minWidth: "100%",
+                  minWidth: '100%',
                 }}
               >
-                <div className="vagn1-1" onClick={() => setCarriage(1)}>
+                <div className='vagn1-1' onClick={() => setCarriage(1)}>
                   vagn1
                 </div>
-                <div className="vagn2-1" onClick={() => setCarriage(2)}>
+                <div className='vagn2-1' onClick={() => setCarriage(2)}>
                   vagn2
                 </div>
-                <div className="vagn3-1" onClick={() => setCarriage(3)}>
+                <div className='vagn3-1' onClick={() => setCarriage(3)}>
                   vagn3
                 </div>
-                <div className="vagn4-1" onClick={() => setCarriage(2)}>
+                <div className='vagn4-1' onClick={() => setCarriage(4)}>
                   vagn4
                 </div>
-                <div className="vagn5-1" onClick={() => setCarriage(2)}>
+                <div className='vagn5-1' onClick={() => setCarriage(5)}>
                   vagn5
                 </div>
-                <div className="vagn6-1" onClick={() => setCarriage(4)}>
+                <div className='vagn6-1' onClick={() => setCarriage(6)}>
                   vagn6
                 </div>
               </Row>
@@ -61,25 +66,25 @@ export default function Train({ props }) {
           {trainId === 2 && (
             <Container>
               <Row
-                className="train"
+                className='train'
                 style={{
                   backgroundImage: `url(${image})`,
-                  minWidth: "100%",
+                  minWidth: '100%',
                 }}
               >
-                <div className="vagn1-2" onClick={() => setCarriage(1)}>
+                <div className='vagn1-2' onClick={() => setCarriage(1)}>
                   vagn1
                 </div>
-                <div className="vagn2-2" onClick={() => setCarriage(2)}>
+                <div className='vagn2-2' onClick={() => setCarriage(2)}>
                   vagn2
                 </div>
-                <div className="vagn3-2" onClick={() => setCarriage(3)}>
+                <div className='vagn3-2' onClick={() => setCarriage(3)}>
                   vagn3
                 </div>
-                <div className="vagn4-2" onClick={() => setCarriage(2)}>
+                <div className='vagn4-2' onClick={() => setCarriage(4)}>
                   vagn4
                 </div>
-                <div className="vagn5-2" onClick={() => setCarriage(2)}>
+                <div className='vagn5-2' onClick={() => setCarriage(5)}>
                   vagn5
                 </div>
               </Row>
@@ -88,22 +93,22 @@ export default function Train({ props }) {
           {trainId === 3 && (
             <Container>
               <Row
-                className="train"
+                className='train'
                 style={{
                   backgroundImage: `url(${image})`,
-                  minWidth: "100%",
+                  minWidth: '100%',
                 }}
               >
-                <div className="vagn1-3" onClick={() => setCarriage(1)}>
+                <div className='vagn1-3' onClick={() => setCarriage(1)}>
                   vagn1
                 </div>
-                <div className="vagn2-3" onClick={() => setCarriage(2)}>
+                <div className='vagn2-3' onClick={() => setCarriage(2)}>
                   vagn2
                 </div>
-                <div className="vagn3-3" onClick={() => setCarriage(3)}>
+                <div className='vagn3-3' onClick={() => setCarriage(3)}>
                   vagn3
                 </div>
-                <div className="vagn4-3" onClick={() => setCarriage(2)}>
+                <div className='vagn4-3' onClick={() => setCarriage(4)}>
                   vagn4
                 </div>
               </Row>

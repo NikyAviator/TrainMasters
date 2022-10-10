@@ -17,6 +17,7 @@ import { useEffect } from "react";
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
+  const [Date, setDate] = useState('');
   const [weekend, setWeekend] = useState(false);
   const [stations, setStations] = useState([]);
 
@@ -27,8 +28,8 @@ const TicketFromTo = () => {
   }, []);
 
   let emptyFormValues = {
-    from: "",
-    to: "",
+    from: '',
+    to: '',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
 
@@ -45,29 +46,29 @@ const TicketFromTo = () => {
     let route = await findRoute(from, to);
     if (weekend) route = await itsWeekend(route);
     setRoutes(route);
-    resetForm();
+    //resetForm();
   }
 
   let { from, to } = formValues;
   return (
-    <div className="bookingForm">
+    <div className='bookingForm'>
       <h1>Boka din resa</h1>
       <br />
-      <Card style={{ border: "none" }}>
+      <Card style={{ border: 'none' }}>
         <Container>
           <Col>
             <Row>
               <Col>
-                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="from"
-                      placeholder="Från"
+                      type='text'
+                      name='from'
+                      placeholder='Från'
                       required
-                      maxLength="100"
-                      list="list-stations"
-                      id="input-datalist"
+                      maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={from}
                       onChange={onChangeFormValue}
                     />
@@ -81,16 +82,16 @@ const TicketFromTo = () => {
                 </Form>
               </Col>
               <Col>
-                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="to"
-                      placeholder="Till"
+                      type='text'
+                      name='to'
+                      placeholder='Till'
                       required
-                      maxLength="100"
-                      list="list-stations"
-                      id="input-datalist"
+                      maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={to}
                       onChange={onChangeFormValue}
                     />
@@ -104,27 +105,27 @@ const TicketFromTo = () => {
                 </Form>
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "5%" }}>
+            <Row style={{ paddingBottom: '5%' }}>
               <Col>
-                <TicketDatePicker setWeekend={setWeekend} />
+                <TicketDatePicker setWeekend={setWeekend} setDate={setDate} />
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "8%" }}>
-              <Col style={{ display: "grid", justifyContent: "center" }}>
+            <Row style={{ paddingBottom: '8%' }}>
+              <Col style={{ display: 'grid', justifyContent: 'center' }}>
                 <TicketTravelers />
               </Col>
             </Row>
             <Row
               style={{
-                display: "grid",
-                justifyContent: "center",
+                display: 'grid',
+                justifyContent: 'center',
               }}
             >
               <Col>
                 <Button
-                  buttonStyle="btn--secondary-outline"
-                  buttonSize="btn--medium-secondary"
-                  type="submit"
+                  buttonStyle='btn--secondary-outline'
+                  buttonSize='btn--medium-secondary'
+                  type='submit'
                   onClick={submitForm}
                 >
                   Sök
@@ -133,7 +134,7 @@ const TicketFromTo = () => {
             </Row>
           </Col>
 
-          <TicketItem routes={routes} />
+          <TicketItem routes={routes} Date={Date} />
         </Container>
       </Card>
     </div>
