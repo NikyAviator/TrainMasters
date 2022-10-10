@@ -1,23 +1,32 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../scss/main.scss';
-import { useState } from 'react';
-import useStates from '../../utilities/useStates';
-import { findRoute, itsWeekend } from '../../utilities/RouteStations';
-import TicketItem from './TicketItem';
-import TicketDatePicker from './TicketDatePicker';
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Button } from '../UI/Button';
-import Card from 'react-bootstrap/Card';
-import TicketTravelers from './TicketTravelers';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../../scss/main.scss";
+import { useState } from "react";
+import useStates from "../../utilities/useStates";
+import { findRoute, itsWeekend } from "../../utilities/RouteStations";
+import TicketItem from "./TicketItem";
+import TicketDatePicker from "./TicketDatePicker";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { Button } from "../UI/Button";
+import Card from "react-bootstrap/Card";
+import TicketTravelers from "./TicketTravelers";
+import { useEffect } from "react";
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [Date, setDate] = useState('');
   const [weekend, setWeekend] = useState(false);
+  const [stations, setStations] = useState([]);
+
+  useEffect(async () => {
+    let data = await (await fetch("/api/stations")).json();
+    setStations(data);
+    console.log(data);
+  }, []);
+
   let emptyFormValues = {
     from: '',
     to: '',
@@ -63,12 +72,11 @@ const TicketFromTo = () => {
                       value={from}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id='list-stations'>
-                      <option>Stockholm C</option>
-                      <option>Kumla</option>
-                      <option>Malmö C</option>
-                      <option>Malmö hyllie</option>
-                      <option>Trelleborg</option>
+                    <datalist id="list-stations">
+                      {stations &&
+                        stations.map(({stationName}) => (
+                          <option>{stationName}</option>
+                        ))}
                     </datalist>
                   </Form.Group>
                 </Form>
@@ -87,12 +95,11 @@ const TicketFromTo = () => {
                       value={to}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id='list-stations'>
-                      <option>Stockholm C</option>
-                      <option>Kumla</option>
-                      <option>Malmö C</option>
-                      <option>Malmö hyllie</option>
-                      <option>Trelleborg</option>
+                    <datalist id="list-stations">
+                      {stations &&
+                        stations.map((station) => (
+                          <option>{station.stationName}</option>
+                        ))}
                     </datalist>
                   </Form.Group>
                 </Form>
