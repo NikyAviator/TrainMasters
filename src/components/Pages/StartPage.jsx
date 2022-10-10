@@ -11,7 +11,7 @@ export default function StartPage() {
       <div className="hero-btn">
         <Button
           className="travel-btn"
-          buttonStyle="btn--outline"
+          buttonStyle="btn--primary"
           buttonSize="btn--extra-large"
           link="/boka"
         >

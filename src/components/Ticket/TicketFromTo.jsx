@@ -43,52 +43,77 @@ const TicketFromTo = () => {
   let { from, to } = formValues;
   return (
     <div className='bookingForm'>
+      <h1>Boka din resa</h1>
+      <br />
       <Card style={{ border: 'none' }}>
         <Container>
           <Col>
             <Row>
               <Col>
-                <Form style={{ paddingBottom: '3%', paddingTop: '10%' }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
                       type='text'
                       name='from'
-                      placeholder='Enter your departure city'
+                      placeholder='Från'
                       required
                       maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={from}
                       onChange={onChangeFormValue}
                     />
+                    <datalist id='list-stations'>
+                      <option>Stockholm C</option>
+                      <option>Kumla</option>
+                      <option>Malmö C</option>
+                      <option>Malmö hyllie</option>
+                      <option>Trelleborg</option>
+                    </datalist>
                   </Form.Group>
                 </Form>
               </Col>
               <Col>
-                <Form style={{ paddingBottom: '3%', paddingTop: '10%' }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
                       type='text'
                       name='to'
-                      placeholder='Enter your arrival city'
+                      placeholder='Till'
                       required
                       maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={to}
                       onChange={onChangeFormValue}
                     />
+                    <datalist id='list-stations'>
+                      <option>Stockholm C</option>
+                      <option>Kumla</option>
+                      <option>Malmö C</option>
+                      <option>Malmö hyllie</option>
+                      <option>Trelleborg</option>
+                    </datalist>
                   </Form.Group>
                 </Form>
               </Col>
             </Row>
-            <Row style={{ paddingBottom: '3%' }}>
+            <Row style={{ paddingBottom: '5%' }}>
               <Col>
                 <TicketDatePicker setWeekend={setWeekend} setDate={setDate} />
               </Col>
             </Row>
-            <Row style={{ paddingBottom: '3%' }}>
-              <Col>
+            <Row style={{ paddingBottom: '8%' }}>
+              <Col style={{ display: 'grid', justifyContent: 'center' }}>
                 <TicketTravelers />
               </Col>
             </Row>
-            <Row style={{ display: 'grid', justifyContent: 'center' }}>
+            <Row
+              style={{
+                display: 'grid',
+                justifyContent: 'center',
+              }}
+            >
               <Col>
                 <Button
                   buttonStyle='btn--secondary-outline'

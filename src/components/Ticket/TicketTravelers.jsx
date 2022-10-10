@@ -7,31 +7,31 @@ import Container from 'react-bootstrap/Container';
 function TicketTravelers() {
   return (
     <Container>
-      <Accordion defaultActiveKey='0'>
-        <Accordion.Item eventKey='0'>
+      <Accordion>
+        <Accordion.Item eventKey="0">
           <Row>
             <Col>
-              <Accordion.Header>Travelers</Accordion.Header>
+              <Accordion.Header>Resenärer</Accordion.Header>
               <Accordion.Body>
-                <div className='traveler'>
-                  Adult:
-                  <PlusMinus />
+                <div className="traveler">
+                  Vuxen:
+                  <PlusMinus traveler="Vuxen" />
                 </div>
-                <div className='traveler'>
-                  Child:
-                  <PlusMinus />
+                <div className="traveler">
+                  Barn:
+                  <PlusMinus traveler="Barn" />
                 </div>
-                <div className='traveler'>
-                  Pensioner:
-                  <PlusMinus />
+                <div className="traveler">
+                  Pensionär:
+                  <PlusMinus traveler="Pensionär" />
                 </div>
-                <div className='traveler'>
+                <div className="traveler">
                   Student:
-                  <PlusMinus />
+                  <PlusMinus traveler="Student" />
                 </div>
-                <div className='traveler'>
-                  Animal:
-                  <PlusMinus />
+                <div className="traveler">
+                  Djur:
+                  <PlusMinus traveler="Djur" />
                 </div>
               </Accordion.Body>
             </Col>

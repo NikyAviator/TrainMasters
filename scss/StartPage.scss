@@ -33,6 +33,13 @@
   margin: 6px;
 }
 
+.hero-btn {
+  transition-duration: 0.4s !important;
+}
+.hero-btn:hover {
+  transform: scale(1.04) !important;
+}
+
 @media screen and (max-width: 960px) {
   .hero-container > h1 {
     font-size: 70px;
