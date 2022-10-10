@@ -72,11 +72,16 @@ export async function itsWeekend(route) {
 }
 
 export async function carriageWithSeats() {
-  let a = route.findSeats();
-  return a;
+  let seats = route.findSeats();
+  return seats;
 }
 
 export async function tickets() {
-  let a = route.findTickets();
-  return a;
+  let tickets = route.findTickets();
+  return tickets;
+}
+
+export async function getStations() {
+  let stations = route.getStations();
+  return stations;
 }

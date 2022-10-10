@@ -39,6 +39,11 @@ export class FetchHelper {
       .flat()
       .map((x) => (x ? new this(x) : null));
   }
+  static async getStations() {
+    return [await (await fetch(`/api/stations`)).json()]
+      .flat()
+      .map((x) => (x ? new this(x) : null));
+  }
 
   static async findOne(parameter) {
     return (await this.find(parameter))[0] || null;
