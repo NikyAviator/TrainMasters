@@ -13,10 +13,19 @@ import Col from "react-bootstrap/Col";
 import { Button } from "../UI/Button";
 import Card from "react-bootstrap/Card";
 import TicketTravelers from "./TicketTravelers";
+import { useEffect } from "react";
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [weekend, setWeekend] = useState(false);
+  const [stations, setStations] = useState([]);
+
+  useEffect(async () => {
+    let data = await (await fetch("/api/stations")).json();
+    setStations(data);
+    console.log(data);
+  }, []);
+
   let emptyFormValues = {
     from: "",
     to: "",
@@ -63,11 +72,10 @@ const TicketFromTo = () => {
                       onChange={onChangeFormValue}
                     />
                     <datalist id="list-stations">
-                      <option>Stockholm C</option>
-                      <option>Kumla</option>
-                      <option>Malmö C</option>
-                      <option>Malmö hyllie</option>
-                      <option>Trelleborg</option>
+                      {stations &&
+                        stations.map(({stationName}) => (
+                          <option>{stationName}</option>
+                        ))}
                     </datalist>
                   </Form.Group>
                 </Form>
@@ -87,11 +95,10 @@ const TicketFromTo = () => {
                       onChange={onChangeFormValue}
                     />
                     <datalist id="list-stations">
-                      <option>Stockholm C</option>
-                      <option>Kumla</option>
-                      <option>Malmö C</option>
-                      <option>Malmö hyllie</option>
-                      <option>Trelleborg</option>
+                      {stations &&
+                        stations.map((station) => (
+                          <option>{station.stationName}</option>
+                        ))}
                     </datalist>
                   </Form.Group>
                 </Form>
