@@ -25,7 +25,12 @@ export default function Train({ props }) {
   return (
     <>
       {carriage ? (
-        <Carriage carriage={carriage} props={props} />
+        <Carriage
+          carriage={carriage}
+          setCarriage={setCarriage}
+          props={props}
+          trainId={trainId}
+        />
       ) : (
         <div className='wrapperTrain'>
           <Container>
@@ -45,13 +50,13 @@ export default function Train({ props }) {
               <div className='vagn3' onClick={() => setCarriage(3)}>
                 vagn3
               </div>
-              <div className='vagn4' onClick={() => setCarriage(2)}>
+              <div className='vagn4' onClick={() => setCarriage(4)}>
                 vagn4
               </div>
-              <div className='vagn5' onClick={() => setCarriage(2)}>
+              <div className='vagn5' onClick={() => setCarriage(5)}>
                 vagn5
               </div>
-              <div className='vagn6' onClick={() => setCarriage(4)}>
+              <div className='vagn6' onClick={() => setCarriage(6)}>
                 vagn6
               </div>
             </Row>

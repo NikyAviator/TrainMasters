@@ -9,8 +9,8 @@ export async function findRoute(start, end) {
 }
 
 async function getRoute(start, end) {
-  let from = await route.find('tests', start);
-  let to = await route.find('tests', end);
+  let from = await route.findStations('routesInfo', start);
+  let to = await route.findStations('routesInfo', end);
 
   let fromResults = from.filter(({ rorder: rorder, routeName: routeName }) =>
     to.some(
@@ -72,7 +72,7 @@ export async function itsWeekend(route) {
 }
 
 export async function carriageWithSeats() {
-  let a = route.findCarriage();
+  let a = route.findSeats();
   return a;
 }
 

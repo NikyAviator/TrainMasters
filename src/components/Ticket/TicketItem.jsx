@@ -1,32 +1,19 @@
-import React from "react";
-import DisplayRoutes from "../UI/DisplayRoutes";
-import { useState } from "react";
-import TicketDetails from "../UI/TicketDetails";
+import React from 'react';
+import DisplayRoutes from '../UI/DisplayRoutes';
+import { useState } from 'react';
 
-const TicketItem = ({ routes }) => {
-  const [train, setTrain] = useState(false);
-  const [info, setInfo] = useState([]);
-  function show(item) {
-    setInfo(item);
-    setTrain(true);
-  }
+const TicketItem = ({ routes, Date }) => {
   return (
     <>
-      {train ? (
-        <TicketDetails props={info} />
+      {routes ? (
+        Object.values(routes).map((item, i) => (
+          <div>
+            <DisplayRoutes key={i} props={item} Date={Date} />
+          </div>
+        ))
       ) : (
-        <>
-          {routes ? (
-            Object.values(routes).map((item, i) => (
-              <div onClick={() => show(item)}>
-                <DisplayRoutes key={i} props={item} />
-              </div>
-            ))
-          ) : (
-            <p>Station hittades inte</p>
-          )}
-        </>
-      )}{" "}
+        <p>Station hittades inte</p>
+      )}
     </>
   );
 };

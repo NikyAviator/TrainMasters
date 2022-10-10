@@ -7,6 +7,7 @@ import LogInPage from './components/Pages/LogInPage';
 import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/UI/Footer';
 import Header from './components/UI/Header';
+import CardDetails from './components/Pages/CardDetails';
 
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
@@ -23,6 +24,7 @@ export default function App() {
             <Route path='/biljetter' element={<TicketsPage />} />
             <Route path='/logga-in' element={<LogInPage />} />
             <Route path='/registrera' element={<RegisterPage />} />
+            <Route path='/details' element={<CardDetails />} />
           </Routes>
         </main>
         <Footer />

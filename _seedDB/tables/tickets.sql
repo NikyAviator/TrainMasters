@@ -7,7 +7,7 @@ CREATE TABLE tickets  (
   seatId int(11) NOT NULL,
   carriageId int(11) NOT NULL,
   timeTableId int(11) NOT NULL,
-  bdate date not null,
+  bdate varchar(100) not null,
   PRIMARY KEY (id),
   KEY seatId (seatId),
   KEY timeTableId (timeTableId),
