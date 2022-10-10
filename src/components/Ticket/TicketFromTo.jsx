@@ -79,17 +79,22 @@ const TicketFromTo = () => {
                 </Form>
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "10%" }}>
+            <Row style={{ paddingBottom: "5%" }}>
               <Col>
                 <TicketDatePicker setWeekend={setWeekend} />
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "10%" }}>
+            <Row style={{ paddingBottom: "8%" }}>
               <Col style={{ display: "grid", justifyContent: "center" }}>
                 <TicketTravelers />
               </Col>
             </Row>
-            <Row style={{ display: "grid", justifyContent: "center" }}>
+            <Row
+              style={{
+                display: "grid",
+                justifyContent: "center",
+              }}
+            >
               <Col>
                 <Button
                   buttonStyle="btn--secondary-outline"
