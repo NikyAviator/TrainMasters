@@ -24,7 +24,3 @@ dist-ssr
 *.sln
 *.sw?
 
-trainmasters.session.sql
-
-
-_seedDB/
