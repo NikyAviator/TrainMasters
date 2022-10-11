@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../../scss/main.scss';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { carriageWithSeats, tickets } from '../../utilities/RouteStations';
 import { factory } from '../../utilities/FetchHelper';
 import Col from 'react-bootstrap/Col';
@@ -12,9 +11,12 @@ const { ticket } = factory;
 export default function Carriage({ carriage, props, setCarriage, trainId }) {
   const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState({});
+  const [image, setImage] = useState('');
+
   let { timeTableId, arrivalTimeTo, departureTimeFrom, Date } = props;
 
   useEffect(() => {
+    setImage('../../../public/images/seat.png');
     async function fetchData() {
       // gets the tickets from database
       let getTickets = await tickets();
@@ -23,9 +25,7 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
       carriages = carriages.filter(
         (x) => x.carriage === carriage && x.trainId === trainId
       );
-      console.log(carriages);
-
-      console.log(getTickets);
+      console.log(image);
 
       if (getTickets.length) {
         carriages.forEach((x) => {
@@ -45,6 +45,7 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
         setSeats(carriages);
       }
     }
+    console.log(seats);
 
     fetchData();
   }, []);
@@ -71,17 +72,31 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
   return (
     <Container>
       <Row>
-        {seats.map((item, i) => (
-          <Col
-            className='test'
+        {seats.map((item, index) => (
+          <div
+            className='train'
             style={{
-              backgroundColor: item.booked ? 'gray' : 'green',
+              backgroundImage: "url('images/seat.png')",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
             }}
-            key={i}
-            onClick={() => selectedSeat(item.seatNumber)}
           >
-            {item.seatNumber}
-          </Col>
+            <p
+              style={{
+                transform: 'rotate(270deg)',
+                marginTop: '18px',
+                marginRight: '10px',
+              }}
+            >
+              {' '}
+              {item.seatNumber}
+            </p>
+          </div>
         ))}
       </Row>
       <Button className='secondary' onClick={book}>
