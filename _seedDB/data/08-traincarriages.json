@@ -1,62 +1,79 @@
 [
   {
-    "carriageId": 1,
-    "trainId": 1
+    "trainId": 1,
+    "carriage": 1,
+    "carriagesTypeId": 1
   },
   {
-    "carriageId": 2,
-    "trainId": 1
+    "trainId": 1,
+    "carriage": 2,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 3,
-    "trainId": 1
+    "trainId": 1,
+    "carriage": 3,
+    "carriagesTypeId": 3
+  },
+
+  {
+    "trainId": 1,
+    "carriage": 4,
+    "carriagesTypeId": 2
+  },
+
+  {
+    "trainId": 1,
+    "carriage": 5,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 2,
-    "trainId": 1
+    "trainId": 1,
+    "carriage": 6,
+    "carriagesTypeId": 4
   },
   {
-    "carriageId": 2,
-    "trainId": 1
+    "trainId": 2,
+    "carriage": 1,
+    "carriagesTypeId": 1
   },
   {
-    "carriageId": 4,
-    "trainId": 1
+    "trainId": 2,
+    "carriage": 2,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 1,
-    "trainId": 2
+    "trainId": 2,
+    "carriage": 3,
+    "carriagesTypeId": 3
   },
   {
-    "carriageId": 2,
-    "trainId": 2
+    "trainId": 2,
+    "carriage": 4,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 3,
-    "trainId": 2
+    "trainId": 2,
+    "carriage": 5,
+    "carriagesTypeId": 4
   },
   {
-    "carriageId": 2,
-    "trainId": 2
+    "trainId": 3,
+    "carriage": 1,
+    "carriagesTypeId": 1
   },
   {
-    "carriageId": 4,
-    "trainId": 1
+    "trainId": 3,
+    "carriage": 2,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 1,
-    "trainId": 3
+    "trainId": 3,
+    "carriage": 3,
+    "carriagesTypeId": 2
   },
   {
-    "carriageId": 2,
-    "trainId": 3
-  },
-  {
-    "carriageId": 2,
-    "trainId": 3
-  },
-  {
-    "carriageId": 4,
-    "trainId": 3
+    "trainId": 3,
+    "carriage": 4,
+    "carriagesTypeId": 4
   }
 ]

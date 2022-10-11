@@ -1,0 +1,22 @@
+[
+  {
+    "bistro": 0,
+    "firstClass": 1,
+    "animal": 0
+  },
+  {
+    "bistro": 0,
+    "firstClass": 0,
+    "animal": 0
+  },
+  {
+    "bistro": 1,
+    "firstClass": 0,
+    "animal": 0
+  },
+  {
+    "bistro": 0,
+    "firstClass": 0,
+    "animal": 1
+  }
+]

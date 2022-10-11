@@ -7,6 +7,6 @@ CREATE TABLE timetables  (
   PRIMARY KEY (id),
   KEY routeId (routeId),
   KEY trainId (trainId),
-  CONSTRAINT _timetables_routeId FOREIGN KEY (Id) REFERENCES routes (Id),
-  CONSTRAINT _timetables_trainId FOREIGN KEY (Id) REFERENCES trains (Id)
+  CONSTRAINT _timeTables_routeId FOREIGN KEY (Id) REFERENCES routes (Id),
+  CONSTRAINT _timeTables_trainId FOREIGN KEY (Id) REFERENCES trains (Id)
 );
