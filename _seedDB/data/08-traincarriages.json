@@ -1,0 +1,62 @@
+[
+  {
+    "carriageId": 1,
+    "trainId": 1
+  },
+  {
+    "carriageId": 2,
+    "trainId": 1
+  },
+  {
+    "carriageId": 3,
+    "trainId": 1
+  },
+  {
+    "carriageId": 2,
+    "trainId": 1
+  },
+  {
+    "carriageId": 2,
+    "trainId": 1
+  },
+  {
+    "carriageId": 4,
+    "trainId": 1
+  },
+  {
+    "carriageId": 1,
+    "trainId": 2
+  },
+  {
+    "carriageId": 2,
+    "trainId": 2
+  },
+  {
+    "carriageId": 3,
+    "trainId": 2
+  },
+  {
+    "carriageId": 2,
+    "trainId": 2
+  },
+  {
+    "carriageId": 4,
+    "trainId": 1
+  },
+  {
+    "carriageId": 1,
+    "trainId": 3
+  },
+  {
+    "carriageId": 2,
+    "trainId": 3
+  },
+  {
+    "carriageId": 2,
+    "trainId": 3
+  },
+  {
+    "carriageId": 4,
+    "trainId": 3
+  }
+]
