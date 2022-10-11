@@ -74,6 +74,7 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
       <Row>
         {seats.map((item, index) => (
           <div
+            key={index}
             className='train'
             style={{
               backgroundImage: "url('images/seat.png')",
@@ -84,6 +85,13 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
               margin: '22px',
               display: 'flex',
               justifyContent: 'center',
+              backgroundColor:
+                item.handicapSeat === 1
+                  ? 'orange'
+                  : '' && item.booked
+                  ? 'red'
+                  : '',
+              maxHeight: '100px',
             }}
           >
             <p
