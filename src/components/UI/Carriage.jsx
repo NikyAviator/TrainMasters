@@ -74,6 +74,7 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
       <Row>
         {seats.map((item, index) => (
           <div
+            onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className='train'
             style={{
@@ -88,7 +89,7 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
               backgroundColor:
                 item.handicapSeat === 1
                   ? 'orange'
-                  : '' && item.booked
+                  : '' || item.booked === true
                   ? 'red'
                   : '',
               maxHeight: '100px',
