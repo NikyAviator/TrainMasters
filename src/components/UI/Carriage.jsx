@@ -5,6 +5,7 @@ import { carriageWithSeats, tickets } from '../../utilities/Bookings';
 import { factory } from '../../utilities/FetchHelper';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 const { booking } = factory;
 export default function Carriage({
@@ -85,6 +86,11 @@ export default function Carriage({
   }
   return (
     <Container>
+      <Row>
+        <Col>
+          Ni kan välja antal platser: {travelerArray.length - selected.length}
+        </Col>
+      </Row>
       <Row>
         {seats.map((item, index) => (
           <div
