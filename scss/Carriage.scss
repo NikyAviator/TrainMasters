@@ -1,7 +1,18 @@
-.test {
-  width: 30px;
-  color: white;
-  margin: 30px;
-  cursor: pointer;
-  max-width: 30px !important;
+.seatselected {
+  background-color: green;
+}
+.seathandicapSeat {
+  background-color: orange;
+}
+.seatselectedhandicapSeat {
+  background-color: green;
+}
+
+.seatbooked {
+  background-color: red;
+  pointer-events: none;
+}
+
+.number {
+  user-select: none;
 }

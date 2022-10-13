@@ -1,16 +1,15 @@
 import React from 'react';
 import '../../../scss/main.scss';
 import { useState, useEffect } from 'react';
-import { carriageWithSeats, tickets } from '../../utilities/RouteStations';
+import { carriageWithSeats, tickets } from '../../utilities/Bookings';
 import { factory } from '../../utilities/FetchHelper';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-const { ticket } = factory;
+const { booking } = factory;
 export default function Carriage({ carriage, props, setCarriage, trainId }) {
   const [seats, setSeats] = useState([]);
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState([]);
   const [image, setImage] = useState('');
 
   let { timeTableId, arrivalTimeTo, departureTimeFrom, Date } = props;
@@ -22,13 +21,13 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
       let getTickets = await tickets();
       //gets carriagesWithSeats
       let carriages = await carriageWithSeats();
+
       carriages = carriages.filter(
         (x) => x.carriage === carriage && x.trainId === trainId
       );
-      console.log(image);
-
       if (getTickets.length) {
         carriages.forEach((x) => {
+          x.selected = false;
           getTickets.forEach((e) => {
             if (
               x.seatNumber === e.seatId &&
@@ -45,30 +44,38 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
         setSeats(carriages);
       }
     }
-    console.log(seats);
-
     fetchData();
   }, []);
 
   async function book() {
-    let test = {
-      arrival: arrivalTimeTo,
-      departure: departureTimeFrom,
-      price: 22,
-      bookingId: 1,
-      seatId: selected,
-      carriageId: carriage,
-      timeTableId: timeTableId,
-      bdate: Date,
-    };
-    let newBooking = new ticket(test);
-    await newBooking.save();
+    selected.forEach(async (seatNumber) => {
+      let book = {
+        arrival: arrivalTimeTo,
+        departure: departureTimeFrom,
+        price: 22,
+        seatId: seatNumber,
+        carriageId: carriage,
+        timeTableId: timeTableId,
+        bdate: Date,
+      };
+      let newBooking = new booking(book);
+      await newBooking.save();
+    });
   }
 
-  function selectedSeat(seat) {
-    setSelected(seat);
-  }
+  // const uid = () => {
+  //   return Date.now().toString(36) + Math.random().toString(36).substr(2);
+  // };
 
+  function selectedSeat(id) {
+    if (!selected.includes(id) && selected.length < 4) {
+      let newSelected = [...selected, id];
+      setSelected(newSelected);
+    } else {
+      let newSelected = selected.filter((t) => t !== id);
+      setSelected(newSelected);
+    }
+  }
   return (
     <Container>
       <Row>
@@ -76,7 +83,11 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
           <div
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
-            className='train'
+            className={`seat${
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
+            }`}
             style={{
               backgroundImage: "url('images/seat.png')",
               backgroundSize: '100% 100%',
@@ -86,20 +97,17 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
               margin: '22px',
               display: 'flex',
               justifyContent: 'center',
-              backgroundColor:
-                item.handicapSeat === 1
-                  ? 'orange'
-                  : '' || item.booked === true
-                  ? 'red'
-                  : '',
+              borderRadius: '9px',
+              cursor: 'pointer',
               maxHeight: '100px',
             }}
           >
             <p
+              className='number'
               style={{
                 transform: 'rotate(270deg)',
-                marginTop: '18px',
-                marginRight: '10px',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
               {' '}

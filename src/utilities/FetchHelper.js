@@ -30,7 +30,7 @@ export class FetchHelper {
       .map((x) => (x ? new this(x) : null));
   }
   static async findTickets() {
-    return [await (await fetch(`/api/tickets`)).json()]
+    return [await (await fetch(`/api/bookings`)).json()]
       .flat()
       .map((x) => (x ? new this(x) : null));
   }

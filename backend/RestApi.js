@@ -55,14 +55,14 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/tickets', function (req, res) {
-      let sql = 'SELECT * FROM tickets';
+    this.app.get('/api/bookings', function (req, res) {
+      let sql = 'SELECT * FROM bookings';
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
       });
     });
-    this.app.post('/api/tickets', function (req, res) {
+    this.app.post('/api/bookings', function (req, res) {
       let arrival = req.body.arrival;
       let departure = req.body.departure;
       let price = req.body.price;
@@ -71,7 +71,7 @@ module.exports = class RestApi {
       let carriageId = req.body.carriageId;
       let timeTableId = req.body.timeTableId;
       let bdate = req.body.bdate;
-      let sql = `INSERT INTO tickets (arrival,departure,price,bookingId,seatId,carriageId,timeTableId,bdate) VALUES ('${arrival}','${departure}',${price},${bookingId},${seatId},${carriageId},${timeTableId},'${bdate}')`;
+      let sql = `INSERT INTO bookings (arrival,departure,price,seatId,carriageId,timeTableId,bdate) VALUES ('${arrival}','${departure}',${price},${seatId},${carriageId},${timeTableId},'${bdate}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
