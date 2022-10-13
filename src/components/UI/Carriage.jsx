@@ -19,7 +19,7 @@ export default function Carriage({
   const [selected, setSelected] = useState([]);
   const [image, setImage] = useState('');
 
-  let { timeTableId, arrivalTimeTo, departureTimeFrom, Date } = props;
+  let { timeTableId, arrivalTimeTo, departureTimeFrom, date } = props;
 
   useEffect(() => {
     setImage('../../../public/images/seat.png');
@@ -40,7 +40,7 @@ export default function Carriage({
               x.seatNumber === e.seatId &&
               x.carriage === e.carriageId &&
               e.timeTableId === timeTableId &&
-              e.bdate.slice(0, 10) === Date
+              e.bdate.slice(0, 10) === date
             ) {
               x.booked = true;
             }
@@ -63,7 +63,7 @@ export default function Carriage({
         seatId: seatNumber,
         carriageId: carriage,
         timeTableId: timeTableId,
-        bdate: Date,
+        bdate: date,
       };
       let newBooking = new booking(book);
       await newBooking.save();

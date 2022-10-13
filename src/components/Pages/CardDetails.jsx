@@ -14,7 +14,7 @@ export default function CardDetails() {
     arrivalTimeTo,
     departureTimeFrom,
     trainId,
-    Date,
+    date,
     travelerArray,
   } = props;
 

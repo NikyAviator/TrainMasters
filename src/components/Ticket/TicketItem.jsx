@@ -1,7 +1,7 @@
 import React from 'react';
 import DisplayRoutes from '../UI/DisplayRoutes';
 
-const TicketItem = ({ routes, Date, travelerArray, setTravelerArr }) => {
+const TicketItem = ({ routes, date, travelerArray, setTravelerArr }) => {
   return (
     <>
       {routes ? (
@@ -10,7 +10,7 @@ const TicketItem = ({ routes, Date, travelerArray, setTravelerArr }) => {
             <DisplayRoutes
               key={i}
               props={item}
-              Date={Date}
+              date={date}
               travelerArray={travelerArray}
             />
           </div>

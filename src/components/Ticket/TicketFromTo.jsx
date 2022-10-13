@@ -21,7 +21,7 @@ import { useEffect } from 'react';
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
-  const [Date, setDate] = useState('');
+  const [date, setDate] = useState('');
   const [weekend, setWeekend] = useState(false);
   const [stations, setStations] = useState([]);
   const [travelerArray, setTravelerArr] = useState([]);
@@ -147,7 +147,7 @@ const TicketFromTo = () => {
 
           <TicketItem
             routes={routes}
-            Date={Date}
+            date={date}
             travelerArray={travelerArray}
             setTravelerArr={setTravelerArr}
           />

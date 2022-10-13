@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../../scss/main.scss';
 import { Link } from 'react-router-dom';
-export default function DisplayRoutes({ props, Date, travelerArray }) {
+export default function DisplayRoutes({ props, date, travelerArray }) {
   let {
     startStation,
     endStation,
@@ -26,7 +26,7 @@ export default function DisplayRoutes({ props, Date, travelerArray }) {
             departureTimeFrom: departureTimeFrom,
             timeTableId: timeTableId,
             trainId: trainId,
-            Date: Date,
+            date: date,
             travelerArray: travelerArray,
           }}
         >
