@@ -1,7 +1,12 @@
-CREATE TABLE bookings (
+CREATE TABLE bookings  (
   id int(11) unsigned NOT NULL AUTO_INCREMENT,
-  customerId int(11) NOT NULL,
-  qrCode varchar(100) NOT NULL,
-  startTime TIME NOT NULL,
+  bookingId varchar(100) NOT NULL,
+  arrival varchar(100) NOT NULL,
+  departure varchar(100) NOT NULL,
+  price int(11) NOT NULL,
+  seatId int(11) NOT NULL,
+  carriageId int(11) NOT NULL,
+  timeTableId int(11) NOT NULL,
+  bdate varchar(100) not null,
   PRIMARY KEY (id)
 );
