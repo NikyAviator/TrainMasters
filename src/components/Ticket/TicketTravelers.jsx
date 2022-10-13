@@ -4,34 +4,46 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import PlusMinus from '../UI/PlusMinus';
 import Container from 'react-bootstrap/Container';
-function TicketTravelers() {
+function TicketTravelers({ setTravelerArr, travelerArray }) {
   return (
     <Container>
       <Accordion>
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey='0'>
           <Row>
             <Col>
               <Accordion.Header>Resenärer</Accordion.Header>
               <Accordion.Body>
-                <div className="traveler">
+                <div className='traveler'>
                   Vuxen:
-                  <PlusMinus traveler="Vuxen" />
+                  <PlusMinus
+                    traveler='Vuxen'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
-                <div className="traveler">
+                <div className='traveler'>
                   Barn:
-                  <PlusMinus traveler="Barn" />
+                  <PlusMinus
+                    traveler='Barn'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
-                <div className="traveler">
+                <div className='traveler'>
                   Pensionär:
-                  <PlusMinus traveler="Pensionär" />
+                  <PlusMinus
+                    traveler='Pensionär'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
-                <div className="traveler">
+                <div className='traveler'>
                   Student:
-                  <PlusMinus traveler="Student" />
-                </div>
-                <div className="traveler">
-                  Djur:
-                  <PlusMinus traveler="Djur" />
+                  <PlusMinus
+                    traveler='Student'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
               </Accordion.Body>
             </Col>

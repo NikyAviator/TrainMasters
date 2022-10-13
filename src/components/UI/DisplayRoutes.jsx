@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../../scss/main.scss';
 import { Link } from 'react-router-dom';
-export default function DisplayRoutes({ props, Date }) {
+export default function DisplayRoutes({ props, Date, travelerArray }) {
   let {
     startStation,
     endStation,
@@ -27,6 +27,7 @@ export default function DisplayRoutes({ props, Date }) {
             timeTableId: timeTableId,
             trainId: trainId,
             Date: Date,
+            travelerArray: travelerArray,
           }}
         >
           <Container fluid className='bg-secondary text-white mt-2'>

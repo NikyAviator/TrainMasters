@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 export default function Train({ props }) {
-  let { trainId } = props;
+  let { trainId, travelerArray } = props;
   const [image, setImage] = useState('');
   const [carriage, setCarriage] = useState(0);
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function Train({ props }) {
           setCarriage={setCarriage}
           props={props}
           trainId={trainId}
+          travelerArray={travelerArray}
         />
       ) : (
         <div className='wrapperTrain'>

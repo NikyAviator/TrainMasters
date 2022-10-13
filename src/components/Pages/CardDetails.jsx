@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Train from '../../components/UI/Train';
 import Col from 'react-bootstrap/Col';
+import { useEffect } from 'react';
 export default function CardDetails() {
   const location = useLocation();
   let props = location.state;
@@ -14,7 +15,12 @@ export default function CardDetails() {
     departureTimeFrom,
     trainId,
     Date,
+    travelerArray,
   } = props;
+
+  useEffect(() => {
+    console.log(travelerArray);
+  });
 
   return (
     <div>
