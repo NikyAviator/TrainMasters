@@ -14,7 +14,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button } from '../UI/Button';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import TicketTravelers from './TicketTravelers';
 import { useEffect } from 'react';
@@ -25,7 +25,7 @@ const TicketFromTo = () => {
   const [weekend, setWeekend] = useState(false);
   const [stations, setStations] = useState([]);
   const [travelerArray, setTravelerArr] = useState([]);
-
+  const [FormControll, setFormControll] = useState(true);
   useEffect(() => {
     async function fetchData() {
       let data = await getStations();
@@ -133,10 +133,11 @@ const TicketFromTo = () => {
             >
               <Col>
                 <Button
-                  buttonStyle='btn--secondary-outline'
-                  buttonSize='btn--medium-secondary'
+                  disabled={!travelerArray.length}
                   type='submit'
-                  onClick={submitForm}
+                  onClick={() => {
+                    submitForm, console.log(travelerArray.length);
+                  }}
                 >
                   Sök
                 </Button>
@@ -148,6 +149,7 @@ const TicketFromTo = () => {
             routes={routes}
             Date={Date}
             travelerArray={travelerArray}
+            setTravelerArr={setTravelerArr}
           />
         </Container>
       </Card>

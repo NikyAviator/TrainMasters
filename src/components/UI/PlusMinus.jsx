@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-function PlusMinus({ travelerArray, traveler }) {
+function PlusMinus({ travelerArray, traveler, setTravelerArr }) {
   let [count, setCount] = useState(0);
   const travelerArr = [];
 
@@ -13,12 +13,10 @@ function PlusMinus({ travelerArray, traveler }) {
   }
   function decrementCount() {
     setCount((c) => Math.max(c - 1, 0));
-    const index = travelerArr.indexOf(props.name);
+    const index = travelerArray.indexOf(traveler);
     if (index > -1) {
-      travelerArr.splice(index, 1);
+      travelerArray.splice(index, 1);
     }
-
-    setTraveler(travelerArr);
   }
 
   return (

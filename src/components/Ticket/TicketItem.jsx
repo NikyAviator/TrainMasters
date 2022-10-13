@@ -1,7 +1,7 @@
 import React from 'react';
 import DisplayRoutes from '../UI/DisplayRoutes';
 
-const TicketItem = ({ routes, Date, travelerArray }) => {
+const TicketItem = ({ routes, Date, travelerArray, setTravelerArr }) => {
   return (
     <>
       {routes ? (
