@@ -117,7 +117,7 @@ const TicketFromTo = () => {
               </Col>
             </Row>
             <Row style={{ paddingBottom: '8%' }}>
-              <Col style={{ display: 'grid', justifyContent: 'center' }}>
+              <Col style={{ minWidth: '50%' }}>
                 <TicketTravelers />
               </Col>
             </Row>
