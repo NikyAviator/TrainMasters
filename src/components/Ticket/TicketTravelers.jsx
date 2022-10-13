@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import PlusMinus from '../UI/PlusMinus';
 import Container from 'react-bootstrap/Container';
-function TicketTravelers() {
+function TicketTravelers({ setTravelerArr, travelerArray }) {
   return (
     <Container>
       <Accordion>
@@ -15,19 +15,35 @@ function TicketTravelers() {
               <Accordion.Body>
                 <div className='traveler'>
                   Vuxen:
-                  <PlusMinus traveler='Vuxen' />
+                  <PlusMinus
+                    traveler='Vuxen'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
                 <div className='traveler'>
                   Barn:
-                  <PlusMinus traveler='Barn' />
+                  <PlusMinus
+                    traveler='Barn'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
                 <div className='traveler'>
                   Pensionär:
-                  <PlusMinus traveler='Pensionär' />
+                  <PlusMinus
+                    traveler='Pensionär'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
                 <div className='traveler'>
                   Student:
-                  <PlusMinus traveler='Student' />
+                  <PlusMinus
+                    traveler='Student'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
                 </div>
               </Accordion.Body>
             </Col>

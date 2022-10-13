@@ -7,7 +7,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 const { booking } = factory;
-export default function Carriage({ carriage, props, setCarriage, trainId }) {
+export default function Carriage({
+  carriage,
+  props,
+  setCarriage,
+  trainId,
+  travelerArray,
+}) {
   const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState([]);
   const [image, setImage] = useState('');
@@ -68,7 +74,8 @@ export default function Carriage({ carriage, props, setCarriage, trainId }) {
   // };
 
   function selectedSeat(id) {
-    if (!selected.includes(id) && selected.length < 4) {
+    console.log(travelerArray);
+    if (!selected.includes(id) && selected.length < travelerArray.length) {
       let newSelected = [...selected, id];
       setSelected(newSelected);
     } else {

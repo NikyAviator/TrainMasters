@@ -24,6 +24,7 @@ const TicketFromTo = () => {
   const [Date, setDate] = useState('');
   const [weekend, setWeekend] = useState(false);
   const [stations, setStations] = useState([]);
+  const [travelerArray, setTravelerArr] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -118,7 +119,10 @@ const TicketFromTo = () => {
             </Row>
             <Row style={{ paddingBottom: '8%' }}>
               <Col style={{ minWidth: '50%' }}>
-                <TicketTravelers />
+                <TicketTravelers
+                  setTravelerArr={setTravelerArr}
+                  travelerArray={travelerArray}
+                />
               </Col>
             </Row>
             <Row
@@ -140,7 +144,11 @@ const TicketFromTo = () => {
             </Row>
           </Col>
 
-          <TicketItem routes={routes} Date={Date} />
+          <TicketItem
+            routes={routes}
+            Date={Date}
+            travelerArray={travelerArray}
+          />
         </Container>
       </Card>
     </div>
