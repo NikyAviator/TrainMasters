@@ -1,5 +1,5 @@
-import "../../../scss/main.scss";
-import TicketFromTo from "../Ticket/TicketFromTo";
+import '../../../scss/main.scss';
+import TicketFromTo from '../Ticket/TicketFromTo';
 
 export default function BookingPage(props) {
   let { setTrainId, trainIdd } = props;

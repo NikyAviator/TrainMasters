@@ -27,6 +27,7 @@ const TicketFromTo = () => {
   const [travelerArray, setTravelerArr] = useState([]);
   const [FormControll, setFormControll] = useState(true);
   useEffect(() => {
+    console.log(travelerArray);
     async function fetchData() {
       let data = await getStations();
       setStations(data);
@@ -132,13 +133,7 @@ const TicketFromTo = () => {
               }}
             >
               <Col>
-                <Button
-                  disabled={!travelerArray.length}
-                  type='submit'
-                  onClick={() => {
-                    submitForm, console.log(travelerArray.length);
-                  }}
-                >
+                <Button type='submit' onClick={submitForm}>
                   Sök
                 </Button>
               </Col>
