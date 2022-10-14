@@ -19,7 +19,14 @@ export default function Carriage({
   const [selected, setSelected] = useState([]);
   const [image, setImage] = useState('');
 
-  let { timeTableId, arrivalTimeTo, departureTimeFrom, date } = props;
+  let {
+    timeTableId,
+    arrivalTimeTo,
+    departureTimeFrom,
+    date,
+    startStation,
+    endStation,
+  } = props;
 
   useEffect(() => {
     setImage('../../../public/images/seat.png');
@@ -40,7 +47,9 @@ export default function Carriage({
               x.seatNumber === e.seatId &&
               x.carriage === e.carriageId &&
               e.timeTableId === timeTableId &&
-              e.bdate.slice(0, 10) === date
+              e.bdate.slice(0, 10) === date &&
+              e.fromDeparture === startStation &&
+              e.toDestination === endStation
             ) {
               x.booked = true;
             }
@@ -58,6 +67,8 @@ export default function Carriage({
     selected.forEach(async (seatNumber) => {
       let book = {
         bookingId: '123',
+        fromDeparture: startStation,
+        toDestination: endStation,
         arrival: arrivalTimeTo,
         departure: departureTimeFrom,
         price: 22,
@@ -130,9 +141,6 @@ export default function Carriage({
           </div>
         ))}
       </Row>
-      <Button className='secondary' onClick={book}>
-        BOKA
-      </Button>
       <Button
         className='secondary'
         style={{
@@ -141,6 +149,9 @@ export default function Carriage({
         onClick={() => setCarriage(0)}
       >
         TILLBAKA
+      </Button>
+      <Button className='secondary' onClick={book}>
+        BOKA
       </Button>
     </Container>
   );
