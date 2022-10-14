@@ -30,7 +30,16 @@ export default function Carriage({
     rorderTo,
   } = props;
 
+  // x är stolarna
+  // e är bokningar
   useEffect(() => {
+    console.log(rorderFrom);
+
+    // rorderFROM STOCKHOLM = 1
+    // roderTo  KUMLA= 10
+    // Bålsta = rorder 3
+    // Köping = rorder 4
+
     setImage('../../../public/images/seat.png');
     async function fetchData() {
       // gets the tickets from database
@@ -50,8 +59,8 @@ export default function Carriage({
               x.carriage === e.carriageId &&
               e.timeTableId === timeTableId &&
               e.bdate.slice(0, 10) === date &&
-              e.fromDeparture === startStation &&
-              e.toDestination === endStation
+              e.rorderTo > rorderFrom &&
+              e.rorderFrom < rorderTo
             ) {
               x.booked = true;
             }
@@ -71,6 +80,8 @@ export default function Carriage({
         bookingId: '123',
         fromDeparture: startStation,
         toDestination: endStation,
+        rorderFrom: rorderFrom,
+        rorderTo: rorderTo,
         arrival: arrivalTimeTo,
         departure: departureTimeFrom,
         price: 22,
