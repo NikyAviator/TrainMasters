@@ -19,9 +19,27 @@ export default function Carriage({
   const [selected, setSelected] = useState([]);
   const [image, setImage] = useState('');
 
-  let { timeTableId, arrivalTimeTo, departureTimeFrom, date } = props;
+  let {
+    timeTableId,
+    arrivalTimeTo,
+    departureTimeFrom,
+    date,
+    startStation,
+    endStation,
+    rorderFrom,
+    rorderTo,
+  } = props;
 
+  // x är stolarna
+  // e är bokningar
   useEffect(() => {
+    console.log(rorderFrom);
+
+    // rorderFROM STOCKHOLM = 1
+    // roderTo  KUMLA= 10
+    // Bålsta = rorder 3
+    // Köping = rorder 4
+
     setImage('../../../public/images/seat.png');
     async function fetchData() {
       // gets the tickets from database
@@ -40,7 +58,9 @@ export default function Carriage({
               x.seatNumber === e.seatId &&
               x.carriage === e.carriageId &&
               e.timeTableId === timeTableId &&
-              e.bdate.slice(0, 10) === date
+              e.bdate.slice(0, 10) === date &&
+              e.rorderTo > rorderFrom &&
+              e.rorderFrom < rorderTo
             ) {
               x.booked = true;
             }
@@ -58,6 +78,10 @@ export default function Carriage({
     selected.forEach(async (seatNumber) => {
       let book = {
         bookingId: '123',
+        fromDeparture: startStation,
+        toDestination: endStation,
+        rorderFrom: rorderFrom,
+        rorderTo: rorderTo,
         arrival: arrivalTimeTo,
         departure: departureTimeFrom,
         price: 22,
@@ -130,9 +154,6 @@ export default function Carriage({
           </div>
         ))}
       </Row>
-      <Button className='secondary' onClick={book}>
-        BOKA
-      </Button>
       <Button
         className='secondary'
         style={{
@@ -141,6 +162,9 @@ export default function Carriage({
         onClick={() => setCarriage(0)}
       >
         TILLBAKA
+      </Button>
+      <Button className='secondary' onClick={book}>
+        BOKA
       </Button>
     </Container>
   );

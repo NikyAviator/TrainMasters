@@ -11,6 +11,8 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
     departureTimeFrom,
     trainId,
     timeTableId,
+    rorderFrom,
+    rorderTo,
   } = props;
 
   return (
@@ -28,6 +30,8 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
             trainId: trainId,
             date: date,
             travelerArray: travelerArray,
+            rorderFrom: rorderFrom,
+            rorderTo: rorderTo,
           }}
         >
           <Container fluid className='bg-secondary text-white mt-2'>
