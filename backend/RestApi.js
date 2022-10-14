@@ -63,15 +63,15 @@ module.exports = class RestApi {
       });
     });
     this.app.post('/api/bookings', function (req, res) {
+      let bookingId = req.body.bookingId;
       let arrival = req.body.arrival;
       let departure = req.body.departure;
       let price = req.body.price;
-      let bookingId = req.body.bookingId;
       let seatId = req.body.seatId;
       let carriageId = req.body.carriageId;
       let timeTableId = req.body.timeTableId;
       let bdate = req.body.bdate;
-      let sql = `INSERT INTO bookings (arrival,departure,price,seatId,carriageId,timeTableId,bdate) VALUES ('${arrival}','${departure}',${price},${seatId},${carriageId},${timeTableId},'${bdate}')`;
+      let sql = `INSERT INTO bookings (bookingId, arrival,departure,price,seatId,carriageId,timeTableId,bdate) VALUES ('${bookingId} ${arrival}','${departure}',${price},${seatId},${carriageId},${timeTableId},'${bdate}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

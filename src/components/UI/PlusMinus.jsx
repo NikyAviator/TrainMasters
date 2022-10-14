@@ -9,6 +9,7 @@ function PlusMinus({ travelerArray, traveler, setTravelerArr }) {
     setCount((c) => c + 1);
     travelerArr.push(traveler);
     travelerArray.push(...travelerArr);
+    setTravelerArr(travelerArray);
     console.log(travelerArray);
   }
   function decrementCount() {

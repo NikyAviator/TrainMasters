@@ -17,7 +17,7 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
     <div className='wrapper'>
       <div className='route-card'>
         <Link
-          to='/details'
+          to={`/details`}
           style={{ textDecoration: 'none' }}
           state={{
             startStation: startStation,

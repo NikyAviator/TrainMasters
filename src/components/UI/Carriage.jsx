@@ -57,6 +57,7 @@ export default function Carriage({
   async function book() {
     selected.forEach(async (seatNumber) => {
       let book = {
+        bookingId: '1234',
         arrival: arrivalTimeTo,
         departure: departureTimeFrom,
         price: 22,
