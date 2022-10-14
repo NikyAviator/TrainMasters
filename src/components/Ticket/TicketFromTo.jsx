@@ -36,8 +36,8 @@ const TicketFromTo = () => {
   }, []);
 
   let emptyFormValues = {
-    from: '',
-    to: '',
+    from: 'Stockholm C',
+    to: 'Kumla',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
 

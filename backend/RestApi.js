@@ -63,10 +63,10 @@ module.exports = class RestApi {
       });
     });
     this.app.post('/api/bookings', function (req, res) {
+      let bookingId = req.body.bookingId;
       let arrival = req.body.arrival;
       let departure = req.body.departure;
       let price = req.body.price;
-      let bookingId = req.body.bookingId;
       let seatId = req.body.seatId;
       let carriageId = req.body.carriageId;
       let timeTableId = req.body.timeTableId;
