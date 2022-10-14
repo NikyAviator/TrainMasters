@@ -43,6 +43,8 @@ function getFinalRoutes(from, to) {
       e.endStation = e.stationName;
       e.departureTimeFrom = getTime(e.startTime, e.arrivalTime);
       e.arrivalTimeTo = getTime(e.startTime, x.departureTime);
+      e.rorderFrom = x.rorder;
+      e.rorderTo = e.rorder;
     });
   });
   from.forEach((x) => {

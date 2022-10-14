@@ -26,6 +26,8 @@ export default function Carriage({
     date,
     startStation,
     endStation,
+    rorderFrom,
+    rorderTo,
   } = props;
 
   useEffect(() => {
