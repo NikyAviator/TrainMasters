@@ -42,7 +42,7 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
             </Row>
             <Row className='py-3'>
               <Col className='timeSlot'>
-                <p>{`${arrivalTimeTo} - ${departureTimeFrom}`}</p>
+                <p>{`${departureTimeFrom} - ${arrivalTimeTo}`}</p>
               </Col>
             </Row>
           </Container>

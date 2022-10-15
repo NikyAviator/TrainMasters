@@ -39,17 +39,19 @@ function getTime(time, addHour) {
 function getFinalRoutes(from, to) {
   from.forEach((x) => {
     to.forEach((e) => {
-      e.startStation = x.stationName;
-      e.endStation = e.stationName;
-      e.departureTimeFrom = getTime(e.startTime, e.arrivalTime);
-      e.arrivalTimeTo = getTime(e.startTime, x.departureTime);
-      e.rorderFrom = x.rorder;
-      e.rorderTo = e.rorder;
+      if (x.timeTableId === e.timeTableId) {
+        e.startStation = x.stationName;
+        e.endStation = e.stationName;
+        e.departureTimeFrom = getTime(x.startTime, x.departureTime);
+        e.arrivalTimeTo = getTime(e.startTime, e.arrivalTime);
+        e.rorderFrom = x.rorder;
+        e.rorderTo = e.rorder;
+      }
     });
   });
   from.forEach((x) => {
     to.forEach((e) => {
-      if (!checkTime(e.arrivalTimeTo, e.departureTimeFrom)) {
+      if (!checkTime(e.departureTimeFrom, e.arrivalTimeTo)) {
         (e.arrivalTimeTo = getTime(e.startTime, x.arrivalTime)),
           (e.departureTimeFrom = getTime(e.startTime, e.arrivalTime));
       }
