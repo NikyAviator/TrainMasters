@@ -12,6 +12,7 @@ $body-color: white; (tex)
 @import "./body";
 */
 // Bootstrap css
+@import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 @import '../node_modules/bootstrap/scss/bootstrap';
 // Our own css
 @import '/scss/Header.scss';
@@ -35,4 +36,7 @@ $body-color: white; (tex)
 .bookingForm {
   text-align: center !important;
   padding: 15% !important;
+}
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }

@@ -8,7 +8,7 @@ import RegisterPage from './components/Pages/RegisterPage';
 import Footer from './components/UI/Footer';
 import Header from './components/UI/Header';
 import CardDetails from './components/Pages/CardDetails';
-
+import PaymentPage from './components/Pages/PaymentPage';
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
 
@@ -25,6 +25,7 @@ export default function App() {
             <Route path='/logga-in' element={<LogInPage />} />
             <Route path='/registrera' element={<RegisterPage />} />
             <Route path='/details' element={<CardDetails />} />
+            <Route path='betala' element={<PaymentPage />} />
           </Routes>
         </main>
         <Footer />
