@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 const { booking } = factory;
 export default function Carriage({
   carriage,
@@ -163,8 +164,26 @@ export default function Carriage({
       >
         TILLBAKA
       </Button>
-      <Button className='secondary' onClick={book}>
-        BOKA
+
+      <Button className='secondary'>
+        <Link
+          to={`/betala`}
+          style={{ textDecoration: 'none' }}
+          state={{
+            startStation: startStation,
+            endStation: endStation,
+            arrivalTimeTo: arrivalTimeTo,
+            departureTimeFrom: departureTimeFrom,
+            timeTableId: timeTableId,
+            trainId: trainId,
+            date: date,
+            travelerArray: travelerArray,
+            rorderFrom: rorderFrom,
+            rorderTo: rorderTo,
+          }}
+        >
+          BETALA
+        </Link>
       </Button>
     </Container>
   );

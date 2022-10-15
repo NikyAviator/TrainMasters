@@ -1,4 +1,6 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import {
   MDBCard,
   MDBCardBody,
@@ -14,13 +16,30 @@ import {
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function PaymentPage() {
+  const location = useLocation();
+  let props = location.state;
+  let {
+    startStation,
+    endStation,
+    arrivalTimeTo,
+    departureTimeFrom,
+    trainId,
+    date,
+    travelerArray,
+  } = props;
+  useEffect(() => {
+    console.log(props);
+  });
   return (
     <MDBContainer className='py-5'>
       <MDBRow>
         <MDBCol md='8' className='mb-4'>
           <MDBCard className='mb-4'>
             <MDBCardHeader className='py-3'>
+              <h2>
+                {startStation} - {endStation}{' '}
+              </h2>
               <h5 className='mb-0'>Betalning:</h5>
             </MDBCardHeader>
             <MDBCardBody>

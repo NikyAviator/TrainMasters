@@ -45,6 +45,14 @@ function TicketTravelers({ setTravelerArr, travelerArray }) {
                     travelerArray={travelerArray}
                   />
                 </div>
+                <div className='traveler'>
+                  Ungdom (16-25):
+                  <PlusMinus
+                    traveler='Ungdom'
+                    setTravelerArr={setTravelerArr}
+                    travelerArray={travelerArray}
+                  />
+                </div>
               </Accordion.Body>
             </Col>
           </Row>
