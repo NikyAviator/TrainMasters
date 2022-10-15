@@ -27,7 +27,6 @@ const TicketFromTo = () => {
   const [travelerArray, setTravelerArr] = useState([]);
   const [FormControll, setFormControll] = useState(true);
   useEffect(() => {
-    console.log(travelerArray);
     async function fetchData() {
       let data = await getStations();
       setStations(data);
@@ -54,7 +53,6 @@ const TicketFromTo = () => {
     let route = await findRoute(from, to);
     if (weekend) route = await itsWeekend(route);
     setRoutes(route);
-    console.log(route);
     //resetForm();
   }
 

@@ -9,6 +9,7 @@ CREATE TABLE bookings  (
   arrival varchar(100) NOT NULL,
   price int(11) NOT NULL,
   seatId int(11) NOT NULL,
+  trainId int(11) NOT NULL,
   carriageId int(11) NOT NULL,
   timeTableId int(11) NOT NULL,
   bdate varchar(100) not null,

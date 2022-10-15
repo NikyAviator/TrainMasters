@@ -8,19 +8,7 @@ import { useEffect } from 'react';
 export default function CardDetails() {
   const location = useLocation();
   let props = location.state;
-  let {
-    startStation,
-    endStation,
-    arrivalTimeTo,
-    departureTimeFrom,
-    trainId,
-    date,
-    travelerArray,
-  } = props;
-
-  useEffect(() => {
-    console.log(travelerArray);
-  });
+  let { startStation, endStation, arrivalTimeTo, departureTimeFrom } = props;
 
   return (
     <div>

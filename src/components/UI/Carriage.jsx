@@ -1,14 +1,14 @@
 import React from 'react';
 import '../../../scss/main.scss';
 import { useState, useEffect } from 'react';
-import { carriageWithSeats, tickets } from '../../utilities/Bookings';
-import { factory } from '../../utilities/FetchHelper';
+import { carriageWithSeats, bookings } from '../../utilities/Bookings';
+import { countCapacity } from '../../utilities/PriceCounter';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-const { booking } = factory;
 export default function Carriage({
   carriage,
   props,
@@ -18,8 +18,7 @@ export default function Carriage({
 }) {
   const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState([]);
-  const [image, setImage] = useState('');
-
+  const [image, setImage] = useState('../../../public/images/seat.png');
   let {
     timeTableId,
     arrivalTimeTo,
@@ -29,32 +28,27 @@ export default function Carriage({
     endStation,
     rorderFrom,
     rorderTo,
+    price,
+    trainNumber,
   } = props;
 
   // x är stolarna
   // e är bokningar
   useEffect(() => {
-    console.log(rorderFrom);
-
-    // rorderFROM STOCKHOLM = 1
-    // roderTo  KUMLA= 10
-    // Bålsta = rorder 3
-    // Köping = rorder 4
-
-    setImage('../../../public/images/seat.png');
     async function fetchData() {
-      // gets the tickets from database
-      let getTickets = await tickets();
+      // gets all the bookings from database
+      let getbookings = await bookings();
       //gets carriagesWithSeats
       let carriages = await carriageWithSeats();
 
       carriages = carriages.filter(
         (x) => x.carriage === carriage && x.trainId === trainId
       );
-      if (getTickets.length) {
+
+      if (getbookings.length) {
         carriages.forEach((x) => {
           x.selected = false;
-          getTickets.forEach((e) => {
+          getbookings.forEach((e) => {
             if (
               x.seatNumber === e.seatId &&
               x.carriage === e.carriageId &&
@@ -75,33 +69,7 @@ export default function Carriage({
     fetchData();
   }, []);
 
-  async function book() {
-    selected.forEach(async (seatNumber) => {
-      let book = {
-        bookingId: '123',
-        fromDeparture: startStation,
-        toDestination: endStation,
-        rorderFrom: rorderFrom,
-        rorderTo: rorderTo,
-        arrival: arrivalTimeTo,
-        departure: departureTimeFrom,
-        price: 22,
-        seatId: seatNumber,
-        carriageId: carriage,
-        timeTableId: timeTableId,
-        bdate: date,
-      };
-      let newBooking = new booking(book);
-      await newBooking.save();
-    });
-  }
-
-  // const uid = () => {
-  //   return Date.now().toString(36) + Math.random().toString(36).substr(2);
-  // };
-
   function selectedSeat(id) {
-    console.log(travelerArray);
     if (!selected.includes(id) && selected.length < travelerArray.length) {
       let newSelected = [...selected, id];
       setSelected(newSelected);
@@ -176,10 +144,14 @@ export default function Carriage({
             departureTimeFrom: departureTimeFrom,
             timeTableId: timeTableId,
             trainId: trainId,
+            trainNumber: trainNumber,
             date: date,
             travelerArray: travelerArray,
             rorderFrom: rorderFrom,
             rorderTo: rorderTo,
+            selected: selected,
+            carriage: carriage,
+            price: carriage === 1 ? price.firstClass : price.secondClass,
           }}
         >
           BETALA

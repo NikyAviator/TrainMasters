@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { factory } from '../../utilities/FetchHelper';
+
+const { booking } = factory;
+
 import {
   MDBCard,
   MDBCardBody,
@@ -24,13 +28,38 @@ export default function PaymentPage() {
     endStation,
     arrivalTimeTo,
     departureTimeFrom,
-    trainId,
     date,
-    travelerArray,
+    trainId,
+    rorderFrom,
+    rorderTo,
+    selected,
+    carriage,
+    timeTableId,
+    price,
   } = props;
-  useEffect(() => {
-    console.log(props);
-  });
+
+  async function book() {
+    selected.forEach(async (seatNumber) => {
+      let book = {
+        bookingId: '123',
+        fromDeparture: startStation,
+        toDestination: endStation,
+        rorderFrom: rorderFrom,
+        rorderTo: rorderTo,
+        arrival: arrivalTimeTo,
+        departure: departureTimeFrom,
+        price: price,
+        seatId: seatNumber,
+        trainId: trainId,
+        carriageId: carriage,
+        timeTableId: timeTableId,
+        bdate: date,
+      };
+      let newBooking = new booking(book);
+      await newBooking.save();
+    });
+  }
+
   return (
     <MDBContainer className='py-5'>
       <MDBRow>
@@ -113,7 +142,7 @@ export default function PaymentPage() {
                 </MDBCol>
               </MDBRow>
 
-              <MDBBtn size='lg' block>
+              <MDBBtn size='lg' block onClick={book}>
                 BETALA
               </MDBBtn>
             </MDBCardBody>
@@ -129,10 +158,10 @@ export default function PaymentPage() {
               <MDBListGroup flush>
                 <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
                   <div>
-                    <strong>Totalt pris</strong>
+                    <strong>Total pris</strong>
                   </div>
                   <span>
-                    <strong>60 kr</strong>
+                    <strong>{price} kr</strong>
                   </span>
                 </MDBListGroupItem>
               </MDBListGroup>

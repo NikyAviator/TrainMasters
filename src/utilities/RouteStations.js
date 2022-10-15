@@ -46,6 +46,8 @@ function getFinalRoutes(from, to) {
         e.arrivalTimeTo = getTime(e.startTime, e.arrivalTime);
         e.rorderFrom = x.rorder;
         e.rorderTo = e.rorder;
+        e.departureTime = x.departureTime;
+        e.arrivalTime = e.arrivalTime;
       }
     });
   });

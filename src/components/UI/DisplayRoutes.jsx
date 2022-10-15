@@ -3,7 +3,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../../scss/main.scss';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { count, countCapacity } from '../../utilities/PriceCounter';
 export default function DisplayRoutes({ props, date, travelerArray }) {
+  const [price, setPrice] = useState(0);
+
   let {
     startStation,
     endStation,
@@ -13,7 +17,18 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
     timeTableId,
     rorderFrom,
     rorderTo,
+    arrivalTime,
+    departureTime,
+    trainNumber,
   } = props;
+
+  useEffect(() => {
+    async function countPrice() {
+      let price = count(arrivalTime, departureTime, travelerArray, trainId);
+      setPrice(await countCapacity(price, trainId, timeTableId, date));
+    }
+    countPrice();
+  }, [props]);
 
   return (
     <div className='wrapper'>
@@ -28,10 +43,12 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
             departureTimeFrom: departureTimeFrom,
             timeTableId: timeTableId,
             trainId: trainId,
+            trainNumber: trainNumber,
             date: date,
             travelerArray: travelerArray,
             rorderFrom: rorderFrom,
             rorderTo: rorderTo,
+            price: price,
           }}
         >
           <Container fluid className='bg-secondary text-white mt-2'>
@@ -43,6 +60,11 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
             <Row className='py-3'>
               <Col className='timeSlot'>
                 <p>{`${departureTimeFrom} - ${arrivalTimeTo}`}</p>
+              </Col>
+            </Row>
+            <Row className='py-3'>
+              <Col className='timeSlot'>
+                <p>{`Fr. ${price.secondClass} kr`}</p>
               </Col>
             </Row>
           </Container>

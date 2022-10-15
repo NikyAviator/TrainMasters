@@ -6,7 +6,7 @@ export async function carriageWithSeats() {
   return seats;
 }
 
-export async function tickets() {
-  let tickets = booking.findTickets();
+export async function bookings() {
+  let tickets = booking.findBookings();
   return tickets;
 }
