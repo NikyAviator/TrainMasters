@@ -1,5 +1,5 @@
 create view routesInfo as
-select arrivalTime,departureTime,platform,stationName,routeName,rorder,startTime,trainId,trainNumber,notweekends,tt.id as timeTableId
+select arrivalTime,departureTime,platform,stationName,routeName,rorder,startTime,trainId,trainNumber,direction,notweekends,tt.id as timeTableId
  from routestations o
 left join stations j 
   on o.stationId = j.id

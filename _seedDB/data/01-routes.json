@@ -1,20 +1,26 @@
 [
   {
-    "routeName": "Stockholm C - Göteborg C"
+    "routeName": "Stockholm C - Göteborg C",
+    "direction": "L"
   },
   {
-    "routeName": "Göteborg C - Stockholm C"
+    "routeName": "Göteborg C - Stockholm C",
+    "direction": "R"
   },
   {
-    "routeName": "Göteborg C - Malmö Hyllie"
+    "routeName": "Göteborg C - Malmö Hyllie",
+    "direction": "R"
   },
   {
-    "routeName": "Malmö Hyllie - Göteborg C"
+    "routeName": "Malmö Hyllie - Göteborg C",
+    "direction": "L"
   },
   {
-    "routeName": "Helsingborg C - Trelleborg"
+    "routeName": "Helsingborg C - Trelleborg",
+    "direction": "L"
   },
   {
-    "routeName": "Trelleborg - Helsingborg C"
+    "routeName": "Trelleborg - Helsingborg C",
+    "direction": "R"
   }
 ]

@@ -23,7 +23,6 @@ export default function CardDetails() {
             <Row>
               <Col>
                 <h1>{`${arrivalTimeTo} - ${departureTimeFrom}`}</h1>
-                <p>FÄRDRIKTNING: VÄNSTER</p>
               </Col>
             </Row>
           </Container>

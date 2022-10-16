@@ -18,6 +18,7 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
     rorderFrom,
     rorderTo,
     arrivalTime,
+    direction,
     departureTime,
     trainNumber,
   } = props;
@@ -44,6 +45,7 @@ export default function DisplayRoutes({ props, date, travelerArray }) {
             timeTableId: timeTableId,
             trainId: trainId,
             trainNumber: trainNumber,
+            direction: direction,
             date: date,
             travelerArray: travelerArray,
             rorderFrom: rorderFrom,

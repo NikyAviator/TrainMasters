@@ -3,8 +3,8 @@ const { route } = factory;
 
 export async function findRoute(start, end) {
   if (start === end) return console.log('Cannot go to same');
-  let a = await getRoute(start, end);
-  let obj = { ...a };
+  let getRoutes = await getRoute(start, end);
+  let obj = { ...getRoutes };
   return obj;
 }
 

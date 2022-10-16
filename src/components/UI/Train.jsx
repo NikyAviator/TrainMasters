@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 export default function Train({ props }) {
-  let { trainId, travelerArray, setTravelerArr, startStation, endStation } =
-    props;
+  console.log(props);
+  let { trainId, travelerArray, direction } = props;
   const [image, setImage] = useState('');
   const [carriage, setCarriage] = useState(0);
   useEffect(() => {
@@ -118,6 +118,20 @@ export default function Train({ props }) {
           )}
         </div>
       )}
+      <Container className='direction-wrapper'>
+        <Row>
+          <Col
+            className={`${
+              direction === 'L' ? 'directionLeft' : 'directionRight'
+            }`}
+            style={{
+              backgroundImage: `url(images/directionArrow.png)`,
+            }}
+          >
+            <h2>Planerad färdriktning</h2>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

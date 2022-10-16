@@ -132,7 +132,7 @@ const TicketFromTo = () => {
               }}
             >
               <Col>
-                <Button type='submit' onClick={submitForm}>
+                <Button type='submit' className='mb-4' onClick={submitForm}>
                   Sök
                 </Button>
               </Col>
