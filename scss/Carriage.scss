@@ -16,3 +16,11 @@
 .number {
   user-select: none;
 }
+
+.to-payment-btn-link {
+  color: #242424 !important;
+}
+
+.to-payment-btn:hover .to-payment-btn-link {
+  color: #fff !important;
+}

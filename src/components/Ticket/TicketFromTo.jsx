@@ -129,10 +129,11 @@ const TicketFromTo = () => {
               style={{
                 display: 'grid',
                 justifyContent: 'center',
+                paddingBottom: '3%'
               }}
             >
               <Col>
-                <Button type='submit' className='mb-4' onClick={submitForm}>
+                <Button type='submit' className='book-search-btn' onClick={submitForm}>
                   Sök
                 </Button>
               </Col>

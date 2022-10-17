@@ -53,7 +53,7 @@ export default function LogInPage() {
           <h3>Har du inget konto?</h3>
           <h5>Registrera dig här.</h5>
         </div>
-        <div className="btn">
+        <div>
           <Button
             buttonStyle="btn--secondary-outline"
             buttonSize="btn--medium-secondary"
