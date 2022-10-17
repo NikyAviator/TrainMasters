@@ -20,14 +20,14 @@ export default function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<StartPage />} />
-            <Route path="/boka" element={<BookingPage />} />
-            <Route path="/biljetter" element={<TicketsPage />} />
-            <Route path="/logga-in" element={<LogInPage />} />
-            <Route path="/registrera" element={<RegisterPage />} />
-            <Route path="/details" element={<CardDetails />} />
-            <Route path="/betala" element={<PaymentPage />} />
-            <Route path="/bekraftelse" element={<ConfirmationPage />} />
+            <Route path='/' element={<StartPage />} />
+            <Route path='/boka' element={<BookingPage />} />
+            <Route path='/biljetter' element={<TicketsPage />} />
+            <Route path='/logga-in' element={<LogInPage />} />
+            <Route path='/registrera' element={<RegisterPage />} />
+            <Route path='/details' element={<CardDetails />} />
+            <Route path='/betala' element={<PaymentPage />} />
+            <Route path='/bekraftelse' element={<ConfirmationPage />} />
           </Routes>
         </main>
         <Footer />

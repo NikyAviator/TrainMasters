@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../scss/main.scss';
 import { useState, useEffect } from 'react';
 import { carriageWithSeats, bookings } from '../../utilities/Bookings';
-import { countCapacity } from '../../utilities/PriceCounter';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

@@ -21,15 +21,15 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/:view/:station', function (req, res) {
-      let view = req.params.view;
-      let station = req.params.station;
-      let sql = `SELECT * FROM ${view} WHERE stationName = '${station}'`;
-      let query = db.query(sql, (err, results) => {
-        if (err) throw err;
-        res.send(results);
-      });
-    });
+    // this.app.get('/api/:view/:station', function (req, res) {
+    //   let view = req.params.view;
+    //   let station = req.params.station;
+    //   let sql = `SELECT * FROM ${view} WHERE stationName = '${station}'`;
+    //   let query = db.query(sql, (err, results) => {
+    //     if (err) throw err;
+    //     res.send(results);
+    //   });
+    // });
     this.app.get('/api/:view/:route/:order', function (req, res) {
       let view = req.params.view;
       let order = req.params.order;
@@ -57,6 +57,14 @@ module.exports = class RestApi {
     });
     this.app.get('/api/bookings', function (req, res) {
       let sql = 'SELECT * FROM bookings';
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.get('/api/bookings/:id', function (req, res) {
+      let id = req.params.id;
+      let sql = `SELECT * FROM bookings WHERE bookingId ='${id}'`;
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

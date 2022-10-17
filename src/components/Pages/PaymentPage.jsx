@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { factory } from '../../utilities/FetchHelper';
 import { v4 as uuidv4 } from 'uuid';
@@ -21,8 +21,10 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function PaymentPage() {
+  const navigate = useNavigate();
   let bookingnumber = uuidv4();
   const location = useLocation();
+  let bookingObj = {};
   let props = location.state;
   let {
     startStation,
@@ -41,7 +43,7 @@ export default function PaymentPage() {
 
   async function book() {
     selected.forEach(async (seatNumber) => {
-      let book = {
+      bookingObj = {
         bookingId: bookingnumber.split('-').shift(),
         fromDeparture: startStation,
         toDestination: endStation,
@@ -56,8 +58,9 @@ export default function PaymentPage() {
         timeTableId: timeTableId,
         bdate: date,
       };
-      let newBooking = new booking(book);
+      let newBooking = new booking(bookingObj);
       await newBooking.save();
+      navigate(`/bekraftelse`, { state: { bookingObj: bookingObj } });
     });
   }
 
@@ -142,8 +145,12 @@ export default function PaymentPage() {
                   />
                 </MDBCol>
               </MDBRow>
-
-              <MDBBtn className="pay-btn" size='lg' block onClick={book}>
+              <MDBBtn
+                className='pay-btn'
+                size='lg'
+                block
+                onClick={async () => await book()}
+              >
                 BETALA
               </MDBBtn>
             </MDBCardBody>

@@ -25,7 +25,6 @@ const TicketFromTo = () => {
   const [weekend, setWeekend] = useState(false);
   const [stations, setStations] = useState([]);
   const [travelerArray, setTravelerArr] = useState([]);
-  const [FormControll, setFormControll] = useState(true);
   useEffect(() => {
     async function fetchData() {
       let data = await getStations();
@@ -129,11 +128,15 @@ const TicketFromTo = () => {
               style={{
                 display: 'grid',
                 justifyContent: 'center',
-                paddingBottom: '3%'
+                paddingBottom: '3%',
               }}
             >
               <Col>
-                <Button type='submit' className='book-search-btn' onClick={submitForm}>
+                <Button
+                  type='submit'
+                  className='book-search-btn'
+                  onClick={submitForm}
+                >
                   Sök
                 </Button>
               </Col>
