@@ -1,11 +1,12 @@
 import { carriageWithSeats, bookings } from '../utilities/Bookings';
 
-export function count(departure, arrival, travelerArray, train) {
+export function count(departure, arrival, travelerArray) {
   let getMinutes = departure - arrival;
   let countPriceFirstClass = getMinutes * 3.0;
   let countPriceSecondClass = getMinutes * 2.0;
   let countPricePerTravelerFirstClass = [];
   let countPricePerTravelerSecondClass = [];
+
   travelerArray.forEach((x) => {
     countPricePerTravelerFirstClass.push(
       countPriceFirstClass * translateTraveler(x)
@@ -16,6 +17,8 @@ export function count(departure, arrival, travelerArray, train) {
       countPriceSecondClass * translateTraveler(x)
     );
   });
+
+
   let finalPriceFirstClass = countPricePerTravelerFirstClass.reduce(
     (a, b) => a + b,
     0
@@ -24,6 +27,8 @@ export function count(departure, arrival, travelerArray, train) {
     (a, b) => a + b,
     0
   );
+
+
   let prices = {
     firstClass: Math.round(finalPriceFirstClass),
     secondClass: Math.round(finalPriceSecondClass),
@@ -57,9 +62,12 @@ export async function countCapacity(price, trainId, timeTableId, date) {
       x.trainId === trainId && x.timeTableId === timeTableId && x.bdate === date
   );
   carriages = carriages.filter((x) => x.trainId === trainId);
+
+
   let countCapacityTrain =
     ((getbookings.length / carriages.length) * 100) / 100;
   let getDecimals = 1.0 - countCapacityTrain;
+  
   price.firstClass = Math.round(price.firstClass * (1.5 - getDecimals));
   price.secondClass = Math.round(price.secondClass * (1.5 - getDecimals));
   return price;

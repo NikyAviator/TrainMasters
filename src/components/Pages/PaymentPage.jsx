@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { factory } from '../../utilities/FetchHelper';
+import { v4 as uuidv4 } from 'uuid';
 
 const { booking } = factory;
 
@@ -9,7 +10,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
-  MDBCheckbox,
   MDBCol,
   MDBContainer,
   MDBInput,
@@ -21,6 +21,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function PaymentPage() {
+  let bookingnumber = uuidv4();
   const location = useLocation();
   let props = location.state;
   let {
@@ -41,7 +42,7 @@ export default function PaymentPage() {
   async function book() {
     selected.forEach(async (seatNumber) => {
       let book = {
-        bookingId: '123',
+        bookingId: bookingnumber.split('-').shift(),
         fromDeparture: startStation,
         toDestination: endStation,
         rorderFrom: rorderFrom,
