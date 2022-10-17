@@ -1,12 +1,12 @@
-import React from 'react';
-import '../../../scss/main.scss';
-import { useState, useEffect } from 'react';
-import { carriageWithSeats, bookings } from '../../utilities/Bookings';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "../../../scss/main.scss";
+import { useState, useEffect } from "react";
+import { carriageWithSeats, bookings } from "../../utilities/Bookings";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 export default function Carriage({
   carriage,
   props,
@@ -28,6 +28,19 @@ export default function Carriage({
     price,
     trainNumber,
   } = props;
+
+  // Splits "seats" array in 4
+  const middle = Math.floor(seats.length / 2);
+  const seatsRowOne = seats.slice(0, middle);
+  const seatsRowTwo = seats.slice(middle);
+
+  const middleTwo = Math.floor(seatsRowOne.length / 2);
+  const middleThree = Math.floor(seatsRowTwo.length / 2);
+
+  const seats1 = seatsRowOne.slice(0, middleTwo );
+  const seats2 = seatsRowOne.slice(middleTwo);
+  const seats3 = seatsRowTwo.slice(0, middleThree);
+  const seats4 = seatsRowTwo.slice(middleThree);
 
   // x är stolarna
   // e är bokningar
@@ -80,48 +93,161 @@ export default function Carriage({
       <Row>
         <Col>Välj antal platser: {travelerArray.length - selected.length}</Col>
       </Row>
-      <Row>
-        {seats.map((item, index) => (
+      <Row className="grid-container">
+        {seats1.map((item, index) => (
           <div
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? 'selected' : ''
-            }${item.handicapSeat ? 'handicapSeat' : ''}${
-              item.booked ? 'booked' : ''
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              transform: 'rotate(90deg)',
-              margin: '22px',
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: '9px',
-              cursor: 'pointer',
-              maxHeight: '100px',
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "22px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "1",
             }}
           >
             <p
-              className='number'
+              className="number"
               style={{
-                transform: 'rotate(270deg)',
-                marginTop: '15px',
-                marginRight: '5px',
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
               }}
             >
-              {' '}
+              {" "}
+              {item.seatNumber}
+            </p>
+          </div>
+        ))}
+        {seats2.map((item, index) => (
+          <div
+            onClick={() => selectedSeat(item.seatNumber)}
+            key={index}
+            className={`seat${
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
+            }`}
+            style={{
+              backgroundImage: "url('images/seat.png')",
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "22px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "2",
+              marginBottom: "80px",
+            }}
+          >
+            <p
+              className="number"
+              style={{
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
+              }}
+            >
+              {" "}
+              {item.seatNumber}
+            </p>
+          </div>
+        ))}
+        {seats3.map((item, index) => (
+          <div
+            onClick={() => selectedSeat(item.seatNumber)}
+            key={index}
+            className={`seat${
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
+            }`}
+            style={{
+              backgroundImage: "url('images/seat.png')",
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "22px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "3",
+            }}
+          >
+            <p
+              className="number"
+              style={{
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
+              }}
+            >
+              {" "}
+              {item.seatNumber}
+            </p>
+          </div>
+        ))}
+        {seats4.map((item, index) => (
+          <div
+            onClick={() => selectedSeat(item.seatNumber)}
+            key={index}
+            className={`seat${
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
+            }`}
+            style={{
+              backgroundImage: "url('images/seat.png')",
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "22px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "4",
+            }}
+          >
+            <p
+              className="number"
+              style={{
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
+              }}
+            >
+              {" "}
               {item.seatNumber}
             </p>
           </div>
         ))}
       </Row>
       <Button
-        className='back-btn'
+        className="back-btn"
         style={{
-          margin: '10px',
+          margin: "10px",
         }}
         onClick={() => setCarriage(0)}
       >
@@ -129,13 +255,13 @@ export default function Carriage({
       </Button>
 
       <Button
-        className='to-payment-btn'
+        className="to-payment-btn"
         disabled={travelerArray.length - selected.length}
       >
         <Link
-          className='to-payment-btn-link'
+          className="to-payment-btn-link"
           to={`/betala`}
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
           state={{
             startStation: startStation,
             endStation: endStation,
