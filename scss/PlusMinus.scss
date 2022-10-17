@@ -40,6 +40,11 @@ input {
   justify-content: right;
   align-content: center;
   text-align: center;
-  gap: 140px;
+  gap: 50px;
 }
 
+@media only screen and (max-width: 800px) {
+  .traveler {
+    gap: 18px;
+  }
+}
