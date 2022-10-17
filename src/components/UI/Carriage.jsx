@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../scss/main.scss';
 import { useState, useEffect } from 'react';
 import { carriageWithSeats, bookings } from '../../utilities/Bookings';
-
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -17,7 +16,6 @@ export default function Carriage({
 }) {
   const [seats, setSeats] = useState([]);
   const [selected, setSelected] = useState([]);
-  const [image, setImage] = useState('../../../public/images/seat.png');
   let {
     timeTableId,
     arrivalTimeTo,
@@ -90,53 +88,56 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? "selected" : ""
-            }${item.handicapSeat ? "handicapSeat" : ""}${
-              item.booked ? "booked" : ""
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: "100% 100%",
-              width: "50px",
-              height: "50px",
-              transform: "rotate(90deg)",
-              margin: "22px",
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: "9px",
-              cursor: "pointer",
-              maxHeight: "100px",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '9px',
+              cursor: 'pointer',
+              maxHeight: '100px',
             }}
           >
             <p
-              className="number"
+              className='number'
               style={{
-                transform: "rotate(270deg)",
-                marginTop: "15px",
-                marginRight: "5px",
+                transform: 'rotate(270deg)',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
-              {" "}
+              {' '}
               {item.seatNumber}
             </p>
           </div>
         ))}
       </Row>
       <Button
-        className="back-btn"
+        className='back-btn'
         style={{
-          margin: "10px",
+          margin: '10px',
         }}
         onClick={() => setCarriage(0)}
       >
         TILLBAKA
       </Button>
 
-      <Button className="to-payment-btn">
+      <Button
+        className='to-payment-btn'
+        disabled={travelerArray.length - selected.length}
+      >
         <Link
-          className="to-payment-btn-link"
+          className='to-payment-btn-link'
           to={`/betala`}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: 'none' }}
           state={{
             startStation: startStation,
             endStation: endStation,

@@ -39,12 +39,7 @@ export default function ConfirmationPage() {
               width: '100%',
             }}
           >
-            <QRCode
-              size={256}
-              style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-              value={bookingId}
-              viewBox={`0 0 256 256`}
-            />
+            <QRCode size={256} value={bookingId} viewBox={`0 0 256 256`} />
           </Row>
           <Row>
             <h2>{`Bokningsnr: ${bookingId}`}</h2>

@@ -21,15 +21,15 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    // this.app.get('/api/:view/:station', function (req, res) {
-    //   let view = req.params.view;
-    //   let station = req.params.station;
-    //   let sql = `SELECT * FROM ${view} WHERE stationName = '${station}'`;
-    //   let query = db.query(sql, (err, results) => {
-    //     if (err) throw err;
-    //     res.send(results);
-    //   });
-    // });
+    this.app.get('/api/routesInfo/:station', function (req, res) {
+      let view = req.params.view;
+      let station = req.params.station;
+      let sql = `SELECT * FROM routesInfo WHERE stationName = '${station}'`;
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
     this.app.get('/api/:view/:route/:order', function (req, res) {
       let view = req.params.view;
       let order = req.params.order;
@@ -84,7 +84,8 @@ module.exports = class RestApi {
       let carriageId = req.body.carriageId;
       let timeTableId = req.body.timeTableId;
       let bdate = req.body.bdate;
-      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}')`;
+      let typeOfSeat = req.body.typeOfSeat;
+      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

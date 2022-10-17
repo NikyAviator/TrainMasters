@@ -57,6 +57,7 @@ export default function PaymentPage() {
         carriageId: carriage,
         timeTableId: timeTableId,
         bdate: date,
+        typeOfSeat: 'Vuxen',
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();

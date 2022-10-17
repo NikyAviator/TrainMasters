@@ -20,7 +20,7 @@ await aProduct.delete()           // delete from database
 
 export class FetchHelper {
   static async findStations(view, station) {
-    return [await (await fetch(`/api/${view}/${station}`)).json()]
+    return [await (await fetch(`/api/routesInfo/${station}`)).json()]
       .flat()
       .map((x) => (x ? new this(x) : null));
   }

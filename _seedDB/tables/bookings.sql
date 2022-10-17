@@ -12,6 +12,7 @@ CREATE TABLE bookings  (
   trainId int(11) NOT NULL,
   carriageId int(11) NOT NULL,
   timeTableId int(11) NOT NULL,
-  bdate varchar(100) not null,
+  bdate varchar(100) NOT NULL,
+  typeOfSeat varchar(100) NOT NULL,
   PRIMARY KEY (id)
 );
