@@ -38,11 +38,18 @@ export default function PaymentPage() {
     selected,
     carriage,
     timeTableId,
+    travelerArray,
     price,
   } = props;
+  let seats = {};
+
+  useEffect(() => {
+    selected.forEach((key, i) => (seats[key] = travelerArray[i]));
+    console.log(seats);
+  });
 
   async function book() {
-    selected.forEach(async (seatNumber) => {
+    for (const seat in seats) {
       bookingObj = {
         bookingId: bookingnumber.split('-').shift(),
         fromDeparture: startStation,
@@ -52,17 +59,17 @@ export default function PaymentPage() {
         arrival: arrivalTimeTo,
         departure: departureTimeFrom,
         price: price,
-        seatId: seatNumber,
+        seatId: seat,
         trainId: trainId,
         carriageId: carriage,
         timeTableId: timeTableId,
         bdate: date,
-        typeOfSeat: 'Vuxen',
+        typeOfSeat: seats[seat],
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();
       navigate(`/bekraftelse`, { state: { bookingObj: bookingObj } });
-    });
+    }
   }
 
   return (

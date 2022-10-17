@@ -5,14 +5,15 @@ const { booking } = factory;
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import useStates from '../../utilities/useStates';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import QRCode from 'react-qr-code';
+
 export default function TicketsPage() {
   const [ticket, setTicket] = useState();
-
+  let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
   let emptyFormValues = {
     findBookingId: '',
   };
@@ -29,26 +30,22 @@ export default function TicketsPage() {
   };
 
   async function submitForm(event) {
+    Object.keys(ticketSeatsInfo).forEach((key) => delete ticketSeatsInfo[key]);
+    let seats = [];
+    let type = [];
     event.preventDefault();
     let findbooking = await booking.findOneBookings(findBookingId);
-    console.log(findbooking);
+    findbooking.forEach((x) => {
+      seats.push(x.seatId);
+      type.push(x.typeOfSeat);
+    });
     setTicket(...findbooking);
-    resetForm();
-    console.log(ticket);
+    seats.forEach((key, i) => (ticketSeatsInfo[key] = type[i]));
+    setticketSeatsInfo(ticketSeatsInfo);
   }
 
   let { findBookingId } = formValues;
-  // let {
-  //   arrival,
-  //   bdate,
-  //   bookingId,
-  //   carriageId,
-  //   departure,
-  //   fromDeparture,
-  //   price,
-  //   seatId,
-  //   toDestination,
-  // } = ticket;
+
   return (
     <div className='bookingForm'>
       <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
@@ -67,7 +64,7 @@ export default function TicketsPage() {
 
       <Button
         type='submit'
-        className='book-search-btn'
+        className='book-search-btn mb-6'
         onClick={submitForm}
         disabled={!findBookingId}
       >
@@ -103,7 +100,11 @@ export default function TicketsPage() {
                 <p>{`Total pris: ${ticket.price}kr`}</p>
               </Row>
               <Row>
-                <p>{`Säten: ${ticket.seatId}`}</p>
+                {Object.entries(ticketSeatsInfo).map(([key, value], i) => (
+                  <div key={i}>
+                    <p>{`1x - ${value} plats: ${key}`}</p>
+                  </div>
+                ))}
               </Row>
             </Col>
           </Container>

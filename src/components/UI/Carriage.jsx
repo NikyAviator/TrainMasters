@@ -78,9 +78,7 @@ export default function Carriage({
   return (
     <Container>
       <Row>
-        <Col>
-          Ni kan välja antal platser: {travelerArray.length - selected.length}
-        </Col>
+        <Col>Välj antal platser: {travelerArray.length - selected.length}</Col>
       </Row>
       <Row>
         {seats.map((item, index) => (

@@ -9,8 +9,8 @@ export async function findRoute(start, end) {
 }
 
 async function getRoute(start, end) {
-  let from = await route.findStations('routesInfo', start);
-  let to = await route.findStations('routesInfo', end);
+  let from = await route.findStations(start);
+  let to = await route.findStations(end);
 
   let fromResults = from.filter(({ rorder: rorder, routeName: routeName }) =>
     to.some(

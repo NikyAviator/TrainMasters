@@ -22,7 +22,6 @@ module.exports = class RestApi {
       });
     });
     this.app.get('/api/routesInfo/:station', function (req, res) {
-      let view = req.params.view;
       let station = req.params.station;
       let sql = `SELECT * FROM routesInfo WHERE stationName = '${station}'`;
       let query = db.query(sql, (err, results) => {
