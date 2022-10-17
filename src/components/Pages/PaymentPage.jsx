@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { factory } from '../../utilities/FetchHelper';
 import { v4 as uuidv4 } from 'uuid';
 
 const { booking } = factory;
-
 import {
   MDBCard,
   MDBCardBody,
@@ -21,6 +20,8 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function PaymentPage() {
+  let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
+  let [countTravelers, setcountTravelers] = useState({});
   const navigate = useNavigate();
   let bookingnumber = uuidv4();
   const location = useLocation();
@@ -40,16 +41,35 @@ export default function PaymentPage() {
     timeTableId,
     travelerArray,
     price,
+    firstClass,
   } = props;
-  let seats = {};
-
   useEffect(() => {
-    selected.forEach((key, i) => (seats[key] = travelerArray[i]));
-    console.log(seats);
-  });
+    selected.forEach((key, i) => (ticketSeatsInfo[key] = travelerArray[i]));
+
+    let adults = 0;
+    let child = 0;
+    let senior = 0;
+    let student = 0;
+    let youth = 0;
+    for (const seat in ticketSeatsInfo) {
+      if (ticketSeatsInfo[seat] === 'Vuxen') adults++;
+      if (ticketSeatsInfo[seat] === 'Barn') child++;
+      if (ticketSeatsInfo[seat] === 'Pensionär') senior++;
+      if (ticketSeatsInfo[seat] === 'Student') student++;
+      if (ticketSeatsInfo[seat] === 'Ungdom') youth++;
+    }
+    let count = {
+      Vuxen: adults,
+      Barn: child,
+      Pensionär: senior,
+      Student: student,
+      Ungdom: youth,
+    };
+    setcountTravelers(count);
+  }, []);
 
   async function book() {
-    for (const seat in seats) {
+    for (const seat in ticketSeatsInfo) {
       bookingObj = {
         bookingId: bookingnumber.split('-').shift(),
         fromDeparture: startStation,
@@ -64,7 +84,7 @@ export default function PaymentPage() {
         carriageId: carriage,
         timeTableId: timeTableId,
         bdate: date,
-        typeOfSeat: seats[seat],
+        typeOfSeat: ticketSeatsInfo[seat],
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();
@@ -113,6 +133,7 @@ export default function PaymentPage() {
                 name='flexRadioDefault'
                 id='flexRadioDefault1'
                 label='Kredit kort'
+                onChange={() => console.log('')}
                 checked
               />
 
@@ -172,6 +193,15 @@ export default function PaymentPage() {
             </MDBCardHeader>
             <MDBCardBody>
               <MDBListGroup flush>
+                <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
+                  <div>
+                    {firstClass ? <p>{`1:a klass`}</p> : <p>{`2:a klass`}</p>}
+                  </div>
+                </MDBListGroupItem>
+                {Object.entries(countTravelers).map(([key, value], i) => (
+                  <span>{value ? `${value}x ${key}` : ''}</span>
+                ))}
+                <hr />
                 <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
                   <div>
                     <strong>Total pris</strong>
