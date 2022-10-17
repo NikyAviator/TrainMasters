@@ -22,7 +22,7 @@ export default function CardDetails() {
             </Row>
             <Row>
               <Col>
-                <h1>{`${arrivalTimeTo} - ${departureTimeFrom}`}</h1>
+                <h1>{`${departureTimeFrom} - ${arrivalTimeTo}`}</h1>
               </Col>
             </Row>
           </Container>
