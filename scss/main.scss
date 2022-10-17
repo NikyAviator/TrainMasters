@@ -32,7 +32,10 @@ $body-color: white; (tex)
   padding: 0;
   font-family: 'PT Sans', sans-serif;
 }
-
+.accordion-button:not(.collapsed) {
+    color: #242424 !important;
+    background-color: #fff !important;
+}
 .bookingForm {
   text-align: center !important;
   padding: 15% !important;

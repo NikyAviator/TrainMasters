@@ -9,6 +9,7 @@ import Footer from './components/UI/Footer';
 import Header from './components/UI/Header';
 import CardDetails from './components/Pages/CardDetails';
 import PaymentPage from './components/Pages/PaymentPage';
+import ConfirmationPage from './components/Pages/ConfirmationPage';
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
 
@@ -19,13 +20,14 @@ export default function App() {
         <Header />
         <main>
           <Routes>
-            <Route path='/' element={<StartPage />} />
-            <Route path='/boka' element={<BookingPage />} />
-            <Route path='/biljetter' element={<TicketsPage />} />
-            <Route path='/logga-in' element={<LogInPage />} />
-            <Route path='/registrera' element={<RegisterPage />} />
-            <Route path='/details' element={<CardDetails />} />
-            <Route path='betala' element={<PaymentPage />} />
+            <Route path="/" element={<StartPage />} />
+            <Route path="/boka" element={<BookingPage />} />
+            <Route path="/biljetter" element={<TicketsPage />} />
+            <Route path="/logga-in" element={<LogInPage />} />
+            <Route path="/registrera" element={<RegisterPage />} />
+            <Route path="/details" element={<CardDetails />} />
+            <Route path="/betala" element={<PaymentPage />} />
+            <Route path="/bekraftelse" element={<ConfirmationPage />} />
           </Routes>
         </main>
         <Footer />

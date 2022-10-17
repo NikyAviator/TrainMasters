@@ -143,7 +143,7 @@ export default function PaymentPage() {
                 </MDBCol>
               </MDBRow>
 
-              <MDBBtn size='lg' block onClick={book}>
+              <MDBBtn className="pay-btn" size='lg' block onClick={book}>
                 BETALA
               </MDBBtn>
             </MDBCardBody>
