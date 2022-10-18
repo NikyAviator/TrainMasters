@@ -58,7 +58,7 @@ const TicketFromTo = () => {
 
   let { from, to } = formValues;
 
-  console.log("RELOADING TicketFromTo", travelerArray)
+  console.log("RELOADING TicketFromTo", travelerArray);
 
   return (
     <div className="bookingForm">
@@ -140,7 +140,7 @@ const TicketFromTo = () => {
                   type="submit"
                   className="book-search-btn"
                   onClick={submitForm}
-                  disabled={!travelerArray || !travelerArray.length}
+                  disabled={!date || !from || !to || !travelerArray.length}
                 >
                   Sök
                 </Button>
