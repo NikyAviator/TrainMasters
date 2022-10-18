@@ -27,7 +27,7 @@ export default function ConfirmationPage() {
 
   return (
     <>
-      <Container style={{ marginTop: "20%", maxWidth: "70%" }}>
+      <Container style={{ marginTop: "20%", marginBottom: "20%", maxWidth: "70%" }}>
         <Card style={{ border: "none", textAlign: "center", padding: "5%" }}>
           <Col>
             <Row>
@@ -37,7 +37,7 @@ export default function ConfirmationPage() {
               style={{
                 height: "auto",
                 margin: "0 auto",
-                maxWidth: 64,
+                maxWidth: 200,
                 width: "100%",
               }}
             >
