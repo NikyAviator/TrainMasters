@@ -11,7 +11,7 @@ export default function CardDetails() {
   let { startStation, endStation, arrivalTimeTo, departureTimeFrom } = props;
 
   return (
-    <div>
+    <div style={{paddingTop: "7%", paddingBottom: "10%", textAlign: "center"}}>
       <div className='details'>
         {
           <Container>
