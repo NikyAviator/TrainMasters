@@ -23,14 +23,13 @@ const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
   const [date, setDate] = useState("");
   const [weekend, setWeekend] = useState(false);
-  const [stations, setStations] = useState([]);
+  let [stations, setStations] = useState([]);
   const [travelerArray, setTravelerArr] = useState([]);
   useEffect(() => {
     async function fetchData() {
       let data = await getStations();
       setStations(data);
     }
-    console.log(travelerArray);
     fetchData();
   }, [travelerArray]);
 
@@ -42,6 +41,18 @@ const TicketFromTo = () => {
 
   const onChangeFormValue = (event) => {
     let { name, value } = event.target;
+    console.log(value);
+    let a = stations.filter(
+      ({ stationName: stationName }) => stationName === value
+    );
+    if (a) {
+      stations = stations.filter(({ routeName: routeName }) =>
+        a.some(({ routeName: routeName2 }) => routeName === routeName2)
+      );
+    }
+
+    setStations([...stations]);
+
     updateStateFormValue({ [name]: value });
   };
   const resetForm = () => {
@@ -57,8 +68,6 @@ const TicketFromTo = () => {
   }
 
   let { from, to } = formValues;
-
-  console.log("RELOADING TicketFromTo", travelerArray);
 
   return (
     <div className="bookingForm">

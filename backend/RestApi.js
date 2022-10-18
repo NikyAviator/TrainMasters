@@ -14,8 +14,8 @@ module.exports = class RestApi {
   }
 
   start() {
-    this.app.get('/api/stations', function (req, res) {
-      let sql = 'SELECT * FROM stations';
+    this.app.get('/api/stationsWithRoute', function (req, res) {
+      let sql = 'SELECT * FROM stationsWithRoute';
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
