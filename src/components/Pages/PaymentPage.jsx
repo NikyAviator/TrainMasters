@@ -42,6 +42,7 @@ export default function PaymentPage() {
     travelerArray,
     price,
     firstClass,
+    platform,
   } = props;
   useEffect(() => {
     selected.forEach((key, i) => (ticketSeatsInfo[key] = travelerArray[i]));
@@ -85,6 +86,7 @@ export default function PaymentPage() {
         timeTableId: timeTableId,
         bdate: date,
         typeOfSeat: ticketSeatsInfo[seat],
+        platform: platform,
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();

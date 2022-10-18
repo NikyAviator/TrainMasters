@@ -1,10 +1,10 @@
-import React from 'react';
-import QRCode from 'react-qr-code';
-import { Link, useLocation } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import QRCode from "react-qr-code";
+import { Link, useLocation } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 
 export default function ConfirmationPage() {
   const location = useLocation();
@@ -20,13 +20,16 @@ export default function ConfirmationPage() {
     departure,
     price,
     trainId,
+    platform,
   } = bookingObj;
 
   console.log(props);
 
   return (
     <>
-      <Container style={{ marginTop: "20%", marginBottom: "20%", maxWidth: "70%" }}>
+      <Container
+        style={{ marginTop: "20%", marginBottom: "20%", maxWidth: "70%" }}
+      >
         <Card style={{ border: "none", textAlign: "center", padding: "5%" }}>
           <Col>
             <Row>
@@ -50,6 +53,9 @@ export default function ConfirmationPage() {
             </Row>
             <Row>
               <p>{`Total pris: ${price}kr`}</p>
+            </Row>
+            <Row>
+              <p>{"Platform: " + platform}</p>
             </Row>
           </Col>
         </Card>

@@ -27,6 +27,7 @@ export default function Carriage({
     rorderTo,
     price,
     trainNumber,
+    platform,
   } = props;
 
   // Splits "seats" array in 4
@@ -278,6 +279,7 @@ export default function Carriage({
             carriage: carriage,
             price: carriage === 1 ? price.firstClass : price.secondClass,
             firstClass: carriage === 1 ? true : false,
+            platform: platform,
           }}
         >
           Till BETALNING
