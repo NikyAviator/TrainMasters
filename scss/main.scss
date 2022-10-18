@@ -43,3 +43,10 @@ $body-color: white; (tex)
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+
+@media only screen and (max-width: 800px) {
+  .bookingForm {
+    padding: 0 !important;
+  }
+}
+

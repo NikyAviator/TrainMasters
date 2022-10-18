@@ -74,28 +74,28 @@ const TicketFromTo = () => {
   let { from, to } = formValues;
 
   return (
-    <div className='bookingForm'>
+    <div className="bookingForm">
       <h1>Boka din resa</h1>
       <br />
-      <Card style={{ border: 'none' }}>
+      <Card style={{ border: "none" }} className="booking-container">
         <Container>
           <Col>
             <Row>
               <Col>
-                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
+                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
                   <Form.Group>
                     <Form.Control
-                      type='text'
-                      name='from'
-                      placeholder='Från'
+                      type="text"
+                      name="from"
+                      placeholder="Från"
                       required
-                      maxLength='100'
-                      list='list-stations'
-                      id='input-datalist'
+                      maxLength="100"
+                      list="list-stations"
+                      id="input-datalist"
                       value={from}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id='list-stations'>
+                    <datalist id="list-stations">
                       {stations.map(({ stationName, i }) => (
                         <option key={i}>{stationName}</option>
                       ))}
@@ -104,20 +104,20 @@ const TicketFromTo = () => {
                 </Form>
               </Col>
               <Col>
-                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
+                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
                   <Form.Group>
                     <Form.Control
-                      type='text'
-                      name='to'
-                      placeholder='Till'
+                      type="text"
+                      name="to"
+                      placeholder="Till"
                       required
-                      maxLength='100'
-                      list='list-stations'
-                      id='input-datalist'
+                      maxLength="100"
+                      list="list-stations"
+                      id="input-datalist"
                       value={to}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id='list-stations'>
+                    <datalist id="list-stations">
                       {stations.map(({ stationName, i }) => (
                         <option key={i}>{stationName}</option>
                       ))}
@@ -126,13 +126,13 @@ const TicketFromTo = () => {
                 </Form>
               </Col>
             </Row>
-            <Row style={{ paddingBottom: '5%' }}>
+            <Row style={{ paddingBottom: "5%" }}>
               <Col>
                 <TicketDatePicker setWeekend={setWeekend} setDate={setDate} />
               </Col>
             </Row>
-            <Row style={{ paddingBottom: '8%' }}>
-              <Col style={{ minWidth: '50%' }}>
+            <Row style={{ paddingBottom: "8%" }}>
+              <Col style={{ minWidth: "50%" }}>
                 <TicketTravelers
                   setTravelerArr={setTravelerArr}
                   travelerArray={travelerArray}
@@ -141,15 +141,15 @@ const TicketFromTo = () => {
             </Row>
             <Row
               style={{
-                display: 'grid',
-                justifyContent: 'center',
-                paddingBottom: '3%',
+                display: "grid",
+                justifyContent: "center",
+                paddingBottom: "3%",
               }}
             >
               <Col>
                 <Button
-                  type='submit'
-                  className='book-search-btn'
+                  type="submit"
+                  className="book-search-btn"
                   onClick={submitForm}
                   disabled={!date || !from || !to || !travelerArray.length}
                 >
