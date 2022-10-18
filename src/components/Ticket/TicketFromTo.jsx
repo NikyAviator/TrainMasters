@@ -1,57 +1,61 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../../scss/main.scss";
-import { useState } from "react";
-import useStates from "../../utilities/useStates";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../../scss/main.scss';
+import { useState } from 'react';
+import useStates from '../../utilities/useStates';
 import {
   findRoute,
   itsWeekend,
   getStations,
-} from "../../utilities/RouteStations";
-import TicketItem from "./TicketItem";
-import TicketDatePicker from "./TicketDatePicker";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import TicketTravelers from "./TicketTravelers";
-import { useEffect } from "react";
+} from '../../utilities/RouteStations';
+import TicketItem from './TicketItem';
+import TicketDatePicker from './TicketDatePicker';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import TicketTravelers from './TicketTravelers';
+import { useEffect } from 'react';
 
 const TicketFromTo = () => {
   const [routes, setRoutes] = useState([]);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('');
   const [weekend, setWeekend] = useState(false);
   let [stations, setStations] = useState([]);
   const [travelerArray, setTravelerArr] = useState([]);
+  const [copyStations, setCopy] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       let data = await getStations();
       setStations(data);
+      setCopy(data);
     }
     fetchData();
   }, [travelerArray]);
 
   let emptyFormValues = {
-    from: "",
-    to: "",
+    from: '',
+    to: '',
   };
   const [formValues, updateStateFormValue] = useStates({ ...emptyFormValues });
 
   const onChangeFormValue = (event) => {
+    setStations(copyStations);
     let { name, value } = event.target;
-    console.log(value);
-    let a = stations.filter(
+    let a = copyStations.find(
       ({ stationName: stationName }) => stationName === value
     );
+    console.log(a);
     if (a) {
-      stations = stations.filter(({ routeName: routeName }) =>
-        a.some(({ routeName: routeName2 }) => routeName === routeName2)
+      let b = stations.filter(
+        ({ routeName: routeName }) => routeName === a.routeName
       );
+      console.log(b);
+      setStations([...b]);
     }
-
-    setStations([...stations]);
 
     updateStateFormValue({ [name]: value });
   };
@@ -70,67 +74,65 @@ const TicketFromTo = () => {
   let { from, to } = formValues;
 
   return (
-    <div className="bookingForm">
+    <div className='bookingForm'>
       <h1>Boka din resa</h1>
       <br />
-      <Card style={{ border: "none" }}>
+      <Card style={{ border: 'none' }}>
         <Container>
           <Col>
             <Row>
               <Col>
-                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="from"
-                      placeholder="Från"
+                      type='text'
+                      name='from'
+                      placeholder='Från'
                       required
-                      maxLength="100"
-                      list="list-stations"
-                      id="input-datalist"
+                      maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={from}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id="list-stations">
-                      {stations &&
-                        stations.map(({ stationName, i }) => (
-                          <option key={i}>{stationName}</option>
-                        ))}
+                    <datalist id='list-stations'>
+                      {stations.map(({ stationName, i }) => (
+                        <option key={i}>{stationName}</option>
+                      ))}
                     </datalist>
                   </Form.Group>
                 </Form>
               </Col>
               <Col>
-                <Form style={{ paddingBottom: "10%", paddingTop: "10%" }}>
+                <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
                   <Form.Group>
                     <Form.Control
-                      type="text"
-                      name="to"
-                      placeholder="Till"
+                      type='text'
+                      name='to'
+                      placeholder='Till'
                       required
-                      maxLength="100"
-                      list="list-stations"
-                      id="input-datalist"
+                      maxLength='100'
+                      list='list-stations'
+                      id='input-datalist'
                       value={to}
                       onChange={onChangeFormValue}
                     />
-                    <datalist id="list-stations">
-                      {stations &&
-                        stations.map(({ stationName, i }) => (
-                          <option key={i}>{stationName}</option>
-                        ))}
+                    <datalist id='list-stations'>
+                      {stations.map(({ stationName, i }) => (
+                        <option key={i}>{stationName}</option>
+                      ))}
                     </datalist>
                   </Form.Group>
                 </Form>
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "5%" }}>
+            <Row style={{ paddingBottom: '5%' }}>
               <Col>
                 <TicketDatePicker setWeekend={setWeekend} setDate={setDate} />
               </Col>
             </Row>
-            <Row style={{ paddingBottom: "8%" }}>
-              <Col style={{ minWidth: "50%" }}>
+            <Row style={{ paddingBottom: '8%' }}>
+              <Col style={{ minWidth: '50%' }}>
                 <TicketTravelers
                   setTravelerArr={setTravelerArr}
                   travelerArray={travelerArray}
@@ -139,15 +141,15 @@ const TicketFromTo = () => {
             </Row>
             <Row
               style={{
-                display: "grid",
-                justifyContent: "center",
-                paddingBottom: "3%",
+                display: 'grid',
+                justifyContent: 'center',
+                paddingBottom: '3%',
               }}
             >
               <Col>
                 <Button
-                  type="submit"
-                  className="book-search-btn"
+                  type='submit'
+                  className='book-search-btn'
                   onClick={submitForm}
                   disabled={!date || !from || !to || !travelerArray.length}
                 >
