@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 
 function PlusMinus({ travelerArray, traveler, setTravelerArr }) {
   let [count, setCount] = useState(0);
@@ -7,28 +7,27 @@ function PlusMinus({ travelerArray, traveler, setTravelerArr }) {
   function incrementCount() {
     setCount((c) => c + 1);
     travelerArray.push(traveler);
-    setTravelerArr(travelerArray);
+    setTravelerArr([...travelerArray]);
     console.log(travelerArray);
-    console.log(travelerArray.length);
   }
   function decrementCount() {
     setCount((c) => Math.max(c - 1, 0));
-    const index = travelerArray.indexOf(traveler);
-    console.log(index);
+    let index = travelerArray.indexOf(traveler);
     if (index > -1) {
-      setTravelerArr(travelerArray.splice(index, 1));
-      console.log(travelerArray);
+      travelerArray.splice(index, 1);
     }
+    setTravelerArr([...travelerArray]);
+    console.log(travelerArray);
   }
 
   return (
-    <div className='content-box'>
-      <div className='number'>
-        <span onClick={decrementCount} className='minus'>
+    <div className="content-box">
+      <div className="number">
+        <span onClick={decrementCount} className="minus">
           -
         </span>
-        <input type='text' value={count} onChange={incrementCount} />
-        <span onClick={incrementCount} className='plus'>
+        <input type="text" value={count} onChange={incrementCount} />
+        <span onClick={incrementCount} className="plus">
           +
         </span>
       </div>
