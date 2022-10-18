@@ -1,12 +1,12 @@
-import React from "react";
-import "../../../scss/main.scss";
-import { useState, useEffect } from "react";
-import { carriageWithSeats, bookings } from "../../utilities/Bookings";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import React from 'react';
+import '../../../scss/main.scss';
+import { useState, useEffect } from 'react';
+import { carriageWithSeats, bookings } from '../../utilities/Bookings';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 export default function Carriage({
   carriage,
   props,
@@ -37,7 +37,7 @@ export default function Carriage({
   const middleTwo = Math.floor(seatsRowOne.length / 2);
   const middleThree = Math.floor(seatsRowTwo.length / 2);
 
-  const seats1 = seatsRowOne.slice(0, middleTwo );
+  const seats1 = seatsRowOne.slice(0, middleTwo);
   const seats2 = seatsRowOne.slice(middleTwo);
   const seats3 = seatsRowTwo.slice(0, middleThree);
   const seats4 = seatsRowTwo.slice(middleThree);
@@ -93,40 +93,40 @@ export default function Carriage({
       <Row>
         <Col>Välj antal platser: {travelerArray.length - selected.length}</Col>
       </Row>
-      <Row className="grid-container">
+      <Row className='grid-container'>
         {seats1.map((item, index) => (
           <div
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? "selected" : ""
-            }${item.handicapSeat ? "handicapSeat" : ""}${
-              item.booked ? "booked" : ""
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: "100% 100%",
-              width: "50px",
-              height: "50px",
-              transform: "rotate(90deg)",
-              margin: "22px",
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: "9px",
-              cursor: "pointer",
-              maxHeight: "100px",
-              gridRow: "1",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '9px',
+              cursor: 'pointer',
+              maxHeight: '100px',
+              gridRow: '1',
             }}
           >
             <p
-              className="number"
+              className='number'
               style={{
-                transform: "rotate(270deg)",
-                marginTop: "15px",
-                marginRight: "5px",
+                transform: 'rotate(270deg)',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
-              {" "}
+              {' '}
               {item.seatNumber}
             </p>
           </div>
@@ -136,35 +136,35 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? "selected" : ""
-            }${item.handicapSeat ? "handicapSeat" : ""}${
-              item.booked ? "booked" : ""
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: "100% 100%",
-              width: "50px",
-              height: "50px",
-              transform: "rotate(90deg)",
-              margin: "22px",
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: "9px",
-              cursor: "pointer",
-              maxHeight: "100px",
-              gridRow: "2",
-              marginBottom: "80px",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '9px',
+              cursor: 'pointer',
+              maxHeight: '100px',
+              gridRow: '2',
+              marginBottom: '80px',
             }}
           >
             <p
-              className="number"
+              className='number'
               style={{
-                transform: "rotate(270deg)",
-                marginTop: "15px",
-                marginRight: "5px",
+                transform: 'rotate(270deg)',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
-              {" "}
+              {' '}
               {item.seatNumber}
             </p>
           </div>
@@ -174,34 +174,34 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? "selected" : ""
-            }${item.handicapSeat ? "handicapSeat" : ""}${
-              item.booked ? "booked" : ""
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: "100% 100%",
-              width: "50px",
-              height: "50px",
-              transform: "rotate(90deg)",
-              margin: "22px",
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: "9px",
-              cursor: "pointer",
-              maxHeight: "100px",
-              gridRow: "3",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '9px',
+              cursor: 'pointer',
+              maxHeight: '100px',
+              gridRow: '3',
             }}
           >
             <p
-              className="number"
+              className='number'
               style={{
-                transform: "rotate(270deg)",
-                marginTop: "15px",
-                marginRight: "5px",
+                transform: 'rotate(270deg)',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
-              {" "}
+              {' '}
               {item.seatNumber}
             </p>
           </div>
@@ -211,43 +211,43 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? "selected" : ""
-            }${item.handicapSeat ? "handicapSeat" : ""}${
-              item.booked ? "booked" : ""
+              selected.includes(item.seatNumber) ? 'selected' : ''
+            }${item.handicapSeat ? 'handicapSeat' : ''}${
+              item.booked ? 'booked' : ''
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: "100% 100%",
-              width: "50px",
-              height: "50px",
-              transform: "rotate(90deg)",
-              margin: "22px",
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: "9px",
-              cursor: "pointer",
-              maxHeight: "100px",
-              gridRow: "4",
+              backgroundSize: '100% 100%',
+              width: '50px',
+              height: '50px',
+              transform: 'rotate(90deg)',
+              margin: '22px',
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '9px',
+              cursor: 'pointer',
+              maxHeight: '100px',
+              gridRow: '4',
             }}
           >
             <p
-              className="number"
+              className='number'
               style={{
-                transform: "rotate(270deg)",
-                marginTop: "15px",
-                marginRight: "5px",
+                transform: 'rotate(270deg)',
+                marginTop: '15px',
+                marginRight: '5px',
               }}
             >
-              {" "}
+              {' '}
               {item.seatNumber}
             </p>
           </div>
         ))}
       </Row>
       <Button
-        className="back-btn"
+        className='back-btn'
         style={{
-          margin: "10px",
+          margin: '10px',
         }}
         onClick={() => setCarriage(0)}
       >
@@ -255,13 +255,13 @@ export default function Carriage({
       </Button>
 
       <Button
-        className="to-payment-btn"
+        className='to-payment-btn'
         disabled={travelerArray.length - selected.length}
       >
         <Link
-          className="to-payment-btn-link"
+          className='to-payment-btn-link'
           to={`/betala`}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: 'none' }}
           state={{
             startStation: startStation,
             endStation: endStation,
@@ -277,9 +277,10 @@ export default function Carriage({
             selected: selected,
             carriage: carriage,
             price: carriage === 1 ? price.firstClass : price.secondClass,
+            firstClass: carriage === 1 ? true : false,
           }}
         >
-          BETALA
+          Till BETALNING
         </Link>
       </Button>
     </Container>
