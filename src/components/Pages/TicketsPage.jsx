@@ -15,6 +15,8 @@ import QRCode from "react-qr-code";
 export default function TicketsPage() {
   const [ticket, setTicket] = useState();
   let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
+  let [countTravelers, setcountTravelers] = useState({});
+  let [seats, setSeats] = useState("");
   let emptyFormValues = {
     findBookingId: "",
   };
@@ -32,18 +34,41 @@ export default function TicketsPage() {
 
   async function submitForm(event) {
     Object.keys(ticketSeatsInfo).forEach((key) => delete ticketSeatsInfo[key]);
-    let seats = [];
+    let getSeats = [];
     let type = [];
     event.preventDefault();
     let findbooking = await booking.findOneBookings(findBookingId);
     findbooking.forEach((x) => {
-      seats.push(x.seatId);
+      getSeats.push(x.seatId);
       type.push(x.typeOfSeat);
     });
     setTicket(...findbooking);
-    seats.forEach((key, i) => (ticketSeatsInfo[key] = type[i]));
+    getSeats.forEach((key, i) => (ticketSeatsInfo[key] = type[i]));
+    let adults = 0;
+    let child = 0;
+    let senior = 0;
+    let student = 0;
+    let youth = 0;
+    for (const seat in ticketSeatsInfo) {
+      if (ticketSeatsInfo[seat] === "Vuxen") adults++;
+      if (ticketSeatsInfo[seat] === "Barn") child++;
+      if (ticketSeatsInfo[seat] === "Pensionär") senior++;
+      if (ticketSeatsInfo[seat] === "Student") student++;
+      if (ticketSeatsInfo[seat] === "Ungdom") youth++;
+    }
+    let count = {
+      Vuxen: adults,
+      Barn: child,
+      Pensionär: senior,
+      Student: student,
+      Ungdom: youth,
+    };
+    setcountTravelers(count);
+    setSeats(getSeats.join());
     setticketSeatsInfo(ticketSeatsInfo);
   }
+
+  console.log(ticket);
 
   let { findBookingId } = formValues;
 
@@ -95,7 +120,7 @@ export default function TicketsPage() {
                     viewBox={`0 0 256 256`}
                   />
                 </Row>
-                <Row>
+                <Row style={{ paddingBottom: "5%" }}>
                   <h2>{`Bokningsnr: ${ticket.bookingId}`}</h2>
                 </Row>
                 <Row>
@@ -105,11 +130,21 @@ export default function TicketsPage() {
                   <p>{`Total pris: ${ticket.price}kr`}</p>
                 </Row>
                 <Row>
-                  {Object.entries(ticketSeatsInfo).map(([key, value], i) => (
-                    <div key={i}>
-                      <p>{`1x - ${value} plats: ${key}`}</p>
-                    </div>
+                  <p>{`Platform: ${ticket.platform}`}</p>
+                </Row>
+                <Row>
+                  <p
+                    style={{ textDecoration: "underline" }}
+                  >{`Bokade resenärer:`}</p>
+                  {Object.entries(countTravelers).map(([key, value], i) => (
+                    <div>{value ? `${value}x ${key}` : ""}</div>
                   ))}
+                </Row>
+                <Row style={{ paddingTop: "4%" }}>
+                  <p
+                    style={{ textDecoration: "underline" }}
+                  >{`Bokade säten:`}</p>
+                  <p>{seats}</p>
                 </Row>
               </Col>
             </Card>
