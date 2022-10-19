@@ -27,7 +27,8 @@ export default function Carriage({
     rorderTo,
     price,
     trainNumber,
-    platform,
+    platformFrom: platformFrom,
+    platformTo: platformTo,
   } = props;
   // Splits "seats" array in 4
   const middle = Math.floor(seats.length / 2);
@@ -76,6 +77,7 @@ export default function Carriage({
         setSeats(carriages);
       }
     }
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     fetchData();
   }, []);
 
@@ -336,7 +338,8 @@ export default function Carriage({
             carriage: carriage,
             price: carriage === 1 ? price.firstClass : price.secondClass,
             firstClass: carriage === 1 ? true : false,
-            platform: platform,
+            platformFrom: platformFrom,
+            platformTo: platformTo,
           }}
         >
           Till BETALNING

@@ -48,6 +48,8 @@ function getFinalRoutes(from, to) {
         e.rorderTo = e.rorder;
         e.departureTime = x.departureTime;
         e.arrivalTime = e.arrivalTime;
+        e.platformFrom = x.platform;
+        e.platformTo = e.platform;
       }
     });
   });

@@ -23,12 +23,9 @@ export default function ConfirmationPage() {
     departure,
     price,
     trainId,
-    platform,
+    platformFrom: platformFrom,
+    platformTo: platformTo,
   } = bookingObj;
-
-  function compareNumbers(a, b) {
-    return a - b;
-  }
 
   useEffect(() => {
     console.log(selected.sort((a, b) => a - b));
@@ -38,9 +35,20 @@ export default function ConfirmationPage() {
   return (
     <>
       <Container
-        style={{ marginTop: '20%', marginBottom: '20%', maxWidth: '70%' }}
+        style={{
+          marginTop: '20%',
+          marginBottom: '20%',
+          maxWidth: '90%',
+        }}
       >
-        <Card style={{ border: 'none', textAlign: 'center', padding: '5%' }}>
+        <Card
+          style={{
+            border: 'none',
+            textAlign: 'center',
+            padding: '5%',
+            width: '100%',
+          }}
+        >
           <Col>
             <Row>
               <h1>Bokningsbekräftelse</h1>
@@ -55,24 +63,40 @@ export default function ConfirmationPage() {
             >
               <QRCode size={256} value={bookingId} viewBox={`0 0 256 256`} />
             </Row>
-            <Row style={{ paddingBottom: '5%' }}>
+            <Row style={{ paddingBottom: '3%' }}>
               <h2>{`Bokningsnr: ${bookingId}`}</h2>
             </Row>
-            <Row>
-              <p>{`${fromDeparture} - ${toDestination}`}</p>
+            <Row style={{ paddingBottom: '3%' }}>
+              <h3>{`${fromDeparture} - ${toDestination}`}</h3>
             </Row>
             <Row>
-              <p>{`Total pris: ${price}kr`}</p>
+              {' '}
+              <p>{`Datum: ${bdate}`}</p>
             </Row>
             <Row>
-              <p>{'Platform: ' + platform}</p>
+              {' '}
+              <p>{`Tåg: 100${trainId}`}</p>
+            </Row>
+
+            <Row>
+              <strong>{`${fromDeparture}`}</strong>
             </Row>
             <Row>
               <p>{'Avgångstid: ' + departure}</p>
             </Row>
             <Row>
+              <p>{'Platform: ' + platformFrom}</p>
+            </Row>
+            <Row>
+              <strong>{`${toDestination}`}</strong>
+            </Row>
+            <Row>
               <p>{'Ankomsttid: ' + arrival}</p>
             </Row>
+            <Row>
+              <p>{'Platform: ' + platformTo}</p>
+            </Row>
+
             <Row>
               <p
                 style={{ textDecoration: 'underline' }}
@@ -81,9 +105,13 @@ export default function ConfirmationPage() {
                 <div>{value ? `${value}x ${key}` : ''}</div>
               ))}
             </Row>
-            <Row style={{ paddingTop: '4%' }}>
+            <Row style={{ paddingTop: '3%' }}>
               <p style={{ textDecoration: 'underline' }}>{`Bokade säten:`}</p>
-              <p>{seats}</p>
+              <p>Nr: {seats}</p>
+              <p>{`Vagn: ${carriageId}`}</p>
+            </Row>
+            <Row>
+              <strong>{`Total pris: ${price}kr`}</strong>
             </Row>
           </Col>
         </Card>

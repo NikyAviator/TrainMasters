@@ -99,9 +99,20 @@ export default function TicketsPage() {
 
       <Container>
         {ticket ? (
-          <Container>
+          <Container
+            style={{
+              marginTop: '20%',
+              marginBottom: '20%',
+              maxWidth: '90%',
+            }}
+          >
             <Card
-              style={{ border: 'none', textAlign: 'center', padding: '5%' }}
+              style={{
+                border: 'none',
+                textAlign: 'center',
+                padding: '5%',
+                width: '100%',
+              }}
             >
               <Col>
                 <Row
@@ -110,34 +121,48 @@ export default function TicketsPage() {
                     margin: '0 auto',
                     maxWidth: 200,
                     width: '100%',
-                    paddingBottom: '3%',
                   }}
                 >
                   <QRCode
                     size={256}
-                    style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
                     value={ticket.bookingId}
                     viewBox={`0 0 256 256`}
                   />
                 </Row>
-                <Row style={{ paddingBottom: '5%' }}>
+                <Row style={{ paddingBottom: '3%' }}>
                   <h2>{`Bokningsnr: ${ticket.bookingId}`}</h2>
                 </Row>
-                <Row>
-                  <p>{`${ticket.fromDeparture} - ${ticket.toDestination}`}</p>
+                <Row style={{ paddingBottom: '3%' }}>
+                  <h3>{`${ticket.fromDeparture} - ${ticket.toDestination}`}</h3>
                 </Row>
                 <Row>
-                  <p>{`Total pris: ${ticket.price}kr`}</p>
+                  {' '}
+                  <p>{`Datum: ${ticket.bdate}`}</p>
                 </Row>
                 <Row>
-                  <p>{`Platform: ${ticket.platform}`}</p>
+                  {' '}
+                  <p>{`Tåg: 100${ticket.trainId}`}</p>
+                </Row>
+
+                <Row>
+                  <strong>{`${ticket.fromDeparture}`}</strong>
                 </Row>
                 <Row>
-                  <p>{`Avgångstid: ${ticket.departure}`}</p>
+                  <p>{'Avgångstid: ' + ticket.departure}</p>
                 </Row>
                 <Row>
-                  <p>{`Ankomsttid: ${ticket.arrival}`}</p>
+                  <p>{'Platform: ' + ticket.platformFrom}</p>
                 </Row>
+                <Row>
+                  <strong>{`${ticket.toDestination}`}</strong>
+                </Row>
+                <Row>
+                  <p>{'Ankomsttid: ' + ticket.arrival}</p>
+                </Row>
+                <Row>
+                  <p>{'Platform: ' + ticket.platformTo}</p>
+                </Row>
+
                 <Row>
                   <p
                     style={{ textDecoration: 'underline' }}
@@ -146,17 +171,21 @@ export default function TicketsPage() {
                     <div>{value ? `${value}x ${key}` : ''}</div>
                   ))}
                 </Row>
-                <Row style={{ paddingTop: '4%' }}>
+                <Row style={{ paddingTop: '3%' }}>
                   <p
                     style={{ textDecoration: 'underline' }}
                   >{`Bokade säten:`}</p>
-                  <p>{seats}</p>
+                  <p>Nr: {seats}</p>
+                  <p>{`Vagn: ${ticket.carriageId}`}</p>
+                </Row>
+                <Row>
+                  <strong>{`Pris: ${ticket.price}kr`}</strong>
                 </Row>
               </Col>
             </Card>
           </Container>
         ) : (
-          <h4>Hittade ingen bokning</h4>
+          ''
         )}
       </Container>
     </div>

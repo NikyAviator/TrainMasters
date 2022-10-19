@@ -85,12 +85,15 @@ module.exports = class RestApi {
       let bdate = req.body.bdate;
       let typeOfSeat = req.body.typeOfSeat;
       let platform = req.body.platform;
-      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat,platform) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}','${platform}')`;
+      let platformFrom = req.body.platformFrom;
+      let platformTo = req.body.platformTo;
+      let trainNumber = req.body.trainNumber;
+
+      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat,platformFrom,platformTo,trainNumber) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}','${platformFrom}','${platformTo}','${trainNumber}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
       });
     });
-
   }
 };

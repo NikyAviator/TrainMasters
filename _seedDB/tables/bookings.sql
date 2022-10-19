@@ -14,6 +14,8 @@ CREATE TABLE bookings  (
   timeTableId int(11) NOT NULL,
   bdate varchar(100) NOT NULL,
   typeOfSeat varchar(100) NOT NULL,
-  platform varchar(10) NOT NULL,
+  platformFrom varchar(10) NOT NULL,
+  platformTo varchar(10) NOT NULL,
+  trainNumber varchar(10) NOT NULL,
   PRIMARY KEY (id)
 );
