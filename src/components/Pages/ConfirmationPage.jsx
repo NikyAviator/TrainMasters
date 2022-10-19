@@ -68,10 +68,10 @@ export default function ConfirmationPage() {
               <p>{'Platform: ' + platform}</p>
             </Row>
             <Row>
-              <p>{'Avgångs tid: ' + departure}</p>
+              <p>{'Avgångstid: ' + departure}</p>
             </Row>
             <Row>
-              <p>{'Ankomst tid: ' + arrival}</p>
+              <p>{'Ankomsttid: ' + arrival}</p>
             </Row>
             <Row>
               <p
