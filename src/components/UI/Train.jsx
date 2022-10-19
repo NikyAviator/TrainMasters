@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 export default function Train({ props }) {
-  console.log(props);
   let { trainId, travelerArray, direction } = props;
   const [image, setImage] = useState('');
   const [carriage, setCarriage] = useState(0);
