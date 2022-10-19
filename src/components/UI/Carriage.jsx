@@ -92,9 +92,16 @@ export default function Carriage({
   return (
     <Container>
       <Row>
+        {carriage === 1 ? (
+          <Col>{`1:a klass pris: ${price.firstClass} kr`}</Col>
+        ) : (
+          <Col>{`2:a klass pris: ${price.secondClass} kr`}</Col>
+        )}
+      </Row>
+      <Row>
         <Col>Välj antal platser: {travelerArray.length - selected.length}</Col>
       </Row>
-      <Row className='grid-container' style={{paddingTop: "5%"}}>
+      <Row className='grid-container' style={{ paddingTop: '5%' }}>
         {seats1.map((item, index) => (
           <div
             onClick={() => selectedSeat(item.seatNumber)}
@@ -249,7 +256,7 @@ export default function Carriage({
         className='back-btn'
         style={{
           margin: '10px',
-          paddingTop: "5%",
+          paddingTop: '5%',
         }}
         onClick={() => setCarriage(0)}
       >
@@ -259,7 +266,7 @@ export default function Carriage({
       <Button
         className='to-payment-btn'
         disabled={travelerArray.length - selected.length}
-        style={{ paddingTop: "5%" }}
+        style={{ paddingTop: '5%' }}
       >
         <Link
           className='to-payment-btn-link'
