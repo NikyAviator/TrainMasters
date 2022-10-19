@@ -275,31 +275,31 @@ export default function Carriage({
         </Col>
       </Row>
       <Row
-        style={{ textAlign: 'center', paddingTop: '5%', paddingBottom: '5%' }}
+        style={{ textAlign: 'center', paddingTop: '0%', paddingBottom: '5%' }}
       >
         <Col
           style={{
             textAlign: 'center',
-            paddingTop: '5%',
-            paddingBottom: '5%',
+            paddingTop: '1%',
           }}
         >
-          <div
-            style={{
-              backgroundImage: `url(${
-                (trainId === 1 && carriage === 6) ||
-                (trainId === 2 && carriage === 5) ||
-                (trainId === 3 && carriage === 4)
-                  ? `images/pet.png`
-                  : 'images/no-pets.png'
-              })`,
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              display: 'flex',
-              textAlign: 'center',
-            }}
-          ></div>
+          <div className='petWrapper'>
+            <div
+              style={{
+                backgroundImage: `url(${
+                  (trainId === 1 && carriage === 6) ||
+                  (trainId === 2 && carriage === 5) ||
+                  (trainId === 3 && carriage === 4)
+                    ? `images/pet.png`
+                    : 'images/no-pets.png'
+                })`,
+                backgroundSize: '100% 100%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+              }}
+            ></div>
+          </div>
         </Col>
       </Row>
       <Button
