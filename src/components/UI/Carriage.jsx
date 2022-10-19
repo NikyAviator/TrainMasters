@@ -101,40 +101,40 @@ export default function Carriage({
       <Row>
         <Col>Välj antal platser: {travelerArray.length - selected.length}</Col>
       </Row>
-      <Row className='grid-container' style={{ paddingTop: '5%' }}>
+      <Row className="grid-container" style={{ paddingTop: "5%" }}>
         {seats1.map((item, index) => (
           <div
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? 'selected' : ''
-            }${item.handicapSeat ? 'handicapSeat' : ''}${
-              item.booked ? 'booked' : ''
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              transform: 'rotate(90deg)',
-              margin: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: '9px',
-              cursor: 'pointer',
-              maxHeight: '100px',
-              gridRow: '1',
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "10px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "1",
             }}
           >
             <p
-              className='number'
+              className="number"
               style={{
-                transform: 'rotate(270deg)',
-                marginTop: '15px',
-                marginRight: '5px',
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
               }}
             >
-              {' '}
+              {" "}
               {item.seatNumber}
             </p>
           </div>
@@ -144,35 +144,35 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? 'selected' : ''
-            }${item.handicapSeat ? 'handicapSeat' : ''}${
-              item.booked ? 'booked' : ''
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              transform: 'rotate(90deg)',
-              margin: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: '9px',
-              cursor: 'pointer',
-              maxHeight: '100px',
-              gridRow: '2',
-              marginBottom: '80px',
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "10px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "2",
+              marginBottom: "80px",
             }}
           >
             <p
-              className='number'
+              className="number"
               style={{
-                transform: 'rotate(270deg)',
-                marginTop: '15px',
-                marginRight: '5px',
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
               }}
             >
-              {' '}
+              {" "}
               {item.seatNumber}
             </p>
           </div>
@@ -182,34 +182,34 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? 'selected' : ''
-            }${item.handicapSeat ? 'handicapSeat' : ''}${
-              item.booked ? 'booked' : ''
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              transform: 'rotate(90deg)',
-              margin: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: '9px',
-              cursor: 'pointer',
-              maxHeight: '100px',
-              gridRow: '3',
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "10px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "3",
             }}
           >
             <p
-              className='number'
+              className="number"
               style={{
-                transform: 'rotate(270deg)',
-                marginTop: '15px',
-                marginRight: '5px',
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
               }}
             >
-              {' '}
+              {" "}
               {item.seatNumber}
             </p>
           </div>
@@ -219,44 +219,65 @@ export default function Carriage({
             onClick={() => selectedSeat(item.seatNumber)}
             key={index}
             className={`seat${
-              selected.includes(item.seatNumber) ? 'selected' : ''
-            }${item.handicapSeat ? 'handicapSeat' : ''}${
-              item.booked ? 'booked' : ''
+              selected.includes(item.seatNumber) ? "selected" : ""
+            }${item.handicapSeat ? "handicapSeat" : ""}${
+              item.booked ? "booked" : ""
             }`}
             style={{
               backgroundImage: "url('images/seat.png')",
-              backgroundSize: '100% 100%',
-              width: '50px',
-              height: '50px',
-              transform: 'rotate(90deg)',
-              margin: '10px',
-              display: 'flex',
-              justifyContent: 'center',
-              borderRadius: '9px',
-              cursor: 'pointer',
-              maxHeight: '100px',
-              gridRow: '4',
+              backgroundSize: "100% 100%",
+              width: "50px",
+              height: "50px",
+              transform: "rotate(90deg)",
+              margin: "10px",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "9px",
+              cursor: "pointer",
+              maxHeight: "100px",
+              gridRow: "4",
             }}
           >
             <p
-              className='number'
+              className="number"
               style={{
-                transform: 'rotate(270deg)',
-                marginTop: '15px',
-                marginRight: '5px',
+                transform: "rotate(270deg)",
+                marginTop: "15px",
+                marginRight: "5px",
               }}
             >
-              {' '}
+              {" "}
               {item.seatNumber}
             </p>
           </div>
         ))}
       </Row>
+      <Row
+        style={{ textAlign: "center", paddingTop: "5%", marginBottom: "-4%" }}
+      >
+        <Col>
+          <strong style={{ color: "#FFA500" }}>Orange</strong> = Handikapp
+        </Col>
+      </Row>
+      <Row
+        style={{ textAlign: "center", paddingTop: "5%", marginBottom: "-4%" }}
+      >
+        <Col>
+          <strong style={{ color: "red" }}>Röd</strong> = Redan bokat
+        </Col>
+      </Row>
+      <Row
+        style={{ textAlign: "center", paddingTop: "5%", paddingBottom: "5%" }}
+      >
+        <Col>
+          <strong style={{ color: "green" }}>Grön</strong> = Din bokning
+        </Col>
+      </Row>
       <Button
-        className='back-btn'
+        className="back-btn"
         style={{
-          margin: '10px',
-          paddingTop: '5%',
+          margin: "10px",
+          paddingTop: "5%",
         }}
         onClick={() => setCarriage(0)}
       >
@@ -264,14 +285,14 @@ export default function Carriage({
       </Button>
 
       <Button
-        className='to-payment-btn'
+        className="to-payment-btn"
         disabled={travelerArray.length - selected.length}
-        style={{ paddingTop: '5%' }}
+        style={{ paddingTop: "5%" }}
       >
         <Link
-          className='to-payment-btn-link'
+          className="to-payment-btn-link"
           to={`/betala`}
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
           state={{
             startStation: startStation,
             endStation: endStation,
