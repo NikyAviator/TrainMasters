@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '../UI/Button';
+import { Link, useLocation } from 'react-router-dom';
 import '../../../scss/main.scss';
 
 export default function StartPage() {
+  const location = useLocation();
+  let props = location.state;
+  console.log(props);
   return (
     <div className='hero-container'>
       <h1>Tågmästarna</h1>

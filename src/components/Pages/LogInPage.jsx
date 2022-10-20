@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../UI/Button';
 
 import '../../../scss/main.scss';
 
-export default function LogInPage() {
+export default function LogInPage({ loggedIn, setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const login = { email, passWord };
   };
-
+  let navigate = useNavigate();
   async function login() {
     let b = await (await fetch(`/api/users/${email}/${passWord}`)).json();
-    console.log(b);
+    const obj = Object.assign({}, ...b);
+    console.log(obj);
+    if (Object.keys(b[0]).length === 0) {
+      setLoggedIn(false);
+      console.log('fel lösenord');
+    } else if (Object.keys(b[0]).length >= 1) {
+      setLoggedIn(true);
+      console.log('loggade in');
+      navigate(`/`, {
+        state: {
+          firstName: obj.firstName,
+          lastName: obj.lastName,
+          email: obj.email,
+        },
+      });
+    }
   }
 
   return (

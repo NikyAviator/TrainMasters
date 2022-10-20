@@ -15,19 +15,23 @@ import { useState } from 'react';
 // Importing boostrap
 
 export default function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <>
       <Router>
-        <Header />
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <main>
           <Routes>
             <Route path='/' element={<StartPage />} />
             <Route path='/boka' element={<BookingPage />} />
             <Route path='/biljetter' element={<TicketsPage />} />
-            <Route path='/logga-in' element={<LogInPage />} />
+            <Route
+              path='/logga-in'
+              element={
+                <LogInPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              }
+            />
             <Route path='/registrera' element={<RegisterPage />} />
             <Route path='/details' element={<CardDetails />} />
             <Route path='/betala' element={<PaymentPage />} />
