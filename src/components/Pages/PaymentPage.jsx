@@ -114,7 +114,7 @@ export default function PaymentPage() {
   }
 
   const sendEmail = () => {
-    send("service_0hfm5it", "template_brqt2i6", toSend, "e_1nh-u1LEBDDqIbo")
+    send("service_nrxbesy", "template_brqt2i6", toSend, "e_1nh-u1LEBDDqIbo")
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
       })
