@@ -10,10 +10,14 @@ import Header from './components/UI/Header';
 import CardDetails from './components/Pages/CardDetails';
 import PaymentPage from './components/Pages/PaymentPage';
 import ConfirmationPage from './components/Pages/ConfirmationPage';
+import { useState } from 'react';
 //react-bootstrap.github.io/getting-started/introduction/
 // Importing boostrap
 
 export default function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <>
       <Router>

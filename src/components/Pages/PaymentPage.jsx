@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { factory } from '../../utilities/FetchHelper';
 import { v4 as uuidv4 } from 'uuid';
+import { send } from "emailjs-com";
 
 const { booking } = factory;
 import {
@@ -20,6 +21,11 @@ import {
 } from 'mdb-react-ui-kit';
 
 export default function PaymentPage() {
+  const [toSend, setToSend] = useState({
+    from_name: "Tågmästarna",
+    to_name: "Kära kund",
+    message: "Tack för att du bokade en resa med oss. ",
+  });
   let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
   let [countTravelers, setcountTravelers] = useState({});
   const navigate = useNavigate();
@@ -95,7 +101,7 @@ export default function PaymentPage() {
       let newBooking = new booking(bookingObj);
       await newBooking.save();
 
-      
+      sendEmail();
       navigate(`/bekraftelse`, {
         state: {
           bookingObj: bookingObj,
@@ -105,6 +111,16 @@ export default function PaymentPage() {
       });
     }
   }
+
+  const sendEmail = () => {
+    send("service_0hfm5it", "template_brqt2i6", toSend, "e_1nh-u1LEBDDqIbo")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
+  };
 
   return (
     <MDBContainer className='py-5'>
