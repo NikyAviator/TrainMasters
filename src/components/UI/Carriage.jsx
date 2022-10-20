@@ -192,7 +192,7 @@ export default function Carriage({
               backgroundSize: '100% 100%',
               width: '50px',
               height: '50px',
-              transform: 'rotate(90deg)',
+              transform: 'rotate(270deg)',
               margin: '10px',
               display: 'flex',
               justifyContent: 'center',
@@ -205,7 +205,7 @@ export default function Carriage({
             <p
               className='number'
               style={{
-                transform: 'rotate(270deg)',
+                transform: 'rotate(90deg)',
                 marginTop: '15px',
                 marginRight: '5px',
               }}
@@ -229,7 +229,7 @@ export default function Carriage({
               backgroundSize: '100% 100%',
               width: '50px',
               height: '50px',
-              transform: 'rotate(90deg)',
+              transform: 'rotate(270deg)',
               margin: '10px',
               display: 'flex',
               justifyContent: 'center',
@@ -242,7 +242,7 @@ export default function Carriage({
             <p
               className='number'
               style={{
-                transform: 'rotate(270deg)',
+                transform: 'rotate(90deg)',
                 marginTop: '15px',
                 marginRight: '5px',
               }}
