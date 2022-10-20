@@ -17,6 +17,7 @@ import { useState } from 'react';
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [obj, setObj] = useState({});
   return (
     <>
       <Router>

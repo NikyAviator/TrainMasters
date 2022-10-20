@@ -4,7 +4,7 @@ import { Button } from './Button';
 
 import '../../../scss/Header.scss';
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, setLoggedIn }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -69,9 +69,20 @@ function Header({ loggedIn }) {
             </li>
           </ul>
           {button && (
-            <Button buttonStyle='btn--outline' link='/logga-in'>
-              {loggedIn ? <>Logga ut</> : <>Logga in </>}
-            </Button>
+            <>
+              {loggedIn ? (
+                <Button
+                  buttonStyle='btn--outline'
+                  onClick={() => setLoggedIn(false)}
+                >
+                  Logga ut
+                </Button>
+              ) : (
+                <Button buttonStyle='btn--outline' link='/logga-in'>
+                  Logga in
+                </Button>
+              )}
+            </>
           )}
         </div>
       </nav>
