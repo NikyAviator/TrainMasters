@@ -24,7 +24,8 @@ export default function PaymentPage() {
   const [toSend, setToSend] = useState({
     from_name: "Tågmästarna",
     to_name: "Kära kund",
-    message: "Tack för att du bokade en resa med oss. ",
+    message: "Tack för att du bokade en resa med oss. Nedan är din bokningsbekräftelse: ",
+    email: "",
   });
   let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
   let [countTravelers, setcountTravelers] = useState({});
