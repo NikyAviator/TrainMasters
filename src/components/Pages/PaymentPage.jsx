@@ -94,6 +94,8 @@ export default function PaymentPage() {
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();
+
+      
       navigate(`/bekraftelse`, {
         state: {
           bookingObj: bookingObj,

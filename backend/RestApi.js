@@ -29,16 +29,16 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/:view/:route/:order', function (req, res) {
-      let view = req.params.view;
-      let order = req.params.order;
-      let route = req.params.route;
-      let sql = `SELECT * FROM ${view} WHERE routeName ='${route}' and rorder ='${order}'`;
-      let query = db.query(sql, (err, results) => {
-        if (err) throw err;
-        res.send(results);
-      });
-    });
+    // this.app.get('/api/:view/:route/:order', function (req, res) {
+    //   let view = req.params.view;
+    //   let order = req.params.order;
+    //   let route = req.params.route;
+    //   let sql = `SELECT * FROM ${view} WHERE routeName ='${route}' and rorder ='${order}'`;
+    //   let query = db.query(sql, (err, results) => {
+    //     if (err) throw err;
+    //     res.send(results);
+    //   });
+    // });
 
     this.app.get('/api/trains', function (req, res) {
       let sql = 'SELECT * FROM trains';
@@ -91,6 +91,28 @@ module.exports = class RestApi {
 
       let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat,platformFrom,platformTo,trainNumber) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}','${platformFrom}','${platformTo}','${trainNumber}')`;
       db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.post('/api/register', function (req, res) {
+      let email = req.body.email;
+      let firstName = req.body.firstName;
+      let lastName = req.body.lastName;
+      let passwor = req.body.passwor;
+
+      let sql = `INSERT INTO users (email,firstName,lastName,passwor) VALUES ('${email}','${firstName}','${lastName}','${passwor}')`;
+      db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+
+    this.app.get('/api/users/:email/:passwor', function (req, res) {
+      let email = req.params.email;
+      let passwor = req.params.passwor;
+      let sql = `SELECT * FROM users WHERE email ='${email}' and passwor='${passwor}'`;
+      let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
       });
