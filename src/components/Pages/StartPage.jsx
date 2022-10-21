@@ -27,6 +27,7 @@ export default function StartPage({ loggedIn }) {
               alignItems: 'center',
               justifyContent: 'center',
               alignContent: 'center',
+              width: '100%',
             }}
           >
             <Alert key={variant} variant={variant}>
