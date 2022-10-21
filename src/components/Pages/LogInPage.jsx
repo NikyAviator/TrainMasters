@@ -21,7 +21,6 @@ export default function LogInPage({
     let b = await (await fetch(`/api/users/${email}/${passWord}`)).json();
     setAccount(...b);
     const obj = Object.assign({}, ...b);
-    console.log(obj);
     if (Object.keys(b[0]).length === 0) {
       console.log('fel lösenord');
     } else if (Object.keys(b[0]).length >= 1) {

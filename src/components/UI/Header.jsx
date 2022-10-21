@@ -25,12 +25,10 @@ function Header({ loggedIn, setLoggedIn, account }) {
 
   function logOut() {
     setLoggedIn(false);
+    setShow(true);
     setTimeout(() => {
-      // After 3 seconds set the show value to false
-      setShow(true);
-      console.log(show);
+      setShow(false);
     }, 3000);
-    console.log(show);
   }
 
   window.addEventListener('resize', showButton);
