@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
-
+import Alert from 'react-bootstrap/Alert';
 import '../../../scss/Header.scss';
 
 function Header({ loggedIn, setLoggedIn, account }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -18,10 +17,21 @@ function Header({ loggedIn, setLoggedIn, account }) {
       setButton(true);
     }
   };
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     showButton();
   }, []);
+
+  function logOut() {
+    setLoggedIn(false);
+    setTimeout(() => {
+      // After 3 seconds set the show value to false
+      setShow(true);
+      console.log(show);
+    }, 3000);
+    console.log(show);
+  }
 
   window.addEventListener('resize', showButton);
 
@@ -71,10 +81,7 @@ function Header({ loggedIn, setLoggedIn, account }) {
           {button && (
             <>
               {loggedIn ? (
-                <Button
-                  buttonStyle='btn--outline'
-                  onClick={() => setLoggedIn(false)}
-                >
+                <Button buttonStyle='btn--outline' onClick={logOut}>
                   Logga ut: {account.firstName}
                 </Button>
               ) : (
@@ -86,6 +93,28 @@ function Header({ loggedIn, setLoggedIn, account }) {
           )}
         </div>
       </nav>
+      <div>
+        {!loggedIn && show ? (
+          ['danger'].map((variant) => (
+            <div
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignContent: 'center',
+                width: '100%',
+              }}
+            >
+              <Alert key={variant} variant={variant}>
+                Loggade ut!
+              </Alert>
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 }
