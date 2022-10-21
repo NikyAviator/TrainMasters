@@ -67,13 +67,19 @@ function Header({ loggedIn, setLoggedIn, account }) {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/logga-in'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Logga in
-              </Link>
+              {loggedIn ? (
+                <Link className='nav-links-mobile' onClick={closeMobileMenu}>
+                  Logga ut: {account.firstName}
+                </Link>
+              ) : (
+                <Link
+                  to='/logga-in'
+                  className='nav-links-mobile'
+                  onClick={closeMobileMenu}
+                >
+                  Logga in
+                </Link>
+              )}
             </li>
           </ul>
           {button && (

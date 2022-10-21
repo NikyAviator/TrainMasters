@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../UI/Button';
-
+import Alert from 'react-bootstrap/Alert';
 import '../../../scss/main.scss';
 
 export default function LogInPage({
@@ -12,6 +12,7 @@ export default function LogInPage({
 }) {
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
+  const [showWrongLogin, setWrongLogin] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     const login = { email, passWord };
@@ -21,11 +22,12 @@ export default function LogInPage({
     let b = await (await fetch(`/api/users/${email}/${passWord}`)).json();
     setAccount(...b);
     const obj = Object.assign({}, ...b);
-    if (Object.keys(b[0]).length === 0) {
-      console.log('fel lösenord');
+    console.log(b);
+    if (!b || !b.length) {
+      console.log('wrong');
+      setWrongLogin(true);
     } else if (Object.keys(b[0]).length >= 1) {
       setLoggedIn(true);
-      console.log('loggade in');
       navigate(`/`);
     }
   }
@@ -65,6 +67,27 @@ export default function LogInPage({
               Logga in
             </button>
           </div>
+          {showWrongLogin ? (
+            ['danger'].map((variant) => (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: '203px',
+                  marginBottom: '-43px',
+                  marginTop: '4px',
+                }}
+              >
+                <Alert key={variant} variant={variant}>
+                  Fel Lösenord/Email
+                </Alert>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </form>
         <div className='Register-heading'>
           <h3>Har du inget konto?</h3>
