@@ -17,11 +17,15 @@ import { useState } from 'react';
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const [obj, setObj] = useState({});
+  const [account, setAccount] = useState({});
   return (
     <>
       <Router>
-        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Header
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          account={account}
+        />
         <main>
           <Routes>
             <Route path='/' element={<StartPage />} />
@@ -30,7 +34,12 @@ export default function App() {
             <Route
               path='/logga-in'
               element={
-                <LogInPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                <LogInPage
+                  loggedIn={loggedIn}
+                  setLoggedIn={setLoggedIn}
+                  account={account}
+                  setAccount={setAccount}
+                />
               }
             />
             <Route path='/registrera' element={<RegisterPage />} />

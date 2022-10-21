@@ -4,7 +4,7 @@ import { Button } from './Button';
 
 import '../../../scss/Header.scss';
 
-function Header({ loggedIn, setLoggedIn }) {
+function Header({ loggedIn, setLoggedIn, account }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -75,7 +75,7 @@ function Header({ loggedIn, setLoggedIn }) {
                   buttonStyle='btn--outline'
                   onClick={() => setLoggedIn(false)}
                 >
-                  Logga ut
+                  Logga ut: {account.firstName}
                 </Button>
               ) : (
                 <Button buttonStyle='btn--outline' link='/logga-in'>
