@@ -28,7 +28,17 @@ export default function App() {
         />
         <main>
           <Routes>
-            <Route path='/' element={<StartPage />} />
+            <Route
+              path='/'
+              element={
+                <StartPage
+                  loggedIn={loggedIn}
+                  setLoggedIn={setLoggedIn}
+                  account={account}
+                  setAccount={setAccount}
+                />
+              }
+            />
             <Route path='/boka' element={<BookingPage />} />
             <Route path='/biljetter' element={<TicketsPage />} />
             <Route
