@@ -103,7 +103,7 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
           ['danger'].map((variant) => (
             <div
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

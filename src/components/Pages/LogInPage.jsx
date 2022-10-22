@@ -4,12 +4,7 @@ import { Button } from '../UI/Button';
 import Alert from 'react-bootstrap/Alert';
 import '../../../scss/main.scss';
 
-export default function LogInPage({
-  loggedIn,
-  setLoggedIn,
-  setAccount,
-  account,
-}) {
+export default function LogInPage({ setLoggedIn, setAccount }) {
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
   const [showWrongLogin, setWrongLogin] = useState(false);

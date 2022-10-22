@@ -20,7 +20,7 @@ export default function StartPage({ loggedIn }) {
         ['success'].map((variant) => (
           <div
             style={{
-              position: 'absolute',
+              position: 'fixed',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
