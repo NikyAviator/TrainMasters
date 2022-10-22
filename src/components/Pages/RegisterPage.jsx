@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { Button } from '../UI/Button';
 import '../../../scss/main.scss';
 import { useEffect } from 'react';
+import Alert from 'react-bootstrap/Alert';
+
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
-
+  const [show, setShow] = useState(false);
+  let navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const register = { firstName, lastName, email, passWord };
@@ -30,10 +34,35 @@ export default function RegisterPage() {
         body: JSON.stringify(object),
       })
     ).json();
+    setShow(true);
+    setTimeout(() => {
+      setShow(false);
+      navigate(`/logga-in`);
+    }, 2000);
   }
 
   return (
     <div className='register'>
+      {show ? (
+        ['success'].map((variant) => (
+          <div
+            style={{
+              position: 'absolute',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignContent: 'center',
+              width: '100%',
+            }}
+          >
+            <Alert key={variant} variant={variant}>
+              Registrerad!
+            </Alert>
+          </div>
+        ))
+      ) : (
+        <></>
+      )}
       <div className='register-container'>
         <div className='Heading'>
           <h1>Registrera</h1>
