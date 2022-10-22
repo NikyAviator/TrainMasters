@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from '../UI/Button';
 import '../../../scss/main.scss';
-import { useEffect } from 'react';
 import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,7 +14,6 @@ export default function RegisterPage() {
   const [show, setShow] = useState(false);
   const [alreadyExist, setAlreadyExist] = useState(false);
   const [notSamePassword, setPasswordNotSame] = useState(false);
-
   let navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -40,7 +38,7 @@ export default function RegisterPage() {
     if (doesAccountExist.length > 0) {
       return setAlreadyExist(true);
     } else if (checkPasswords) {
-      return setPasswordNotSame(true);
+      return setPasswordNotSame(true), setAlreadyExist(false);
     } else {
       await (
         await fetch('/api/register', {
@@ -95,6 +93,7 @@ export default function RegisterPage() {
               placeholder='Förnamn'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              required
             />
           </div>
           <div class='form-group'>
@@ -105,6 +104,7 @@ export default function RegisterPage() {
               placeholder='Efternamn'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              required
             />
           </div>
           <div class='form-group'>
@@ -118,30 +118,33 @@ export default function RegisterPage() {
               placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div class='form-group'>
             <label for='exampleInputPassword1'>Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
-              type='text'
+              type='password'
               class='form-control'
               id='exampleInputPassword1'
               placeholder='Lösenord'
               value={passWord}
               onChange={(e) => setPassWord(e.target.value)}
+              required
             />
           </div>
           <div class='form-group'>
             <label for='exampleInputPassword1'>Bekräfta Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
-              type='text'
+              type='password'
               class='form-control'
               id='exampleInputPassword1'
               placeholder='Bekräfta Lösenord'
               value={ConfirmPassWord}
               onChange={(e) => setConfirmPassWord(e.target.value)}
+              required
             />
             {notSamePassword ? (
               ['danger'].map((variant) => (
