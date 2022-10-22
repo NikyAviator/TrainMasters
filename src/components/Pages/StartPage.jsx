@@ -11,9 +11,7 @@ export default function StartPage({ loggedIn }) {
     setTimeout(() => {
       // After 3 seconds set the show value to false
       setShow(false);
-      console.log(show);
     }, 3000);
-    console.log(show);
   }, []);
 
   return (

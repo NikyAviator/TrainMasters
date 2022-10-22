@@ -4,7 +4,7 @@ import { Button } from './Button';
 import Alert from 'react-bootstrap/Alert';
 import '../../../scss/Header.scss';
 
-function Header({ loggedIn, setLoggedIn, account }) {
+function Header({ loggedIn, setLoggedIn, account, setAccount }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
@@ -25,6 +25,7 @@ function Header({ loggedIn, setLoggedIn, account }) {
 
   function logOut() {
     setLoggedIn(false);
+    setAccount({});
     setShow(true);
     setTimeout(() => {
       setShow(false);
@@ -63,7 +64,7 @@ function Header({ loggedIn, setLoggedIn, account }) {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Biljetter
+                {loggedIn ? <>Mina Biljetter</> : <>Biljetter</>}
               </Link>
             </li>
             <li className='nav-item'>

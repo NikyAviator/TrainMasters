@@ -25,6 +25,7 @@ export default function App() {
           loggedIn={loggedIn}
           setLoggedIn={setLoggedIn}
           account={account}
+          setAccount={setAccount}
         />
         <main>
           <Routes>
@@ -40,7 +41,17 @@ export default function App() {
               }
             />
             <Route path='/boka' element={<BookingPage />} />
-            <Route path='/biljetter' element={<TicketsPage />} />
+            <Route
+              path='/biljetter'
+              element={
+                <TicketsPage
+                  loggedIn={loggedIn}
+                  setLoggedIn={setLoggedIn}
+                  account={account}
+                  setAccount={setAccount}
+                />
+              }
+            />
             <Route
               path='/logga-in'
               element={
@@ -54,7 +65,16 @@ export default function App() {
             />
             <Route path='/registrera' element={<RegisterPage />} />
             <Route path='/details' element={<CardDetails />} />
-            <Route path='/betala' element={<PaymentPage />} />
+            <Route
+              path='/betala'
+              element={
+                <PaymentPage
+                  loggedIn={loggedIn}
+                  setLoggedIn={setLoggedIn}
+                  account={account}
+                />
+              }
+            />
             <Route path='/bekraftelse' element={<ConfirmationPage />} />
           </Routes>
         </main>

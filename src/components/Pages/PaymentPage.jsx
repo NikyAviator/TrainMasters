@@ -20,10 +20,11 @@ import {
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
 
-export default function PaymentPage() {
-  const [paymentEmail, setPaymentEmail] = useState("");
+export default function PaymentPage({ loggedIn, setLoggedIn, account }) {
+  const [paymentEmail, setPaymentEmail] = useState('');
   let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
   let [countTravelers, setcountTravelers] = useState({});
+  let [continueWithoutLogin, setContinueWithoutLogin] = useState(false);
   const navigate = useNavigate();
   let bookingnumber = uuidv4();
   const location = useLocation();
@@ -93,6 +94,7 @@ export default function PaymentPage() {
         platformFrom: platformFrom,
         platformTo: platformTo,
         trainNumber: trainNumber,
+        userId: Object.keys(account).length === 0 ? 0 : account.id,
       };
       let newBooking = new booking(bookingObj);
       await newBooking.save();
@@ -119,7 +121,7 @@ export default function PaymentPage() {
     arrival_time: arrivalTimeTo,
     departure_time: departureTimeFrom,
     platform_from: platformFrom,
-    email: paymentEmail,
+    email: loggedIn ? account.email : paymentEmail,
   });
 
   const sendEmail = () => {
@@ -133,118 +135,137 @@ export default function PaymentPage() {
   };
 
   return (
-    <MDBContainer className="py-5">
+    <MDBContainer className='py-5'>
       <MDBRow>
-        <MDBCol md="8" className="mb-4">
-          <MDBCard className="mb-4">
-            <MDBCardHeader className="py-3">
+        <MDBCol md='8' className='mb-4'>
+          <MDBCard className='mb-4'>
+            <MDBCardHeader className='py-3'>
               <h2>
-                {startStation} - {endStation}{" "}
+                {startStation} - {endStation}{' '}
               </h2>
-              <h5 className="mb-0">Betalning:</h5>
+              <h5 className='mb-0'>Betalning:</h5>
             </MDBCardHeader>
             <MDBCardBody>
-              <MDBRow className="mb-4">
-                <MDBCol>
-                  <MDBInput label="Förnamn" id="form1" type="text" />
-                </MDBCol>
+              {!loggedIn && !continueWithoutLogin ? (
+                <div>
+                  <MDBBtn
+                    className='pay-btn'
+                    size='lg'
+                    block
+                    onClick={() => navigate(`/logga-in`)}
+                  >
+                    Logga in
+                  </MDBBtn>
+                  <MDBBtn
+                    className='pay-btn'
+                    size='lg'
+                    block
+                    onClick={() => setContinueWithoutLogin(true)}
+                  >
+                    Fortsätt utan inloggning
+                  </MDBBtn>
+                </div>
+              ) : (
+                <div>
+                  <p>{account.firstName}</p>
+                  <p>{account.lastName}</p>
+                  <p>{account.email}</p>
+                </div>
+              )}
+              {continueWithoutLogin ? (
+                <MDBInput
+                  wrapperClass='mb-4'
+                  label='Email'
+                  id='form4'
+                  type='email'
+                  value={paymentEmail}
+                  onChange={(e) => setPaymentEmail(e.target.value)}
+                />
+              ) : (
+                <p></p>
+              )}
 
-                <MDBCol>
-                  <MDBInput label="Efternamn" id="form2" type="text" />
-                </MDBCol>
-              </MDBRow>
-
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Address"
-                id="form3"
-                type="text"
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Email"
-                id="form4"
-                type="email"
-                value={paymentEmail}
-                onChange={(e) => setPaymentEmail(e.target.value)}
-              />
-
-              <h5 className="mb-4">Kortuppgifter:</h5>
-
-              <MDBRadio
-                name="flexRadioDefault"
-                id="flexRadioDefault1"
-                label="Kredit kort"
-                onChange={() => console.log("")}
-                checked
-              />
-
-              <MDBRow>
-                <MDBCol>
-                  <MDBInput
-                    label="Kortinnehavare"
-                    id="form6"
-                    type="text"
-                    wrapperClass="mb-4"
-                  />
-                </MDBCol>
-                <MDBCol>
-                  <MDBInput
-                    label="Kortnummer"
-                    id="form7"
-                    type="text"
-                    wrapperClass="mb-4"
-                  />
-                </MDBCol>
-              </MDBRow>
-
-              <MDBRow>
-                <MDBCol md="3">
-                  <MDBInput
-                    label="Utgångsdatum"
-                    id="form8"
-                    type="text"
-                    wrapperClass="mb-4"
-                  />
-                </MDBCol>
-                <MDBCol md="3">
-                  <MDBInput
-                    label="CVV"
-                    id="form8"
-                    type="text"
-                    wrapperClass="mb-4"
-                  />
-                </MDBCol>
-              </MDBRow>
-              <MDBBtn
-                className="pay-btn"
-                size="lg"
-                block
-                onClick={async () => await book()}
+              <h5 className='mb-4'>Kortuppgifter:</h5>
+              <div
+                className={`${
+                  loggedIn || continueWithoutLogin ? '' : 'disabledPayment'
+                }`}
               >
-                BETALA
-              </MDBBtn>
+                <MDBRadio
+                  name='flexRadioDefault'
+                  id='flexRadioDefault1'
+                  label='Kredit kort'
+                  onChange={() => console.log('')}
+                  checked
+                />
+
+                <MDBRow>
+                  <MDBCol>
+                    <MDBInput
+                      label='Kortinnehavare'
+                      id='form6'
+                      type='text'
+                      wrapperClass='mb-4'
+                    />
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBInput
+                      label='Kortnummer'
+                      id='form7'
+                      type='text'
+                      wrapperClass='mb-4'
+                    />
+                  </MDBCol>
+                </MDBRow>
+
+                <MDBRow>
+                  <MDBCol md='3'>
+                    <MDBInput
+                      label='Utgångsdatum'
+                      id='form8'
+                      type='text'
+                      wrapperClass='mb-4'
+                    />
+                  </MDBCol>
+                  <MDBCol md='3'>
+                    <MDBInput
+                      label='CVV'
+                      id='form8'
+                      type='text'
+                      wrapperClass='mb-4'
+                    />
+                  </MDBCol>
+                </MDBRow>
+                <MDBBtn
+                  className='pay-btn'
+                  size='lg'
+                  block
+                  onClick={async () => await book()}
+                >
+                  BETALA
+                </MDBBtn>
+              </div>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
 
-        <MDBCol md="4" className="mb-4">
-          <MDBCard className="mb-4">
-            <MDBCardHeader className="py-3">
-              <h5 className="mb-0">Din biljett</h5>
+        <MDBCol md='4' className='mb-4'>
+          <MDBCard className='mb-4'>
+            <MDBCardHeader className='py-3'>
+              <h5 className='mb-0'>Din biljett</h5>
             </MDBCardHeader>
             <MDBCardBody>
               <MDBListGroup flush>
-                <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
                   <div>
                     {firstClass ? <p>{`1:a klass`}</p> : <p>{`2:a klass`}</p>}
                   </div>
                 </MDBListGroupItem>
                 {Object.entries(countTravelers).map(([key, value], i) => (
-                  <span>{value ? `${value}x ${key}` : ""}</span>
+                  <span>{value ? `${value}x ${key}` : ''}</span>
                 ))}
                 <hr />
-                <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
                   <div>
                     <strong>Total pris</strong>
                   </div>

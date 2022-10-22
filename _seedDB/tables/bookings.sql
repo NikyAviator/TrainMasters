@@ -17,5 +17,6 @@ CREATE TABLE bookings  (
   platformFrom varchar(10) NOT NULL,
   platformTo varchar(10) NOT NULL,
   trainNumber varchar(10) NOT NULL,
+  userId int(11),
   PRIMARY KEY (id)
 );

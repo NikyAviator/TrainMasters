@@ -88,8 +88,9 @@ module.exports = class RestApi {
       let platformFrom = req.body.platformFrom;
       let platformTo = req.body.platformTo;
       let trainNumber = req.body.trainNumber;
+      let userId = req.body.userId;
 
-      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat,platformFrom,platformTo,trainNumber) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}','${platformFrom}','${platformTo}','${trainNumber}')`;
+      let sql = `INSERT INTO bookings (bookingId,fromDeparture,toDestination,rorderFrom,rorderTo,arrival,departure,price,seatId,trainId,carriageId,timeTableId,bdate,typeOfSeat,platformFrom,platformTo,trainNumber,userId) VALUES ('${bookingId}','${fromDeparture}','${toDestination}','${rorderFrom}','${rorderTo}','${arrival}','${departure}',${price},${seatId},${trainId},${carriageId},${timeTableId},'${bdate}','${typeOfSeat}','${platformFrom}','${platformTo}','${trainNumber}','${userId}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);
@@ -112,6 +113,14 @@ module.exports = class RestApi {
       let email = req.params.email;
       let passwor = req.params.passwor;
       let sql = `SELECT * FROM users WHERE email ='${email}' and passwor='${passwor}'`;
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+    this.app.get('/api/bookings/userId/:userId', function (req, res) {
+      let userId = req.params.userId;
+      let sql = `SELECT * FROM bookings WHERE userId ='${userId}'`;
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

@@ -3,7 +3,8 @@
   --secondary: #242424 !important;
 }
 
-.login-container, .register-container {
+.login-container,
+.register-container {
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -32,12 +33,18 @@
   margin-bottom: 20px;
 }
 
-.log-btn, .reg-btn {
+.log-btn,
+.reg-btn {
   display: grid !important;
 }
 
-.login-btn, .register-btn, .book-search-btn, .back-btn, .to-payment-btn, .pay-btn {
-  background-color: transparent !important;;
+.login-btn,
+.register-btn,
+.book-search-btn,
+.back-btn,
+.to-payment-btn,
+.pay-btn {
+  background-color: transparent !important;
   color: var(--secondary) !important;
   border: 1px solid var(--secondary) !important;
   transition: all 0.3s ease-out;
@@ -47,10 +54,18 @@
   box-shadow: none !important;
 }
 
-
-
-.login-btn:hover, .register-btn:hover, .book-search-btn:hover, .back-btn:hover, .to-payment-btn:hover, .pay-btn:hover {
+.login-btn:hover,
+.register-btn:hover,
+.book-search-btn:hover,
+.back-btn:hover,
+.to-payment-btn:hover,
+.pay-btn:hover {
   background: var(--secondary) !important;
   color: var(--primary) !important;
   transition: all 0.3s ease-out !important;
+}
+
+.disabledPayment {
+  pointer-events: none;
+  opacity: 0.4;
 }

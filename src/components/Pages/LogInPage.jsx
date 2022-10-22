@@ -13,20 +13,21 @@ export default function LogInPage({
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
   const [showWrongLogin, setWrongLogin] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const login = { email, passWord };
   };
   let navigate = useNavigate();
   async function login() {
-    let b = await (await fetch(`/api/users/${email}/${passWord}`)).json();
-    setAccount(...b);
-    const obj = Object.assign({}, ...b);
-    console.log(b);
-    if (!b || !b.length) {
-      console.log('wrong');
+    let getAccount = await (
+      await fetch(`/api/users/${email}/${passWord}`)
+    ).json();
+    setAccount(...getAccount);
+    const obj = Object.assign({}, ...getAccount);
+    if (!getAccount || !getAccount.length) {
       setWrongLogin(true);
-    } else if (Object.keys(b[0]).length >= 1) {
+    } else if (Object.keys(getAccount[0]).length >= 1) {
       setLoggedIn(true);
       navigate(`/`);
     }
@@ -39,24 +40,24 @@ export default function LogInPage({
           <h1>Logga in</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputEmail1'>Email</label>
             <input
               style={{ textAlign: 'start' }}
               type='email'
-              class='form-control'
+              className='form-control'
               aria-describedby='emailHelp'
               placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputPassword1'>Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
               type='password'
-              class='form-control'
+              className='form-control'
               placeholder='Lösenord'
               value={passWord}
               onChange={(e) => setPassWord(e.target.value)}

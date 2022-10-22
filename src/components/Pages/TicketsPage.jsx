@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import QRCode from 'react-qr-code';
 
-export default function TicketsPage() {
+export default function TicketsPage({ loggedIn, account }) {
   const [ticket, setTicket] = useState();
   let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
   let [countTravelers, setcountTravelers] = useState({});
@@ -36,7 +36,6 @@ export default function TicketsPage() {
     Object.keys(ticketSeatsInfo).forEach((key) => delete ticketSeatsInfo[key]);
     let getSeats = [];
     let type = [];
-    event.preventDefault();
     let findbooking = await booking.findOneBookings(findBookingId);
     findbooking.forEach((x) => {
       getSeats.push(x.seatId);
@@ -68,121 +67,141 @@ export default function TicketsPage() {
     setticketSeatsInfo(ticketSeatsInfo);
   }
 
-  console.log(ticket);
+  useEffect(() => {
+    async function fetchData() {
+      if (loggedIn) {
+        let b = await (
+          await fetch(`/api/bookings/userId/${account.id}`)
+        ).json();
+
+        setTicket(b);
+      }
+    }
+    fetchData();
+  }, []);
 
   let { findBookingId } = formValues;
 
   return (
     <div className='bookingForm'>
-      <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
-        <Form.Group>
-          <Form.Control
-            type='text'
-            name='findBookingId'
-            placeholder='Bokningsnummer'
-            required
-            maxLength='100'
-            value={findBookingId}
-            onChange={onChangeFormValue}
-          />
-        </Form.Group>
-      </Form>
+      {!loggedIn ? (
+        <>
+          <Form style={{ paddingBottom: '10%', paddingTop: '10%' }}>
+            <Form.Group>
+              <Form.Control
+                type='text'
+                name='findBookingId'
+                placeholder='Bokningsnummer'
+                required
+                maxLength='100'
+                value={findBookingId}
+                onChange={onChangeFormValue}
+              />
+            </Form.Group>
+          </Form>
 
-      <Button
-        type='submit'
-        className='book-search-btn mb-6'
-        onClick={submitForm}
-        disabled={!findBookingId}
-      >
-        Sök
-      </Button>
+          <Button
+            type='submit'
+            className='book-search-btn mb-6'
+            onClick={submitForm}
+            disabled={!findBookingId}
+          >
+            Sök
+          </Button>
+        </>
+      ) : (
+        <h1>Mina Biljetter</h1>
+      )}
 
       <Container>
         {ticket ? (
           <Container
             style={{
-              marginTop: '20%',
+              marginTop: '10%',
               marginBottom: '20%',
               maxWidth: '90%',
             }}
           >
-            <Card
-              style={{
-                border: 'none',
-                textAlign: 'center',
-                padding: '5%',
-                width: '100%',
-              }}
-            >
-              <Col>
-                <Row
-                  style={{
-                    height: 'auto',
-                    margin: '0 auto',
-                    maxWidth: 200,
-                    width: '100%',
-                  }}
-                >
-                  <QRCode
-                    size={256}
-                    value={ticket.bookingId}
-                    viewBox={`0 0 256 256`}
-                  />
-                </Row>
-                <Row style={{ paddingBottom: '3%' }}>
-                  <h2>{`Bokningsnr: ${ticket.bookingId}`}</h2>
-                </Row>
-                <Row style={{ paddingBottom: '3%' }}>
-                  <h3>{`${ticket.fromDeparture} - ${ticket.toDestination}`}</h3>
-                </Row>
-                <Row>
-                  {' '}
-                  <p>{`Datum: ${ticket.bdate}`}</p>
-                </Row>
-                <Row>
-                  {' '}
-                  <p>{`Tåg: 100${ticket.trainId}`}</p>
-                </Row>
+            {ticket.map((x) => (
+              <Card
+                style={{
+                  border: 'none',
+                  textAlign: 'center',
+                  padding: '5%',
+                  width: '100%',
+                  marginBottom: '10%',
+                }}
+              >
+                <Col>
+                  <Row
+                    style={{
+                      height: 'auto',
+                      margin: '0 auto',
+                      maxWidth: 200,
+                      width: '100%',
+                    }}
+                  >
+                    <QRCode
+                      size={256}
+                      value={x.bookingId}
+                      viewBox={`0 0 256 256`}
+                    />
+                  </Row>
+                  <Row style={{ paddingBottom: '3%' }}>
+                    <h2>{`Bokningsnr: ${x.bookingId}`}</h2>
+                  </Row>
+                  <Row style={{ paddingBottom: '3%' }}>
+                    <h3>{`${x.fromDeparture} - ${x.toDestination}`}</h3>
+                  </Row>
+                  <Row>
+                    {' '}
+                    <p>{`Datum: ${x.bdate}`}</p>
+                  </Row>
+                  <Row>
+                    {' '}
+                    <p>{`Tåg: 100${x.trainId}`}</p>
+                  </Row>
 
-                <Row>
-                  <strong>{`${ticket.fromDeparture}`}</strong>
-                </Row>
-                <Row>
-                  <p>{'Avgångstid: ' + ticket.departure}</p>
-                </Row>
-                <Row>
-                  <p>{'Platform: ' + ticket.platformFrom}</p>
-                </Row>
-                <Row>
-                  <strong>{`${ticket.toDestination}`}</strong>
-                </Row>
-                <Row>
-                  <p>{'Ankomsttid: ' + ticket.arrival}</p>
-                </Row>
-                <Row>
-                  <p>{'Platform: ' + ticket.platformTo}</p>
-                </Row>
+                  <Row>
+                    <strong>{`${x.fromDeparture}`}</strong>
+                  </Row>
+                  <Row>
+                    <p>{'Avgångstid: ' + x.departure}</p>
+                  </Row>
+                  <Row>
+                    <p>{'Platform: ' + x.platformFrom}</p>
+                  </Row>
+                  <Row>
+                    <strong>{`${x.toDestination}`}</strong>
+                  </Row>
+                  <Row>
+                    <p>{'Ankomsttid: ' + x.arrival}</p>
+                  </Row>
+                  <Row>
+                    <p>{'Platform: ' + x.platformTo}</p>
+                  </Row>
 
-                <Row>
-                  <p
-                    style={{ textDecoration: 'underline' }}
-                  >{`Bokade resenärer:`}</p>
-                  {Object.entries(countTravelers).map(([key, value], i) => (
-                    <div>{value ? `${value}x ${key}` : ''}</div>
-                  ))}
-                </Row>
-                <Row style={{ paddingTop: '3%' }}>
-                  <p
-                    style={{ textDecoration: 'underline' }}
-                  >{`Bokade säten:`}</p>
-                  <p>Nr: {seats}</p>
-                  <p>{`Vagn: ${ticket.carriageId}`}</p>
-                </Row>
-                <Row>
-                  <strong>{`Pris: ${ticket.price}kr`}</strong>
-                </Row>
-              </Col>
-            </Card>
+                  <Row>
+                    <p
+                      style={{ textDecoration: 'underline' }}
+                    >{`Bokade resenärer:`}</p>
+                    {Object.entries(countTravelers).map(([key, value], i) => (
+                      <div>{value ? `${value}x ${key}` : ''}</div>
+                    ))}
+                  </Row>
+                  <Row style={{ paddingTop: '3%' }}>
+                    <p
+                      style={{ textDecoration: 'underline' }}
+                    >{`Bokade säten:`}</p>
+                    <p>Nr: {seats}</p>
+                    <p>{`Vagn: ${x.carriageId}`}</p>
+                  </Row>
+                  <Row>
+                    <strong>{`Pris: ${x.price}kr`}</strong>
+                  </Row>
+                </Col>
+              </Card>
+            ))}
           </Container>
         ) : (
           ''
