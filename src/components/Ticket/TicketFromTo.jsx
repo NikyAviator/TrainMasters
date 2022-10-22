@@ -48,12 +48,10 @@ const TicketFromTo = () => {
     let a = copyStations.find(
       ({ stationName: stationName }) => stationName === value
     );
-    console.log(a);
     if (a) {
       let b = stations.filter(
         ({ routeName: routeName }) => routeName === a.routeName
       );
-      console.log(b);
       setStations([...b]);
     }
 

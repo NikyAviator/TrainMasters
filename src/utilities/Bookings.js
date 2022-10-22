@@ -2,7 +2,7 @@ import { factory } from '../utilities/FetchHelper';
 const { booking } = factory;
 
 export async function carriageWithSeats() {
-  let seats = booking.findSeats();
+  let seats = booking.seatsCarriage();
   return seats;
 }
 

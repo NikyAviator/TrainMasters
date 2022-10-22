@@ -39,8 +39,8 @@ export class FetchHelper {
       .flat()
       .map((x) => (x ? new this(x) : null));
   }
-  static async findSeats() {
-    return [await (await fetch(`/api/tests`)).json()]
+  static async seatsCarriage() {
+    return [await (await fetch(`/api/seatsCarriage`)).json()]
       .flat()
       .map((x) => (x ? new this(x) : null));
   }

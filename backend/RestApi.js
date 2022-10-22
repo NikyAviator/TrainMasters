@@ -47,8 +47,8 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.get('/api/tests', function (req, res) {
-      let sql = 'SELECT * FROM tests';
+    this.app.get('/api/seatsCarriage', function (req, res) {
+      let sql = 'SELECT * FROM seatsCarriage';
       let query = db.query(sql, (err, results) => {
         if (err) throw err;
         res.send(results);

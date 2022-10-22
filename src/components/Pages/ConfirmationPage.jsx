@@ -28,7 +28,7 @@ export default function ConfirmationPage() {
   } = bookingObj;
 
   useEffect(() => {
-    console.log(selected.sort((a, b) => a - b));
+    selected.sort((a, b) => a - b);
     setSeats(selected.join());
   }, []);
 

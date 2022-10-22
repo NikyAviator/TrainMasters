@@ -32,39 +32,12 @@ export default function TicketsPage({ loggedIn, account }) {
     updateStateFormValue({ ...emptyFormValues });
   };
 
-  async function submitForm(event) {
+  async function searchTicket() {
     Object.keys(ticketSeatsInfo).forEach((key) => delete ticketSeatsInfo[key]);
     let getSeats = [];
     let type = [];
     let findbooking = await booking.findOneBookings(findBookingId);
-    findbooking.forEach((x) => {
-      getSeats.push(x.seatId);
-      type.push(x.typeOfSeat);
-    });
-    setTicket(...findbooking);
-    getSeats.forEach((key, i) => (ticketSeatsInfo[key] = type[i]));
-    let adults = 0;
-    let child = 0;
-    let senior = 0;
-    let student = 0;
-    let youth = 0;
-    for (const seat in ticketSeatsInfo) {
-      if (ticketSeatsInfo[seat] === 'Vuxen') adults++;
-      if (ticketSeatsInfo[seat] === 'Barn') child++;
-      if (ticketSeatsInfo[seat] === 'Pensionär') senior++;
-      if (ticketSeatsInfo[seat] === 'Student') student++;
-      if (ticketSeatsInfo[seat] === 'Ungdom') youth++;
-    }
-    let count = {
-      Vuxen: adults,
-      Barn: child,
-      Pensionär: senior,
-      Student: student,
-      Ungdom: youth,
-    };
-    setcountTravelers(count);
-    setSeats(getSeats.join());
-    setticketSeatsInfo(ticketSeatsInfo);
+    setTicket(findbooking);
   }
 
   useEffect(() => {
@@ -103,7 +76,7 @@ export default function TicketsPage({ loggedIn, account }) {
           <Button
             type='submit'
             className='book-search-btn mb-6'
-            onClick={submitForm}
+            onClick={searchTicket}
             disabled={!findBookingId}
           >
             Sök
@@ -114,7 +87,7 @@ export default function TicketsPage({ loggedIn, account }) {
       )}
 
       <Container>
-        {ticket ? (
+        {ticket && ticket.length >= 0 ? (
           <Container
             style={{
               marginTop: '10%',
@@ -184,16 +157,12 @@ export default function TicketsPage({ loggedIn, account }) {
                   <Row>
                     <p
                       style={{ textDecoration: 'underline' }}
-                    >{`Bokade resenärer:`}</p>
-                    {Object.entries(countTravelers).map(([key, value], i) => (
-                      <div>{value ? `${value}x ${key}` : ''}</div>
-                    ))}
+                    >{`Type av Biljett:`}</p>
+                    <p>{x.typeOfSeat}</p>
                   </Row>
-                  <Row style={{ paddingTop: '3%' }}>
-                    <p
-                      style={{ textDecoration: 'underline' }}
-                    >{`Bokade säten:`}</p>
-                    <p>Nr: {seats}</p>
+                  <Row>
+                    <p style={{ textDecoration: 'underline' }}>{`Säte:`}</p>
+                    <p>Nr: {x.seatId}</p>
                     <p>{`Vagn: ${x.carriageId}`}</p>
                   </Row>
                   <Row>
