@@ -99,7 +99,6 @@ export default function PaymentPage({ loggedIn, setLoggedIn, account }) {
       let newBooking = new booking(bookingObj);
       await newBooking.save();
 
-      sendEmail();
       navigate(`/bekraftelse`, {
         state: {
           bookingObj: bookingObj,
@@ -108,23 +107,24 @@ export default function PaymentPage({ loggedIn, setLoggedIn, account }) {
         },
       });
     }
+
+    let toSend = {
+      from_name: 'Tågmästarna',
+      to_name: 'Kära kund',
+      booking_number: bookingnumber.split('-').shift(),
+      start_station: startStation,
+      end_station: endStation,
+      date: date,
+      train_id: trainId,
+      arrival_time: arrivalTimeTo,
+      departure_time: departureTimeFrom,
+      platform_from: platformFrom,
+      email: loggedIn === true ? account.email : paymentEmail,
+    };
+    sendEmail(toSend);
   }
 
-  const [toSend, setToSend] = useState({
-    from_name: 'Tågmästarna',
-    to_name: 'Kära kund',
-    booking_number: bookingnumber.split('-').shift(),
-    start_station: startStation,
-    end_station: endStation,
-    date: date,
-    train_id: trainId,
-    arrival_time: arrivalTimeTo,
-    departure_time: departureTimeFrom,
-    platform_from: platformFrom,
-    email: loggedIn ? account.email : paymentEmail,
-  });
-
-  const sendEmail = () => {
+  const sendEmail = (toSend) => {
     send('service_nrxbesy', 'template_brqt2i6', toSend, 'e_1nh-u1LEBDDqIbo')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);

@@ -50,6 +50,7 @@ export default function LogInPage({
               placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className='form-group'>
@@ -61,6 +62,7 @@ export default function LogInPage({
               placeholder='Lösenord'
               value={passWord}
               onChange={(e) => setPassWord(e.target.value)}
+              required
             />
           </div>
           <div className='log-btn'>
