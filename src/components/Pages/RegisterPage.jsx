@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import '../../../scss/main.scss';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react";
+import "../../../scss/main.scss";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import { send } from "emailjs-com";
 
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [passWord, setPassWord] = useState('');
-  const [ConfirmPassWord, setConfirmPassWord] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [passWord, setPassWord] = useState("");
+  const [ConfirmPassWord, setConfirmPassWord] = useState("");
   const [show, setShow] = useState(false);
   const [alreadyExist, setAlreadyExist] = useState(false);
   const [notSamePassword, setPasswordNotSame] = useState(false);
@@ -41,9 +42,9 @@ export default function RegisterPage() {
       return setPasswordNotSame(true), setAlreadyExist(false);
     } else {
       await (
-        await fetch('/api/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        await fetch("/api/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(object),
         })
       ).json();
@@ -55,20 +56,38 @@ export default function RegisterPage() {
         navigate(`/logga-in`);
       }, 2000);
     }
+    let toSend = {
+      from_name: "Tågmästarna",
+      to_name: `${firstName} ${lastName}`,
+      message1: "Här är ditt registrerings bekräftelse.",
+      message2: "Tack för att du skapade ett konto hoss oss.",
+      email: email,
+    };
+    sendEmail(toSend);
   }
 
+  const sendEmail = (toSend) => {
+    send("service_nrxbesy", "template_ku1bz0i", toSend, "e_1nh-u1LEBDDqIbo")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
+  };
+
   return (
-    <div className='register'>
+    <div className="register">
       {show ? (
-        ['success'].map((variant) => (
+        ["success"].map((variant) => (
           <div
             style={{
-              position: 'absolute',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              alignContent: 'center',
-              width: '100%',
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              alignContent: "center",
+              width: "100%",
             }}
           >
             <Alert key={variant} variant={variant}>
@@ -79,84 +98,84 @@ export default function RegisterPage() {
       ) : (
         <></>
       )}
-      <div className='register-container'>
-        <div className='Heading'>
+      <div className="register-container">
+        <div className="Heading">
           <h1>Registrera</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <div class='form-group'>
-            <label for='exampleInputEmail1'>Förnamn</label>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Förnamn</label>
             <input
-              style={{ textAlign: 'start' }}
-              class='form-control'
-              aria-describedby='emailHelp'
-              placeholder='Förnamn'
+              style={{ textAlign: "start" }}
+              class="form-control"
+              aria-describedby="emailHelp"
+              placeholder="Förnamn"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </div>
-          <div class='form-group'>
-            <label for='exampleInputPassword1'>Efternamn</label>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Efternamn</label>
             <input
-              style={{ textAlign: 'start' }}
-              class='form-control'
-              placeholder='Efternamn'
+              style={{ textAlign: "start" }}
+              class="form-control"
+              placeholder="Efternamn"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
-          <div class='form-group'>
-            <label for='exampleInputEmail1'>Email</label>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='email'
-              class='form-control'
-              id='exampleInputEmail1'
-              aria-describedby='emailHelp'
-              placeholder='Email'
+              style={{ textAlign: "start" }}
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div class='form-group'>
-            <label for='exampleInputPassword1'>Lösenord</label>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Lösenord</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='password'
-              class='form-control'
-              id='exampleInputPassword1'
-              placeholder='Lösenord'
+              style={{ textAlign: "start" }}
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Lösenord"
               value={passWord}
               onChange={(e) => setPassWord(e.target.value)}
               required
             />
           </div>
-          <div class='form-group'>
-            <label for='exampleInputPassword1'>Bekräfta Lösenord</label>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Bekräfta Lösenord</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='password'
-              class='form-control'
-              id='exampleInputPassword1'
-              placeholder='Bekräfta Lösenord'
+              style={{ textAlign: "start" }}
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Bekräfta Lösenord"
               value={ConfirmPassWord}
               onChange={(e) => setConfirmPassWord(e.target.value)}
               required
             />
             {notSamePassword ? (
-              ['danger'].map((variant) => (
+              ["danger"].map((variant) => (
                 <div
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    width: '100%',
-                    marginTop: '10%',
-                    marginBottom: '10%',
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignContent: "center",
+                    width: "100%",
+                    marginTop: "10%",
+                    marginBottom: "10%",
                   }}
                 >
                   <Alert key={variant} variant={variant}>
@@ -168,22 +187,22 @@ export default function RegisterPage() {
               <></>
             )}
           </div>
-          <div className='reg-btn'>
-            <button className='register-btn' onClick={createUser}>
+          <div className="reg-btn">
+            <button className="register-btn" onClick={createUser}>
               Registrera
             </button>
           </div>
           {alreadyExist ? (
-            ['danger'].map((variant) => (
+            ["danger"].map((variant) => (
               <div
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignContent: 'center',
-                  width: '100%',
-                  marginTop: '10%',
-                  marginBottom: '10%',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  width: "100%",
+                  marginTop: "10%",
+                  marginBottom: "10%",
                 }}
               >
                 <Alert key={variant} variant={variant}>
