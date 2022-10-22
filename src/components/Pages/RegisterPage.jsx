@@ -11,34 +11,52 @@ export default function RegisterPage() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [passWord, setPassWord] = useState('');
+  const [ConfirmPassWord, setConfirmPassWord] = useState('');
   const [show, setShow] = useState(false);
+  const [alreadyExist, setAlreadyExist] = useState(false);
+  const [notSamePassword, setPasswordNotSame] = useState(false);
+
   let navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const register = { firstName, lastName, email, passWord };
-    console.log(register);
+    const register = { firstName, lastName, email, passWord, ConfirmPassWord };
   };
 
+  function checkPassword() {
+    if (ConfirmPassWord !== passWord) return true;
+    else return false;
+  }
+
   async function createUser() {
+    let checkPasswords = checkPassword();
     let object = {
       email: email,
       firstName: firstName,
       lastName: lastName,
       passwor: passWord,
     };
-
-    await (
-      await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(object),
-      })
-    ).json();
-    setShow(true);
-    setTimeout(() => {
-      setShow(false);
-      navigate(`/logga-in`);
-    }, 2000);
+    let doesAccountExist = await (await fetch(`/api/users/${email}`)).json();
+    if (doesAccountExist.length > 0) {
+      return setAlreadyExist(true);
+    } else if (checkPasswords) {
+      return setPasswordNotSame(true);
+    } else {
+      await (
+        await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(object),
+        })
+      ).json();
+      setShow(true);
+      setAlreadyExist(false);
+      setPasswordNotSame(false);
+      setTimeout(() => {
+        setShow(false);
+        navigate(`/logga-in`);
+      }, 2000);
+    }
   }
 
   return (
@@ -106,7 +124,7 @@ export default function RegisterPage() {
             <label for='exampleInputPassword1'>Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
-              type='password'
+              type='text'
               class='form-control'
               id='exampleInputPassword1'
               placeholder='Lösenord'
@@ -118,17 +136,61 @@ export default function RegisterPage() {
             <label for='exampleInputPassword1'>Bekräfta Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
-              type='password'
+              type='text'
               class='form-control'
               id='exampleInputPassword1'
               placeholder='Bekräfta Lösenord'
+              value={ConfirmPassWord}
+              onChange={(e) => setConfirmPassWord(e.target.value)}
             />
+            {notSamePassword ? (
+              ['danger'].map((variant) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    width: '100%',
+                    marginTop: '10%',
+                    marginBottom: '10%',
+                  }}
+                >
+                  <Alert key={variant} variant={variant}>
+                    Lösenord matchar inte
+                  </Alert>
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
           </div>
           <div className='reg-btn'>
             <button className='register-btn' onClick={createUser}>
               Registrera
             </button>
           </div>
+          {alreadyExist ? (
+            ['danger'].map((variant) => (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: '100%',
+                  marginTop: '10%',
+                  marginBottom: '10%',
+                }}
+              >
+                <Alert key={variant} variant={variant}>
+                  Detta Email finns redan!
+                </Alert>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </form>
       </div>
     </div>

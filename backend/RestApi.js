@@ -118,6 +118,15 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
+    this.app.get('/api/users/:email', function (req, res) {
+      let email = req.params.email;
+      let sql = `SELECT * FROM users WHERE email ='${email}'`;
+      let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send(results);
+      });
+    });
+
     this.app.get('/api/bookings/userId/:userId', function (req, res) {
       let userId = req.params.userId;
       let sql = `SELECT * FROM bookings WHERE userId ='${userId}'`;
