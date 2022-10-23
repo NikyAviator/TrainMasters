@@ -4,7 +4,7 @@ import TicketFromTo from '../Ticket/TicketFromTo';
 export default function BookingPage(props) {
   let { setTrainId, trainIdd } = props;
   return (
-    <div key={1}>
+    <div>
       <TicketFromTo trainIdd={trainIdd} setTrainId={setTrainId} />
     </div>
   );

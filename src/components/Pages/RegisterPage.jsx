@@ -79,7 +79,7 @@ export default function RegisterPage() {
   return (
     <div className="register">
       {show ? (
-        ['success'].map((variant, i) => (
+        ["success"].map((variant, i) => (
           <div
             key={i}
             style={{
@@ -104,70 +104,70 @@ export default function RegisterPage() {
           <h1>Registrera</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className='form-group'>
-            <label for='exampleInputEmail1'>Förnamn</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Förnamn</label>
             <input
-              style={{ textAlign: 'start' }}
-              className='form-control'
-              aria-describedby='emailHelp'
-              placeholder='Förnamn'
+              style={{ textAlign: "start" }}
+              className="form-control"
+              aria-describedby="emailHelp"
+              placeholder="Förnamn"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
           </div>
-          <div className='form-group'>
-            <label for='exampleInputPassword1'>Efternamn</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Efternamn</label>
             <input
-              style={{ textAlign: 'start' }}
-              className='form-control'
-              placeholder='Efternamn'
+              style={{ textAlign: "start" }}
+              className="form-control"
+              placeholder="Efternamn"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
-          <div className='form-group'>
-            <label for='exampleInputEmail1'>Email</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='email'
-              className='form-control'
-              id='exampleInputEmail1'
-              aria-describedby='emailHelp'
-              placeholder='Email'
+              style={{ textAlign: "start" }}
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className='form-group'>
-            <label for='exampleInputPassword1'>Lösenord</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Lösenord</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='password'
-              className='form-control'
-              id='exampleInputPassword1'
-              placeholder='Lösenord'
+              style={{ textAlign: "start" }}
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Lösenord"
               value={passWord}
               onChange={(e) => setPassWord(e.target.value)}
               required
             />
           </div>
-          <div className='form-group'>
-            <label for='exampleInputPassword1'>Bekräfta Lösenord</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Bekräfta Lösenord</label>
             <input
-              style={{ textAlign: 'start' }}
-              type='password'
-              className='form-control'
-              id='exampleInputPassword1'
-              placeholder='Bekräfta Lösenord'
+              style={{ textAlign: "start" }}
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Bekräfta Lösenord"
               value={ConfirmPassWord}
               onChange={(e) => setConfirmPassWord(e.target.value)}
               required
             />
             {notSamePassword ? (
-              ['danger'].map((variant, i) => (
+              ["danger"].map((variant, i) => (
                 <div
                   key={i}
                   style={{
@@ -195,7 +195,7 @@ export default function RegisterPage() {
             </button>
           </div>
           {alreadyExist ? (
-            ['danger'].map((variant, i) => (
+            ["danger"].map((variant, i) => (
               <div
                 key={i}
                 style={{

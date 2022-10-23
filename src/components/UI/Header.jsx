@@ -68,7 +68,7 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
             </li>
             <li className='nav-item'>
               {loggedIn ? (
-                <Link className='nav-links-mobile' onClick={closeMobileMenu}>
+                <Link className='nav-links-mobile' onClick={() => { logOut(), closeMobileMenu() }}>
                   Logga ut: {account.firstName}
                 </Link>
               ) : (

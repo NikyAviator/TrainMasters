@@ -94,8 +94,8 @@ const TicketFromTo = () => {
                       onChange={onChangeFormValue}
                     />
                     <datalist id='list-stations'>
-                      {stations.map(({ stationName, i }) => (
-                        <option key={i}>{stationName}</option>
+                      {stations.map(({ stationName }, index ) => (
+                        <option key={index}>{stationName}</option>
                       ))}
                     </datalist>
                   </Form.Group>
@@ -116,8 +116,8 @@ const TicketFromTo = () => {
                       onChange={onChangeFormValue}
                     />
                     <datalist id='list-stations'>
-                      {stations.map(({ stationName, i }) => (
-                        <option key={i}>{stationName}</option>
+                      {stations.map(({ stationName }, index) => (
+                        <option key={index}>{stationName}</option>
                       ))}
                     </datalist>
                   </Form.Group>
