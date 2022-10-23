@@ -27,7 +27,7 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
         setWrongLogin(true);
       } else if (Object.keys(getAccount[0]).length >= 1) {
         setLoggedIn(true);
-        navigate(`/`);
+        navigate(`/`, { state: { showLoginText: true } });
       }
     }
   }

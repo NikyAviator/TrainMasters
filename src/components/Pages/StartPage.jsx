@@ -3,13 +3,14 @@ import { Button } from '../UI/Button';
 import Alert from 'react-bootstrap/Alert';
 import { useEffect, useState } from 'react';
 import '../../../scss/main.scss';
-
+import { useLocation } from 'react-router-dom';
 export default function StartPage({ loggedIn }) {
   const [show, setShow] = useState(false);
+  const { state } = useLocation();
+  const { showLoginText } = state || {};
   useEffect(() => {
-    setShow(true);
+    if (showLoginText) setShow(true);
     setTimeout(() => {
-      // After 3 seconds set the show value to false
       setShow(false);
     }, 3000);
   }, []);
