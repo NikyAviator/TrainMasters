@@ -5,6 +5,7 @@
 // PERMISSIONS/AUTH/ACL IMPLEMENTED
 
 const db = require('./DatabaseQueryer');
+const hashPass = require('./passwordHash');
 db.verbose = true; // set to true to log db queries
 
 module.exports = class RestApi {
@@ -29,17 +30,6 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    // this.app.get('/api/:view/:route/:order', function (req, res) {
-    //   let view = req.params.view;
-    //   let order = req.params.order;
-    //   let route = req.params.route;
-    //   let sql = `SELECT * FROM ${view} WHERE routeName ='${route}' and rorder ='${order}'`;
-    //   let query = db.query(sql, (err, results) => {
-    //     if (err) throw err;
-    //     res.send(results);
-    //   });
-    // });
-
     this.app.get('/api/trains', function (req, res) {
       let sql = 'SELECT * FROM trains';
       let query = db.query(sql, (err, results) => {
@@ -96,12 +86,15 @@ module.exports = class RestApi {
         res.send(results);
       });
     });
-    this.app.post('/api/register', function (req, res) {
+    this.app.post('/api/register', async function (req, res) {
       let email = req.body.email;
       let firstName = req.body.firstName;
       let lastName = req.body.lastName;
       let passwor = req.body.passwor;
-
+      let hashPassword = new hashPass(passwor);
+      passwor = await hashPassword.hashPassword().then((res) => {
+        return res;
+      });
       let sql = `INSERT INTO users (email,firstName,lastName,passwor) VALUES ('${email}','${firstName}','${lastName}','${passwor}')`;
       db.query(sql, (err, results) => {
         if (err) throw err;
@@ -112,12 +105,24 @@ module.exports = class RestApi {
     this.app.get('/api/users/:email/:passwor', function (req, res) {
       let email = req.params.email;
       let passwor = req.params.passwor;
-      let sql = `SELECT * FROM users WHERE email ='${email}' and passwor='${passwor}'`;
-      let query = db.query(sql, (err, results) => {
+      let compare = new hashPass(passwor);
+      let sql = `SELECT * FROM users WHERE email ='${email}'`;
+      let query = db.query(sql, async (err, results) => {
         if (err) throw err;
-        res.send(results);
+        else {
+          if (!results.length) return res.json(err);
+          let validPass = await compare
+            .comparePass(results[0].passwor)
+            .then((res) => {
+              return res;
+            })
+            .catch();
+          if (validPass) res.send(results);
+          else if (!validPass) res.json(err);
+        }
       });
     });
+
     this.app.get('/api/users/:email', function (req, res) {
       let email = req.params.email;
       let sql = `SELECT * FROM users WHERE email ='${email}'`;

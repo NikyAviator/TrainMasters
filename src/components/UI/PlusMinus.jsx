@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function PlusMinus({ travelerArray, traveler, setTravelerArr }) {
   let [count, setCount] = useState(0);

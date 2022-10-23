@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../../../scss/main.scss';
 import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -60,8 +59,9 @@ export default function RegisterPage() {
   return (
     <div className='register'>
       {show ? (
-        ['success'].map((variant) => (
+        ['success'].map((variant, i) => (
           <div
+            key={i}
             style={{
               position: 'absolute',
               display: 'flex',
@@ -84,11 +84,11 @@ export default function RegisterPage() {
           <h1>Registrera</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputEmail1'>Förnamn</label>
             <input
               style={{ textAlign: 'start' }}
-              class='form-control'
+              className='form-control'
               aria-describedby='emailHelp'
               placeholder='Förnamn'
               value={firstName}
@@ -96,23 +96,23 @@ export default function RegisterPage() {
               required
             />
           </div>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputPassword1'>Efternamn</label>
             <input
               style={{ textAlign: 'start' }}
-              class='form-control'
+              className='form-control'
               placeholder='Efternamn'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
           </div>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputEmail1'>Email</label>
             <input
               style={{ textAlign: 'start' }}
               type='email'
-              class='form-control'
+              className='form-control'
               id='exampleInputEmail1'
               aria-describedby='emailHelp'
               placeholder='Email'
@@ -121,12 +121,12 @@ export default function RegisterPage() {
               required
             />
           </div>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputPassword1'>Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
               type='password'
-              class='form-control'
+              className='form-control'
               id='exampleInputPassword1'
               placeholder='Lösenord'
               value={passWord}
@@ -134,12 +134,12 @@ export default function RegisterPage() {
               required
             />
           </div>
-          <div class='form-group'>
+          <div className='form-group'>
             <label for='exampleInputPassword1'>Bekräfta Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
               type='password'
-              class='form-control'
+              className='form-control'
               id='exampleInputPassword1'
               placeholder='Bekräfta Lösenord'
               value={ConfirmPassWord}
@@ -147,8 +147,9 @@ export default function RegisterPage() {
               required
             />
             {notSamePassword ? (
-              ['danger'].map((variant) => (
+              ['danger'].map((variant, i) => (
                 <div
+                  key={i}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -174,8 +175,9 @@ export default function RegisterPage() {
             </button>
           </div>
           {alreadyExist ? (
-            ['danger'].map((variant) => (
+            ['danger'].map((variant, i) => (
               <div
+                key={i}
                 style={{
                   display: 'flex',
                   alignItems: 'center',

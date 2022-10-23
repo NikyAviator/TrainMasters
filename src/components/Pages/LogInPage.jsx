@@ -14,17 +14,21 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
     const login = { email, passWord };
   };
   let navigate = useNavigate();
+
   async function login() {
-    let getAccount = await (
-      await fetch(`/api/users/${email}/${passWord}`)
-    ).json();
-    setAccount(...getAccount);
-    const obj = Object.assign({}, ...getAccount);
-    if (!getAccount || !getAccount.length) {
-      setWrongLogin(true);
-    } else if (Object.keys(getAccount[0]).length >= 1) {
-      setLoggedIn(true);
-      navigate(`/`);
+    let getAccount = await (await fetch(`/api/users/${email}/${passWord}`))
+      .json()
+      .catch(setWrongLogin(true));
+    if (getAccount === null) return setWrongLogin(true);
+    else {
+      setAccount(...getAccount);
+      const obj = Object.assign({}, ...getAccount);
+      if (!getAccount || !getAccount.length) {
+        setWrongLogin(true);
+      } else if (Object.keys(getAccount[0]).length >= 1) {
+        setLoggedIn(true);
+        navigate(`/`);
+      }
     }
   }
 
@@ -36,7 +40,7 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
         </div>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
-            <label for='exampleInputEmail1'>Email</label>
+            <label htmlFor='exampleInputEmail1'>Email</label>
             <input
               style={{ textAlign: 'start' }}
               type='email'
@@ -49,7 +53,7 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
             />
           </div>
           <div className='form-group'>
-            <label for='exampleInputPassword1'>Lösenord</label>
+            <label htmlFor='exampleInputPassword1'>Lösenord</label>
             <input
               style={{ textAlign: 'start' }}
               type='password'
@@ -66,7 +70,7 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
             </button>
           </div>
           {showWrongLogin ? (
-            ['danger'].map((variant) => (
+            ['danger'].map((variant, i) => (
               <div
                 style={{
                   display: 'flex',
@@ -77,6 +81,7 @@ export default function LogInPage({ setLoggedIn, setAccount }) {
                   marginBottom: '-43px',
                   marginTop: '4px',
                 }}
+                key={i}
               >
                 <Alert key={variant} variant={variant}>
                   Fel Lösenord/Email

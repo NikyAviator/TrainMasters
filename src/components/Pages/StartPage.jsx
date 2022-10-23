@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from '../UI/Button';
 import Alert from 'react-bootstrap/Alert';
-import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../../../scss/main.scss';
 
 export default function StartPage({ loggedIn }) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
+    setShow(true);
     setTimeout(() => {
       // After 3 seconds set the show value to false
       setShow(false);
@@ -17,7 +17,7 @@ export default function StartPage({ loggedIn }) {
   return (
     <>
       {loggedIn && show ? (
-        ['success'].map((variant) => (
+        ['success'].map((variant, i) => (
           <div
             style={{
               position: 'fixed',
@@ -27,6 +27,7 @@ export default function StartPage({ loggedIn }) {
               alignContent: 'center',
               width: '100%',
             }}
+            key={i}
           >
             <Alert key={variant} variant={variant}>
               Loggade in!

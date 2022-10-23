@@ -255,14 +255,14 @@ export default function PaymentPage({ loggedIn, setLoggedIn, account }) {
               <h5 className='mb-0'>Din biljett</h5>
             </MDBCardHeader>
             <MDBCardBody>
-              <MDBListGroup flush>
+              <MDBListGroup>
                 <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>
                   <div>
                     {firstClass ? <p>{`1:a klass`}</p> : <p>{`2:a klass`}</p>}
                   </div>
                 </MDBListGroupItem>
                 {Object.entries(countTravelers).map(([key, value], i) => (
-                  <span>{value ? `${value}x ${key}` : ''}</span>
+                  <span key={i}>{value ? `${value}x ${key}` : ''}</span>
                 ))}
                 <hr />
                 <MDBListGroupItem className='d-flex justify-content-between align-items-center border-0 px-0 pb-0'>

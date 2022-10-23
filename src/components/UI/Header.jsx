@@ -9,7 +9,7 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
   const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
+  const [show, setShow] = useState(false);
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -17,7 +17,6 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
       setButton(true);
     }
   };
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     showButton();
@@ -100,7 +99,7 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
       </nav>
       <div>
         {!loggedIn && show ? (
-          ['danger'].map((variant) => (
+          ['danger'].map((variant, i) => (
             <div
               style={{
                 position: 'fixed',
@@ -110,6 +109,7 @@ function Header({ loggedIn, setLoggedIn, account, setAccount }) {
                 alignContent: 'center',
                 width: '100%',
               }}
+              key={i}
             >
               <Alert key={variant} variant={variant}>
                 Loggade ut!

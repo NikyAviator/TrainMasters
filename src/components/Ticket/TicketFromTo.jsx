@@ -66,7 +66,7 @@ const TicketFromTo = () => {
     let route = await findRoute(from, to);
     if (weekend) route = await itsWeekend(route);
     setRoutes(route);
-    //resetForm();
+    resetForm();
   }
 
   let { from, to } = formValues;

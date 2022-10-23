@@ -11,12 +11,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import QRCode from 'react-qr-code';
+import Alert from 'react-bootstrap/Alert';
 
 export default function TicketsPage({ loggedIn, account }) {
   const [ticket, setTicket] = useState();
-  let [ticketSeatsInfo, setticketSeatsInfo] = useState({});
-  let [countTravelers, setcountTravelers] = useState({});
-  let [seats, setSeats] = useState('');
+  let [show, setShow] = useState(false);
   let emptyFormValues = {
     findBookingId: '',
   };
@@ -33,21 +32,25 @@ export default function TicketsPage({ loggedIn, account }) {
   };
 
   async function searchTicket() {
-    Object.keys(ticketSeatsInfo).forEach((key) => delete ticketSeatsInfo[key]);
-    let getSeats = [];
-    let type = [];
     let findbooking = await booking.findOneBookings(findBookingId);
-    setTicket(findbooking);
+    if (!findbooking.length || !findbooking) {
+      setTicket([]);
+      setShow(true);
+    } else {
+      setTicket(findbooking);
+      setShow(false);
+      resetForm();
+    }
   }
 
   useEffect(() => {
     async function fetchData() {
       if (loggedIn) {
-        let b = await (
+        let tickets = await (
           await fetch(`/api/bookings/userId/${account.id}`)
         ).json();
 
-        setTicket(b);
+        setTicket(tickets);
       }
     }
     fetchData();
@@ -73,6 +76,27 @@ export default function TicketsPage({ loggedIn, account }) {
             </Form.Group>
           </Form>
 
+          {show ? (
+            ['danger'].map((variant, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: '100%',
+                  marginTop: '-7%',
+                }}
+              >
+                <Alert key={variant} variant={variant}>
+                  Hittade inga biljetter, har du skrivit i rätt bokningsnummer?
+                </Alert>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
           <Button
             type='submit'
             className='book-search-btn mb-6'
@@ -95,8 +119,9 @@ export default function TicketsPage({ loggedIn, account }) {
               maxWidth: '90%',
             }}
           >
-            {ticket.map((x) => (
+            {ticket.map((x, index) => (
               <Card
+                key={index}
                 style={{
                   border: 'none',
                   textAlign: 'center',
@@ -157,7 +182,7 @@ export default function TicketsPage({ loggedIn, account }) {
                   <Row>
                     <p
                       style={{ textDecoration: 'underline' }}
-                    >{`Type av Biljett:`}</p>
+                    >{`Typ av Biljett:`}</p>
                     <p>{x.typeOfSeat}</p>
                   </Row>
                   <Row>

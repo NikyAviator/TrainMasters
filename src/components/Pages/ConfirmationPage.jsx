@@ -102,7 +102,7 @@ export default function ConfirmationPage() {
                 style={{ textDecoration: 'underline' }}
               >{`Bokade resenärer:`}</p>
               {Object.entries(countTravelers).map(([key, value], i) => (
-                <div>{value ? `${value}x ${key}` : ''}</div>
+                <div key={i}>{value ? `${value}x ${key}` : ''}</div>
               ))}
             </Row>
             <Row style={{ paddingTop: '3%' }}>
